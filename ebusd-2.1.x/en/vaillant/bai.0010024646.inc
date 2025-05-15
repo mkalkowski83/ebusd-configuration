@@ -61,7 +61,7 @@ r,,,WaterpressureMeasureCounter,WaterpressureMeasureCounter: Water pressure meas
 r,,,HwcUnderHundredStarts,HwcUnderHundredStarts: Hot water starts under hundred counter,,,b509,0d3100,value,,UCH,,,
 r,,,HcUnderHundredStarts,HcUnderHundredStarts: Heating starts under hundred counter,,,b509,0d3000,value,,UCH,,,
 r,,,SHEMaxFlowTemp,SHEMaxFlowTemp: Secondary heat exchanger maximum flow temperature,,,b509,0dc300,value,,D2C,,°C,temperature
-r,,,HwcTempMax,HwcTempMax: Maximum hot water temperature,,,b509,0d4304,value,,D2C,,°C,temperature
+r,,,HwcTempMax,HwcTempMax: Maximum hot water temperature,,,b509,0d4304,value,,D2C,,,
 r,,,Maintenancedata_HwcTempMax,Maintenancedata_HwcTempMax: Maximum hot water temperature from maintenance data,,,b509,0d3500,value,,D2C,,°C,temperature
 r,,,StorageTempMax,StorageTempMax: Maximum storage temperature,,,b509,0d3600,value,,D2C,,°C,temperature
 r,,,FlowTempMax,FlowTempMax: Maximum flow temperature,,,b509,0d3700,value,,D2C,,°C,temperature
@@ -81,25 +81,25 @@ r,,,WarmstartDemand,WarmstartDemand: Warm start demand,,,b509,0d3a04,value,,UCH,
 r,,,Templimiter,Templimiter: Temperature limiter status,,,b509,0d7700,value,,UCH,0=off;1=on,,
 r,,,HoursTillService,HoursTillService: Hours till next service,,,b509,0d2004,value,,ULG,,,
 r,,,TimerInputHc,TimerInputHc: Timer input for heating circuit,,,b509,0dde00,value,,UCH,0=off;1=on,,
-r,,,PrEnergySumHwc1,PrEnergySumHwc1: Energy sum hot water circuit 1,,,b509,0dc500,value,,UIN,,,
-r,,,PrEnergyCountHwc1,PrEnergyCountHwc1: Energy count hot water circuit 1,,,b509,0dc600,value,,UIN,,,
-r,,,PrEnergySumHwc2,PrEnergySumHwc2: Energy sum hot water circuit 2,,,b509,0dc700,value,,UIN,,,
-r,,,PrEnergyCountHwc2,PrEnergyCountHwc2: Energy count hot water circuit 2,,,b509,0dc800,value,,UIN,,,
-r,,,PrEnergySumHwc3,PrEnergySumHwc3: Energy sum hot water circuit 3,,,b509,0dc900,value,,UIN,,,
-r,,,PrEnergyCountHwc3,PrEnergyCountHwc3: Energy count hot water circuit 3,,,b509,0dca00,value,,UIN,,,
-r,,,PrEnergySumHc1,PrEnergySumHc1: Energy sum heating circuit 1,,,b509,0df500,value,,UIN,,,
-r,,,PrEnergyCountHc1,PrEnergyCountHc1: Energy count heating circuit 1,,,b509,0df600,value,,UIN,,,
-r,,,PrEnergySumHc2,PrEnergySumHc2: Energy sum heating circuit 2,,,b509,0df700,value,,UIN,,,
-r,,,PrEnergyCountHc2,PrEnergyCountHc2: Energy count heating circuit 2,,,b509,0df800,value,,UIN,,,
-r,,,PrEnergySumHc3,PrEnergySumHc3: Energy sum heating circuit 3,,,b509,0df900,value,,UIN,,,
-r,,,PrEnergyCountHc3,PrEnergyCountHc3: Energy count heating circuit 3,,,b509,0dfa00,value,,UIN,,,
+r,,,PrEnergySumHwc1,PrEnergySumHwc1: Energy sum hot water circuit 1,,,b509,0d03c5,value,,UIN,,,
+r,,,PrEnergyCountHwc1,PrEnergyCountHwc1: Energy count hot water circuit 1,,,b509,0d03c6,value,,UIN,,,
+r,,,PrEnergySumHwc2,PrEnergySumHwc2: Energy sum hot water circuit 2,,,b509,0d03c7,value,,UIN,,,
+r,,,PrEnergyCountHwc2,PrEnergyCountHwc2: Energy count hot water circuit 2,,,b509,0d03c8,value,,UIN,,,
+r,,,PrEnergySumHwc3,PrEnergySumHwc3: Energy sum hot water circuit 3,,,b509,0d03c9,value,,UIN,,,
+r,,,PrEnergyCountHwc3,PrEnergyCountHwc3: Energy count hot water circuit 3,,,b509,0d03ca,value,,UIN,,,
+r,,,PrEnergySumHc1,PrEnergySumHc1: Energy sum heating circuit 1,,,b509,0d03f5,value,,UIN,,,
+r,,,PrEnergyCountHc1,PrEnergyCountHc1: Energy count heating circuit 1,,,b509,0d03f6,value,,UIN,,,
+r,,,PrEnergySumHc2,PrEnergySumHc2: Energy sum heating circuit 2,,,b509,0d03f7,value,,UIN,,,
+r,,,PrEnergyCountHc2,PrEnergyCountHc2: Energy count heating circuit 2,,,b509,0d03f8,value,,UIN,,,
+r,,,PrEnergySumHc3,PrEnergySumHc3: Energy sum heating circuit 3,,,b509,0d03f9,value,,UIN,,,
+r,,,PrEnergyCountHc3,PrEnergyCountHc3: Energy count heating circuit 3,,,b509,0d03fa,value,,UIN,,,
 r,,,PumpHwcFlowSum,PumpHwcFlowSum: Pump hot water flow sum,,,b509,0dc100,value,,UIN,,,
 r,,,PumpHwcFlowNumber,PumpHwcFlowNumber: Pump hot water flow number,,,b509,0dc200,value,,UIN,,,
 r,,,PrAPSCounter,PrAPSCounter: APS counter,,,b509,0df200,value,,UCH,,,
 r,,,PrVortexFlowSensorValue,PrVortexFlowSensorValue: Vortex flow sensor value (legacy name),,,b509,0df400,value,,UIN,,,
 r,,,HwcPostrunTime,HwcPostrunTime: Hot water pump overrun time,,,b509,0d1104,value,,UCH,,min,minutes
 r,,,ChangesDSN,ChangesDSN: Numbers adjusting (storing) the DSN,,,b509,0d0c00,value,,UCH,,,
-r,,,ExternalFlowTempDesired,ExternalFlowTempDesired: External flow temperature desired,,,b509,0d2500,value,,D2C,,°C,temperature
+r,,,ExternalFlowTempDesired,ExternalFlowTempDesired: External flow temperature desired,,,b509,0d2500,value,,D2C,,,
 r,,,TempMaxDiffExtTFT,TempMaxDiffExtTFT: Maximum temperature difference,,,b509,0d2700,value,,D2C,,°C,temperature
 r,,,Expertlevel_ReturnTemp,Expertlevel_ReturnTemp: Return temperature expert level,,,b509,0d6b00,temp,,D2C,,°C,temperature,tempmirror,,UIN,,,,sensor,,UCH,0=ok;85=circuit;170=cutoff,,sensor status
 r,,,PowerValue,PowerValue: Power value of the boiler,,,b509,0daa00,value,,HEX:6,,,Power value of the boiler (minimum and maximum)
