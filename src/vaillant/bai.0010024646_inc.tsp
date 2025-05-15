@@ -228,7 +228,7 @@ namespace Bai._0010024646_inc {
 
   /** PumpHours: Pump operation hours */
   @ext(0x56, 0x01)
-  model PumpHours is ReadonlyRegister<hoursum>;
+  model PumpHours is ReadonlyRegister<UIR>;
 
   /** StorageLoadPumpHours: Storage load pump operation hours */
   @ext(0x73, 0x01)
@@ -441,21 +441,6 @@ namespace Bai._0010024646_inc {
       @maxLength(6)
       value: HEX;
   }
-  /** Status: System status */
-  @ext(0x11, 0x03)
-  model Status is ReadonlyRegister<UCH>;
-
-  /** Status01: Status information 1 */
-  @ext(0x11, 0x01)
-  model Status01 is ReadonlyRegister<HEX>;
-
-  /** Status02: Status information 2 */
-  @ext(0x11, 0x02)
-  model Status02 is ReadonlyRegister<HEX>;
-
-  /** Status16: Status information 16 */
-  @ext(0x04, 0x16)
-  model Status16 is ReadonlyRegister<UCH>;
 
   /** TempGradientFailure: Number of cut offs of the boilers cause of to high gradient (S.54) */
   @ext(0x11, 0x00)
