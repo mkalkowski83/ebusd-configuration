@@ -51,16 +51,15 @@ r,,,HcPumpStarts,HcPumpStarts: Central heating pump starts,,,b509,0d5603,value,,
 r,,,HcStarts,HcStarts: Central heating burner starts,,,b509,0d3803,value,,UCH,,,
 r,,,HwcHours,HwcHours: Hot water operation hours,,,b509,0d7701,value,,ULG,,h,hours
 r,,,HwcStarts,HwcStarts: Hot water burner starts,,,b509,0d7703,value,,UIN,,,start count
-r,,,PumpHours,PumpHours: Pump operation hours,,,b509,0d1400,,,UIN,,h,hours
-#r,,,PumpHours,PumpHours (Hex): Pump operation hours raw data,,,b509,0d1400,,,HEX:3,,,
-#r,,,PumpHours,PumpHours Alt: Pump operation hours alternative,,,b509,0d1400,,,UCH,,,
-#r,,,PumpHours,PumpHours Var1: Variation with data1 and data2,,,b509,0d1400,data1,,UCH,,,data2,,UCH,,,
-#r,,,PumpHours,PumpHours Var2: Variation with BCD format,,,b509,0d1400,,,BCD,,,
+r,,,PumpHours,PumpHours: Pump operation hours,,,b509,0d1400,,,BCD,,h,hours
 r,,,StorageLoadPumpHours,StorageLoadPumpHours: Storage load pump operation hours,,,b509,0d7301,value,,ULG,,h,hours
 r,,,StorageloadPumpStarts,StorageloadPumpStarts: Storage load pump starts,,,b509,0d7303,value,,UIN,,,start count
 r,,,ValveMode,Valve mode,,,b509,0df403,value,,UCH,,,
 r,,,HcPumpMode,HcPumpMode: Heating pump mode,,,b509,0d4e04,value,,UCH,,,
-r,,,DisplayMode,Dodane parametry na podstawie wyników komendy grabDisplayMode: Display operation mode,,,b509,0dda00,value,,UCH,,,
+r,,,DisplayMode,Display operation mode,,,b509,0dda00,,,UCH,,,
+#r,,,DisplayMode,Display operation mode,,,b509,0dda00,,,UIN,,,
+#r,,,DisplayMode,Display operation mode,,,b509,0dda00,,,ULG,,,
+#r,,,DisplayMode,Display operation mode,,,b509,0dda00,first,,UCH,,,
 r,,,WaterpressureMeasureCounter,WaterpressureMeasureCounter: Water pressure measurement counter,,,b509,0df100,value,,UCH,,,
 r,,,HwcUnderHundredStarts,HwcUnderHundredStarts: Hot water starts under hundred counter,,,b509,0d3100,value,,UCH,,,
 r,,,HcUnderHundredStarts,HcUnderHundredStarts: Heating starts under hundred counter,,,b509,0d3000,value,,UCH,,,
