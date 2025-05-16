@@ -52,10 +52,10 @@ r,,,HcStarts,HcStarts: Central heating burner starts,,,b509,0d3803,value,,UCH,,,
 r,,,HwcHours,HwcHours: Hot water operation hours,,,b509,0d7701,value,,ULG,,h,hours
 r,,,HwcStarts,HwcStarts: Hot water burner starts,,,b509,0d7703,value,,UIN,,,start count
 r,,,PumpHours,PumpHours: Pump operation hours,,,b509,0d1400,,,UIN,,h,hours
-r,,,PumpHoursHex,PumpHours (Hex): Pump operation hours raw data,,,b509,0d1400,,,HEX:3,,,
-r,,,PumpHoursData,PumpHours Alt: Pump operation hours alternative,,,b509,0d1400,,,UCH,,,
-r,,,PumpHoursVar1,PumpHours Var1: Variation with data1 and data2,,,b509,0d1400,data1,,UCH,,,data2,,UCH,,,
-r,,,PumpHoursVar2,PumpHours Var2: Variation with BCD format,,,b509,0d1400,,,BCD,,,
+#r,,,PumpHours,PumpHours (Hex): Pump operation hours raw data,,,b509,0d1400,,,HEX:3,,,
+#r,,,PumpHours,PumpHours Alt: Pump operation hours alternative,,,b509,0d1400,,,UCH,,,
+#r,,,PumpHours,PumpHours Var1: Variation with data1 and data2,,,b509,0d1400,data1,,UCH,,,data2,,UCH,,,
+#r,,,PumpHours,PumpHours Var2: Variation with BCD format,,,b509,0d1400,,,BCD,,,
 r,,,StorageLoadPumpHours,StorageLoadPumpHours: Storage load pump operation hours,,,b509,0d7301,value,,ULG,,h,hours
 r,,,StorageloadPumpStarts,StorageloadPumpStarts: Storage load pump starts,,,b509,0d7303,value,,UIN,,,start count
 r,,,ValveMode,Valve mode,,,b509,0df403,value,,UCH,,,
