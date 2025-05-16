@@ -68,7 +68,11 @@ r,,,FlowTempMax,FlowTempMax: Maximum flow temperature,,,b509,0d3700,value,,D2C,,
 r,,,ReturnTempMax,ReturnTempMax: Maximum return temperature,,,b509,0dbe00,value,,D2C,,°C,temperature
 r,,,ModulationTempDesired,ModulationTempDesired: Desired modulation temperature,,,b509,0d2e00,value,,D2C,,°C,temperature
 r,,,PumpPower,PumpPower: Pump power value,,,b509,0d7300,value,,UCH,,,
-r,,,PumpPowerDesired,PumpPowerDesired: Desired pump power,,,b509,0da100,,,UCH,,%,
+r,,,PumpPowerDesired,PumpPowerDesired1: With UCH,,,b509,0da100,,,UCH,,%,
+#r,,,PumpPowerDesired,PumpPowerDesired2: With HEX,,,b509,0da100,,,HEX:3,,,
+#r,,,PumpPowerDesired,PumpPowerDesired3: With U1L,,,b509,0da100,,,U1L,,%,
+#r,,,PumpPowerDesired,PumpPowerDesired4: With data parts,,,b509,0da100,first,,UCH,,,second,,UCH,,,third,,UCH,,,
+#r,,,PumpPowerDesired,PumpPowerDesired5: Just 00 byte,,,b509,0da102,,,UCH,,%,
 r,,,HwcWaterflow,HwcWaterflow: Hot water flow rate,,,b509,0d5500,value,,UIN,100,,
 r,,,HwcWaterflowMax,HwcWaterflowMax: Maximum hot water flow rate,,,b509,0d5600,value,,UIN,100,,
 r,,,HwcImpellorSwitch,HwcImpellorSwitch: Hot water impellor switch,,,b509,0d5700,value,,UCH,0=no;1=yes,,
