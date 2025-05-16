@@ -7,7 +7,7 @@
 # ##### Diagnose Ebene 1 #####,,,,,,,,,,,,,
 r,,T3TempDesired,d.05 T3_Setpoint,,,,"3900",,,temp,,,Sollwert PWT-Ausgang
 r,,ThermostatkontaktAnKl34,d.08 Wärmeanforderung Klemme 3-4,,,,"2A00",,,onoff,,,Status des extrenen Raumthermostat an Klemme 3/4
-r,,Gasvalve,d.30 Gasventil,,,,"BB00",,,UCH,240=off;15=on,,GMV Ansteuersignal
+r,,Gasvalve,d.30 Gasventil,,,,"BB00",,,onoff2,,,GMV Ansteuersignal
 r,,TargetFanSpeed,d.33 Lüfter Solldrehzahl,,,,"2400",,,UIN,,1/min,Drehzahlsollwert des Lüfters
 r,,FanSpeed,d.34 Lüfteristdrehzahl,,,,"8300",,,UIN,,1/min,Aktuelle Lüfterdrehzahl
 r,,PositionValveSet,d.35 Position VUV,,,,"5400",,,UCH,,,Position des 3-Wege Ventil: 100=Warmwasser 0=Heizbetrieb 40=Mittenstellung
@@ -24,10 +24,10 @@ r,,CounterStartattempts1,d.68 Zündfehler 1. Versuch,,,,"6E00",,,temp0,,,Anzahl 
 r,,CounterStartattempts2,d.69 Zündfehler 2. Versuch,,,,"6F00",,,temp0,,,Anzahl der erfolglosen Zündversuche (im 2. Versuch)
 r;ws,,DSNOffset,d.93 Gerätekennung,,,,"B500",,,UCH,,,Gerätekennung (DSN)
 # ##### Expertenebene #####,,,,,,,,,,,,,
-r,,Flame,Flammensignal,,,,"0500",,,UCH,240=off;15=on,,Flammensignal
+r,,Flame,Flammensignal,,,,"0500",,,onoff2,,,Flammensignal
 r,,ChangesDSN,Anzhl der DSN Änderungen,,,,"0C00",,,UCH,,,Anzahl der DSN (Gerätekennung) Änderungen
-r,,GasvalveUC,Gasventil,,,,"0D00",,,UCH,240=off;15=on,,Schaltsignal für das Gasventil
-r,,VolatileLockout,Verriegelnde Störabschaltungen,,,,"1000",,,UCH,240=no;15=yes,,WAHR: STB Fehler sind verriegelnd
+r,,GasvalveUC,Gasventil,,,,"0D00",,,onoff2,,,Schaltsignal für das Gasventil
+r,,VolatileLockout,Verriegelnde Störabschaltungen,,,,"1000",,,yesno2,,,WAHR: STB Fehler sind verriegelnd
 r,,FlameSensingASIC,SD_Flame_Sensing_ASIC_DK,,,,"2F00",,,UIN,,,Ioni/ADC Wert vom Flammenwächter
 r,,BoilerType,BoilerType_DK,,,,"5E00",,,UCH,,,Boiler typ of the bmu
 r,,ReturnTemp,Rücklauftemperatur,,,,"6B00",,,tempsensor,,,Externer Rücklauftemperatursensor
@@ -41,9 +41,9 @@ r,,PowerValue,Leistungsdaten,,,,"AA00",,,HEX:6,,,Geräteleistung (min und max)
 r,,Statenumber,Statenumber_DK,,,,"AB00",,,UCH,,,status number
 r,,DSNStart,DSN Startadresse,,,,"BC00",,,UIN,,,DSN Startadresse
 r,,PartnumberBox,Partnumber_Box,,,,"C000",,,HEX:5,,,part number of the eBox
-r,,TemplimiterWithNTC,SD_STL_with_NTC,,,,"D200",,,UCH,240=no;15=yes,,Temperaturbegrenzer Art:1 = NTC0 = Schaltkontakt
-r,,VolatileLockoutIFCGV,SD_VolatileLockout_IFC_GV_DK,,,,"D300",,,UCH,240=no;15=yes,,Alle IFC Fehler sind nichtflüchtig
-r,,Gasvalve3UC,Gasventil 3,,,,"DB00",,,UCH,240=off;15=on,,Gasventil Schaltsignal (vom Prozessor)
+r,,TemplimiterWithNTC,SD_STL_with_NTC,,,,"D200",,,yesno2,,,Temperaturbegrenzer Art:1 = NTC0 = Schaltkontakt
+r,,VolatileLockoutIFCGV,SD_VolatileLockout_IFC_GV_DK,,,,"D300",,,yesno2,,,Alle IFC Fehler sind nichtflüchtig
+r,,Gasvalve3UC,Gasventil 3,,,,"DB00",,,onoff2,,,Gasventil Schaltsignal (vom Prozessor)
 r,,InitialisationEEPROM,InitialisationEEPROM_DK,,,,"DC00",,,yesno,,,EEPROM Initialisierrung (für die Produktion)
 r,,TimerInputHc,Eingang Schaltuhr,,,,"DE00",,,onoff,,,timer input (block heatdemand)
 r,,FanMinSpeedOperation,Min. Lüfterdrehzahl,,,,"DF00",,,UIN,,1/min,Lüfter Minimaldrehzahl

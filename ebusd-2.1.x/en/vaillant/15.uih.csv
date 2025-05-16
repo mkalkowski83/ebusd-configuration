@@ -25,7 +25,7 @@ r;wi,,HcSupportTimeMax,MaxChSupportTime,,,,"4D00",,,minutes0,,,Maximum CH loadin
 r;wi,,HwcLoadingTimeMax,MaxDhwLoadingTime,,,,"4C00",,,minutes0,,,Maximum DHW loading period when there is a Central Heating simultaneous demand
 r;wi,,TempIncrease,TempIncrease,,,,"2F00",,,temp,,,temperature increase
 r;wi,,PreShutDownTime,PreShutDownTime,,,,"2D00",,,minutes0,,,pre shut down time
-r;wi,,FrostOverRideTime,FrostOverRideTime,,,,"2E00",,,UCH,,hours,frost over ride time
+r;wi,,FrostOverRideTime,FrostOverRideTime,,,,"2E00",,,hours,,,frost over ride time
 r,,EhpBackupRelease,EhpBackupHeaterRelease,,,,"7100",,,onoff,,,backup heater release
 r,,EhpTimeOfPredictedPowerCut,EhpTimeOfPredictedPowerCut,,,,"7300",,,time,,,time of the next predicted power cut
 r;wi,,TempFailDetectTime,TempFailDetectTime,,,,"3300",,,temp0,,,temperature fail detection time

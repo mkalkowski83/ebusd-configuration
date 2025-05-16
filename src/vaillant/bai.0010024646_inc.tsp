@@ -246,11 +246,19 @@ namespace Bai._0010024646_inc {
   @ext(0x4e, 0x04)
   model HcPumpMode is ReadonlyRegister<UCH>;
 
-  /** Dodane parametry na podstawie wyników komendy grab */
+  /** Display mode parameters based on testing */
 
   /** DisplayMode: Display operation mode */
-  @ext(0xda, 0x00)
+  @ext(0xda, 0x01)
   model DisplayMode is ReadonlyRegister<UCH>;
+  
+  /** DisplayModeFlag: Display mode flag */
+  @ext(0xda, 0x02)
+  model DisplayModeFlag is ReadonlyRegister<UCH>;
+  
+  /** DisplayModeFlag2: Alternative display mode value */
+  @ext(0xda, 0x00)
+  model DisplayModeFlag2 is ReadonlyRegister<UCH>;
 
   /** WaterpressureMeasureCounter: Water pressure measurement counter */
   @ext(0xf1, 0x00)

@@ -34,7 +34,7 @@ r;w,,FlowTempMax,Maximaltemperatur,,,,"3100",,,temp0,,,
 r;w,,TempDesired,Solltemperatur,,,,"3200",,,temp1,,,
 r;w,,HeatingCurve,Heizkurve,,,,"3500",,,curve,,,
 [SW<=400]r;w,,HcMaxPreHeating,Max. Voraufheizung,,,,"3800",,,hours,,,
-[SW>=401]r;wi,,HcMaxPreHeating,Max. Voraufheizung,,,,"3800",,,UCH,,min / 5,
+[SW>=401]r;wi,,HcMaxPreHeating,Max. Voraufheizung,,,,"3800",,,minutes5,,,
 r,,FloorPavingDryingDay,FloorPavingDryingDay3,,,,"3B00",,,UCH,,,Current day of floor paving drying routine
 r;w,,TeleswitchOperatingMode,TeleSWITCH,,,,"3F00",,,mcmode,,,
 !include,mcmode.inc,,,,,,,,,,,,

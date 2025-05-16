@@ -40,7 +40,7 @@ r;w,,FlowTempMax,MaxFlowTemp,,,,"3100",,,temp0,,,For a heat demand the desired f
 r;w,,TempDesired,DesiredTemperature,,,,"3200",,,temp1,,,Day temperature setpoint of the burner circuit
 r;w,,HeatingCurve,Heating curve,,,,"3500",,,curve,,,Heating curve
 [SW<=400]r;w,,HcMaxPreHeating,HcMaxPreHeating,,,,"3800",,,hours,,,The heating start before a time window could shifted forwards maximal this time (related to the outside temperature)
-[SW>=401]r;wi,,HcMaxPreHeating,HcMaxPreHeating,,,,"3800",,,UCH,,min / 5,maximum time central heating is released in advance of the first time window (time is adjusted according to current outside temperature)
+[SW>=401]r;wi,,HcMaxPreHeating,HcMaxPreHeating,,,,"3800",,,minutes5,,,maximum time central heating is released in advance of the first time window (time is adjusted according to current outside temperature)
 r;w,,TeleswitchOperatingMode,TeleswitchOperatingMode,,,,"3F00",,,mcmode,,,If the tele switch port is activated the burner circuit operates in this mode
 !include,hcmode.inc,,,,,,,,,,,,
 !include,timer.inc,,,,,,,,,,,,

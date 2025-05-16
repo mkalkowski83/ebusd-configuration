@@ -26,7 +26,7 @@ r,,HeatingSwitch,d.23 operation mode,,,,"F203",,,onoff,,,Wintermode active
 r,,SourcePressure,d.24 AirPressure_DK,,,,"FF00",,,UIN,,Pa,value of airpressure-sensor
 r,,StoragereleaseClock,d.25 DHW demand enabled,,,,"4704",,,yesno,,,hot water release (tank storage) via eBus Control
 r,,PrimaryCircuitFlowrate,d.29 PrimaryCircuitFlowrate_DK,,,,"FB00",,,UIN,,l/h,value of flowrate
-r,,Gasvalve,d.30 Gasvalve,,,,"BB00",,,UCH,240=off;15=on,,Gasvalve activation signal
+r,,Gasvalve,d.30 Gasvalve,,,,"BB00",,,onoff2,,,Gasvalve activation signal
 r,,TargetFanSpeed,d.33 Target fan speed,,,,"2400",,,UIN,,1/min,Fan speed setpoint
 r,,FanSpeed,d.34 Actual fan speed,,,,"8300",,,UIN,,1/min,fan speed actual value
 r,,PositionValveSet,d.35 Position TWV,,,,"5400",,,UCH,,,"Position of diverter valve; 100 = DHW, 0 = heating, 40 = middle position"
@@ -54,7 +54,7 @@ r,,FluePipeFactor,e.19 FluePipeFactor_DK,,,,"0B01",,,UCH,,,calculated fluepipe-f
 r,,HwcImpellorSwitch,DHW impellor switch,,,,"5700",,,yesno,,,domestic hot water (tapping) demand
 r,,COPTCTargetTemp,SD_CO_PTC_TargetTemp_DK,,,,"0801",,,temp,,,target heater-temperature
 r,,BoilerType2,BoilerType_2_DK,,,,"0C01",,,ULG,,,
-r,,TMMaxTimeTemp,TTM_MaxTime_DK,,,,"1801",,,UIN,,sec,maximum time for calibration-routine
+r,,TMMaxTimeTemp,TTM_MaxTime_DK,,,,"1801",,,seconds2,,,maximum time for calibration-routine
 r,,TMAverageTimeSumTemp,TTM_AverageTime_sum_DK,,,,"1901",,,UIN,,_1S * 100,average time for calibration-routine
 r,,COCorrFactorMax,CO_CorrFactor_max_DK,,,,"1A01",,,UIN,,%,maximum value of calculated gas-adaptive correction-factor
 r,,COCorrFactorSum,CO_CorrFactor_sum_DK,,,,"1B01",,,UIN,,% * 100,average value of calculated gas-adaptive correction-factor
@@ -91,10 +91,10 @@ r,,PredSourcePressureRefPressureSum,Pred_AirPressure_RefPressureSum_DK,,,,"8001"
 r;ws,,SRFLIDEMode,SR_FLIDE_Mode_DK,,,,"8101",,,UCH,,,
 r,,COSensorSNR,CO_Sensor_SNR,,,,"AF01",,,HEX:7,,,
 r,,WaterPressure,Waterpressure,,,,"0200",,,presssensor,,,value of waterpressure-sensor
-r,,Flame,Flame,,,,"0500",,,UCH,240=off;15=on,,flame
+r,,Flame,Flame,,,,"0500",,,onoff2,,,flame
 r,,ChangesDSN,Changes_DSN_DK,,,,"0C00",,,UCH,,,Numbers adjusting (storing) the DSN
-r,,GasvalveUC,SD_Gasvalve_uC_DK,,,,"0D00",,,UCH,240=off;15=on,,Activation signal of the gasvalve (activated via micrcontroller)
-r,,VolatileLockout,SD_VolatileLockout_DK,,,,"1000",,,UCH,240=no;15=yes,,TRUE: STB failures is volatileFALSE: STB failure is not volataile
+r,,GasvalveUC,SD_Gasvalve_uC_DK,,,,"0D00",,,onoff2,,,Activation signal of the gasvalve (activated via micrcontroller)
+r,,VolatileLockout,SD_VolatileLockout_DK,,,,"1000",,,yesno2,,,TRUE: STB failures is volatileFALSE: STB failure is not volataile
 r,,ModulationTempDesired,Modulationsetpoint_DK,,,,"2E00",,,SIN,10,%,Modulation set point
 r,,FlameSensingASIC,SD_Flame_Sensing_ASIC_DK,,,,"2F00",,,UIN,,,ioni/adc value from the flame control circuit
 r,,HcUnderHundredStarts,HZ_UnderHundred_SwiActi_DK,,,,"3000",,,UCH,,,Heat switch cycles under hundred
@@ -102,16 +102,16 @@ r,,HwcUnderHundredStarts,BW_UnderHundred_SwiActi_DK,,,,"3100",,,UCH,,,DHW switch
 r,,EbusSourceOn,EbusSourceOn_DK,,,,"3400",,,onoff,,,Activation signal of the eBus source
 r,,Fluegasvalve,Fluegasvalve_DK,,,,"3C00",,,onoff,,,flue gasvalve activation signal
 r,,ExternalFaultmessage,External_Faultmessage_DK,,,,"3E00",,,onoff,,,external fault message
-r,,GasvalveASICFeedback,SD_Gasvalve_ASICFeedback_DK,,,,"4700",,,UCH,240=off;15=on,,feedback gasvalve (from ASIC)
-r,,GasvalveUCFeedback,SD_Gasvalve_uCFeedback_DK,,,,"4800",,,UCH,240=off;15=on,,feedback gasvalve (from Microcontroller)
-r,,Ignitor,SD_Ignitor_DK,,,,"4900",,,UCH,240=off;15=on,,igniton activated
+r,,GasvalveASICFeedback,SD_Gasvalve_ASICFeedback_DK,,,,"4700",,,onoff2,,,feedback gasvalve (from ASIC)
+r,,GasvalveUCFeedback,SD_Gasvalve_uCFeedback_DK,,,,"4800",,,onoff2,,,feedback gasvalve (from Microcontroller)
+r,,Ignitor,SD_Ignitor_DK,,,,"4900",,,onoff2,,,igniton activated
 r,,HwcTypes,DHW_Types_DK,,,,"4B00",,,UCH,,,DHW type of the appliance
 r,,WarmstartDemand,WarmstartDemand,,,,"3A04",,,yesno,,,aktivation of warmstart
 r,,BoilerType,BoilerType_DK,,,,"5E00",,,UCH,,,Boiler typ of the bmu
 r,,ParamToken,ParamToken_DK,,,,"6000",,,UCH,,,token for parameter managment
 r,,expertlevel_ReturnTemp,ReturnTemperature_DK,,,,"6B00",,,tempsensor,,,external return sensor
 r,,FloorHeatingContact,Floor heating contact,,,,"7000",,,onoff,,,Floor heating contact
-r,,Templimiter,SD_Temperaturelimiter_DK,,,,"7700",,,UCH,240=off;15=on,,feedback signal of the temperature limiter
+r,,Templimiter,SD_Temperaturelimiter_DK,,,,"7700",,,onoff2,,,feedback signal of the temperature limiter
 r,,EbusVoltage,EbusVoltage_DK,,,,"7F00",,,onoff,,,feedback signal of the eBus source
 r,,FluegasvalveOpen,FluegasvalveOpen_DK,,,,"8900",,,onoff,,,feedback of the flue gas valve
 r,,Testbyte,Testbyte_DK,,,,"9900",,,UCH,,,Testbyte (relevant for the Tester)
@@ -122,18 +122,18 @@ r,,WaterpressureBranchControlOff,WaterpressureBranchControlOff_DK,,,,"AF00",,,on
 r,,DSNStart,DSN start,,,,"3104",,,UIN,,,DSN Start adress
 r,,ExtStorageModulCon,ExtTankModulCon_DK,,,,"BF00",,,yesno,,,external tank modul connected (VR65)
 r,,PartnumberBox,Partnumber_Box,,,,"C000",,,HEX:5,,,part number of the eBox
-r,,WPSecondStage,WP_SecondStage_DK,,,,"ED00",,,UCH,240=off;15=on,,Second stage of the pump activated
-r,,TemplimiterWithNTC,SD_STL_with_NTC,,,,"D200",,,UCH,240=no;15=yes,,Safety temperature limit concept:1 = safety temp. Limit check with NTC0 = safety temp. Limit check with contact
-r,,VolatileLockoutIFCGV,SD_VolatileLockout_IFC_GV_DK,,,,"D300",,,UCH,240=no;15=yes,,all IFC faults are volataile
+r,,WPSecondStage,WP_SecondStage_DK,,,,"ED00",,,onoff2,,,Second stage of the pump activated
+r,,TemplimiterWithNTC,SD_STL_with_NTC,,,,"D200",,,yesno2,,,Safety temperature limit concept:1 = safety temp. Limit check with NTC0 = safety temp. Limit check with contact
+r,,VolatileLockoutIFCGV,SD_VolatileLockout_IFC_GV_DK,,,,"D300",,,yesno2,,,all IFC faults are volataile
 r,,VortexFlowSensor,VortexFlowSensor_DK,,,,"D500",,,UIN,,,"Predictive Maintenance data, CH water flow"
 r,,DisplayMode,DisplayMode_DK,,,,"DA00",,,UCH,,,Display mode of the appliance
-r,,Gasvalve3UC,SD_Gasvalve3_uC_DK,,,,"DB00",,,UCH,240=off;15=on,,Gasvalve activation signal (from Microcontroller)
+r,,Gasvalve3UC,SD_Gasvalve3_uC_DK,,,,"DB00",,,onoff2,,,Gasvalve activation signal (from Microcontroller)
 r,,InitialisationEEPROM,InitialisationEEPROM,,,,"DC00",,,yesno,,,Initialisation off all EEPROM values (done in the production)
 r,,TimerInputHc,TimerInputCH_DK,,,,"DE00",,,onoff,,,timer input (block heatdemand)
 r,,FanMinSpeedOperation,FanMinSpeedOperation,,,,"DF00",,,UIN,,1/min,Minimum Fan speed of the appliance
 r,,FanMaxSpeedOperation,FanMaxSpeedOperation,,,,"E000",,,UIN,,1/min,Maximum Fan speed of the appliance
 r,,ExternGasvalve,ExternGasvalve_DK,,,,"E400",,,onoff,,,external gasvalve activated
-r,,DCFTimeDate,DCF_TimeDate_DK,,,,"E500",,,HEX:8,,,DCF Time / date stamp struct { uchar sec; uchar min; uchar std; uchar tag; uchar mon; uchar wtg; uchar jah; } Tdcf77_time;
+r,,DCFTimeDate,DCF_TimeDate_DK,,,,"E500",,,btime;bdate,,,
 r,,FlowSetPotmeter,FlowSetPotmeter,,,,"F003",,,temp,,,flow setpoint potentiometer
 r,,HwcSetPotmeter,DHWSetPotmeter,,,,"F103",,,temp,,,DHW setpoint potentiometer
 r,,ProductionByte,ProductionByte,,,,"3E04",,,UCH,,,

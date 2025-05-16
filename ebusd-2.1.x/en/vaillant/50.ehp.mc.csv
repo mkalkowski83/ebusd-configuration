@@ -28,9 +28,9 @@ r;wi,,FloorPavingDryingDay,FloorPavingDryingDay,,,,"3B00",,,UCH,,,BMR: actual da
 [SW>=350]r;wi,,CoolingSupportedHc2,CoolingSupported_HK2,,,,"8601",,,yesno,,,Defines if a specific circuit is allowed for cooling operation. In this case HK2.
 [SW>=350]r,,Tot24hHc2,Tot_24h_HK2,,,,"8801",,,temp,,,24h outside temperature average. Circuit specific value.
 [SW>=350]r;wi,,CoolingStartOffsetHc2,CoolingStartOffset_HK2,,,,"8701",,,temp1,,,Circuit specific offset to the adjusted outside temperature cut-off value for demanding cooling operation. HK2 value.
-[SW>=350]r,,TotAverageTimeHc2,Tot_AverageTime_HK2,,,,"8901",,,UCH,,hour,Circuit specific averaging time span in hours. HK2 value
-[SW>=350]r;wi,,DWMOffToHeatingDelayHc2,DWMOffToHeatingDelay_HK2,,,,"8401",,,UCH,,hour,Circuit specific delay for standby to heating operation change: HK2
-[SW>=350]r;wi,,DWMOffToCoolingDelayHc2,DWMOffToCoolingDelay_HK2,,,,"8501",,,UCH,,hour,Circuit specific delay for standby to cooling operation change: HK2
+[SW>=350]r,,TotAverageTimeHc2,Tot_AverageTime_HK2,,,,"8901",,,hours,,,Circuit specific averaging time span in hours. HK2 value
+[SW>=350]r;wi,,DWMOffToHeatingDelayHc2,DWMOffToHeatingDelay_HK2,,,,"8401",,,hours,,,Circuit specific delay for standby to heating operation change: HK2
+[SW>=350]r;wi,,DWMOffToCoolingDelayHc2,DWMOffToCoolingDelay_HK2,,,,"8501",,,hours,,,Circuit specific delay for standby to cooling operation change: HK2
 [SW>=350]r;wi,,EfficiencyHysteresisHc2Min,MinEfficiencyHysteresis_HK2,,,,"8B01",,,calibration1,,,"If remote control with room temperature measurement used, minimum general flow (VF2) to heat circuit room temperature difference to release cooling operation."
 [SW>=350]r;wi,,CoolingWhileHolidaySupportedHc2,CoolingWhileHolidaySupported_HK2,,,,"9501",,,yesno,,,Indicates if cooling while holiday is desired (can be used for source regeneration).
 [SW>=350]r,,CoolingCircuitStatesHc2,CoolingCircuitStates_HK2,,,,"9701",,,UIN,,,Contains bits for different states in the cooling circuit. Helpfull for problem identification. Should be given to development department together with problem description.

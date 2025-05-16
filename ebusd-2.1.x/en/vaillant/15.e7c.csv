@@ -103,7 +103,7 @@ r;wi,,DHWOptEnable,DHW Option Enable,,,,6000,,,onoff,,,DHW Option Enable
 r;wi,,AutoTimeCorr,Auto Time Correction,,,,7200,,,onoff,,,Auto Time Correction
 r,,PrevHeatCurve,Prev Heat Curve,,,,7500,,,UIN,100,,Previous Heat Curve Setting
 r;wi,,MaintenanceAlarm,Maintenance Alarm,,,,6f00,,,onoff,,,Maintenance Alarm
-r;wi,,MaintenanceAlarmDate,Maintenance Alarm Date,,,,7000,,,ULG,,,Maintance Alarm Date
+r;wi,,MaintenanceAlarmDate,Maintenance Alarm Date,,,,7000,,,DTM,,,Maintance Alarm Date
 r;wi,,AutoHeatCurveRegulation,Auto Heat Curve Regulation,,,,6e00,,,onoff,,,Auto Heat Curve Regulation
 r;wi,,Preheat,Preheat,,,,6c00,,,onoff,,,Preheat
 r;wi,,RecirculationOptEnable,Recirculation Option Enable,,,,6d00,,,onoff,,,Recirculation Option Enable

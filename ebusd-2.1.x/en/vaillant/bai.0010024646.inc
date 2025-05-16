@@ -21,7 +21,7 @@ r,,,CirPump,d.13 Circulation pump: Hot water circulation pump (via external modu
 r,,,HwcDemand,d.22 DHW demand: domestic hot water (tapping or tank contact) demand,,,b509,0d5800,value,,UCH,0=no;1=yes,,
 r,,,HeatingSwitch,d.23 operation mode: Wintermode active,,,b509,0df203,value,,UCH,0=off;1=on,,
 r,,,StoragereleaseClock,d.25 DHW demand enabled: hot water release (tank storage) via eBus Control,,,b509,0d4704,value,,UCH,0=no;1=yes,,
-r,,,Gasvalve,d.30 Gasvalve: Gasvalve activation signal,,,b509,0dbb00,value,,UCH,240=off;15=on,,
+r,,,Gasvalve,d.30 Gasvalve: Gasvalve activation signal,,,b509,0dbb00,value,,onoff2,,,
 r,,,TargetFanSpeed,d.33 Target fan speed,,,b509,0d2400,value,,UIN,,1/min,Fan speed setpoint
 r,,,FanSpeed,d.34 Actual fan speed,,,b509,0d8300,value,,UIN,,1/min,fan speed actual value
 r,,,PositionValveSet,"d.35 Position TWV: Position of diverter valve; 100 = DHW, 0 = heating, 40 = middle position",,,b509,0d5400,value,,UCH,,,
@@ -37,15 +37,15 @@ r,,,RemainingBoilerblocktime,d.67 Remaining burner block time: Remaining burner 
 r,,,CounterStartattempts1,d.68 ignition attempts 1: unsuccessfull ignitions in the first attempt,,,b509,0d6e00,value,,UCH,,°C,temperature
 r,,,CounterStartattempts2,d.69 ignition attempts 2: unsuccessfull ignitions in the second attempt,,,b509,0d6f00,value,,UCH,,°C,temperature
 r,,,EBusHeatcontrol,d.90 Digital control recognized: Digital regulator status,,,b509,0d0004,value,,UCH,0=no;1=yes,,
-r,,,Flame,Flame,,,b509,0d0500,value,,UCH,240=off;15=on,,
-r,,,FanHours,Fan operation hours,,,b509,0d1b00,value,,UIN,,h,hours
+r,,,Flame,Flame,,,b509,0d0500,value,,onoff2,,,
+r,,,FanHours,Fan operation hours,,,b509,0d1b00,value,,hoursum2,,,
 r,,,FanStarts,FanCommunt_DK: commutations of the fan,,,b509,0d1c00,value,,UIN,,,start count
 r,,,CounterStartAttempts3,CounterStartAttempts3_DK: unsuccessfull ignitions in the third attempt,,,b509,0d8100,value,,UCH,,°C,temperature
 r,,,CounterStartAttempts4,CounterStartAttempts4_DK: unsuccessfull ignitions in the fourth attempt,,,b509,0d8200,value,,UCH,,°C,temperature
 r,,,TempDiffBlock,TempDiffBlock_DK: Number of modulationblocking of the boilers cause of to high/incorrect difference of flow/return temperatures,,,b509,0d1200,value,,UCH,,°C,temperature
 r,,,TempDiffFailure,TempDiffFailure_DK: Number of cut offs of the boilers cause of to high/incorrect differences of flow/return temperatures,,,b509,0d1300,value,,UCH,,°C,temperature
 r,,,ValveStarts,TWV_Communt_DK: commutations of the three way valve,,,b509,0d1a00,value,,UIN,,,start count
-r,,,TemplimiterWithNTC,TemplimiterWithNTC: Safety temperature limit concept,,,b509,0dd200,value,,UCH,240=no;15=yes,,
+r,,,TemplimiterWithNTC,TemplimiterWithNTC: Safety temperature limit concept,,,b509,0dd200,value,,yesno2,,,
 r,,,HcHours,HcHours: Central heating operation hours,,,b509,0d3801,value,,ULG,,h,hours
 r,,,HcPumpStarts,HcPumpStarts: Central heating pump starts,,,b509,0d5603,value,,UCH,,,
 r,,,HcStarts,HcStarts: Central heating burner starts,,,b509,0d3803,value,,UCH,,,

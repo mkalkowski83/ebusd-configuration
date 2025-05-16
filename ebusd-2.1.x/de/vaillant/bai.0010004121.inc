@@ -26,7 +26,7 @@ r,,HeatingSwitch,d.23 Winterbetrieb,,,,"F203",,,onoff,,,Wintermodus aktiv (Heizb
 r,,SourcePressure,d.24 Druckdosensignal,,,,"FF00",,,UIN,,Pa,value of airpressure-sensor
 r,,StoragereleaseClock,d.25 Speicherfreigabe,,,,"4704",,,yesno,,,Freigabe der Speichrladung oder des Warmstartspeichers durcheinen eBUS Regler
 r,,PrimaryCircuitFlowrate,d.29 PrimaryCircuitFlowrate_DK,,,,"FB00",,,UIN,,l/h,value of flowrate
-r,,Gasvalve,d.30 Gasventil,,,,"BB00",,,UCH,240=off;15=on,,GMV Ansteuersignal
+r,,Gasvalve,d.30 Gasventil,,,,"BB00",,,onoff2,,,GMV Ansteuersignal
 r,,TargetFanSpeed,d.33 Lüfter Solldrehzahl,,,,"2400",,,UIN,,1/min,Drehzahlsollwert des Lüfters
 r,,FanSpeed,d.34 Lüfteristdrehzahl,,,,"8300",,,UIN,,1/min,Aktuelle Lüfterdrehzahl
 r,,PositionValveSet,d.35 Position VUV,,,,"5400",,,UCH,,,Position des 3-Wege Ventil: 100=Warmwasser 0=Heizbetrieb 40=Mittenstellung
@@ -91,10 +91,10 @@ r,,PredSourcePressureRefPressureSum,Pred_AirPressure_RefPressureSum_DK,,,,"8001"
 r;ws,,SRFLIDEMode,SR_FLIDE_Mode_DK,,,,"8101",,,UCH,,,
 r,,COSensorSNR,CO_Sensor_SNR,,,,"AF01",,,HEX:7,,,
 r,,WaterPressure,Wasserdruck,,,,"0200",,,presssensor,,,value of waterpressure-sensor
-r,,Flame,Flammensignal,,,,"0500",,,UCH,240=off;15=on,,Flammensignal
+r,,Flame,Flammensignal,,,,"0500",,,onoff2,,,Flammensignal
 r,,ChangesDSN,Anzhl der DSN Änderungen,,,,"0C00",,,UCH,,,Anzahl der DSN (Gerätekennung) Änderungen
-r,,GasvalveUC,Gasventil,,,,"0D00",,,UCH,240=off;15=on,,Schaltsignal für das Gasventil
-r,,VolatileLockout,Verriegelnde Störabschaltungen,,,,"1000",,,UCH,240=no;15=yes,,WAHR: STB Fehler sind verriegelnd
+r,,GasvalveUC,Gasventil,,,,"0D00",,,onoff2,,,Schaltsignal für das Gasventil
+r,,VolatileLockout,Verriegelnde Störabschaltungen,,,,"1000",,,yesno2,,,WAHR: STB Fehler sind verriegelnd
 r,,ModulationTempDesired,Modulationssollwert,,,,"2E00",,,SIN,10,%,Modulationssollwert
 r,,FlameSensingASIC,SD_Flame_Sensing_ASIC_DK,,,,"2F00",,,UIN,,,Ioni/ADC Wert vom Flammenwächter
 r,,HcUnderHundredStarts,HZ_UnderHundred_SwiActi_DK,,,,"3000",,,UCH,,,Heat switch cycles under hundred
@@ -102,16 +102,16 @@ r,,HwcUnderHundredStarts,BW_UnderHundred_SwiActi_DK,,,,"3100",,,UCH,,,DHW switch
 r,,EbusSourceOn,eBUS Spannungsversorgung,,,,"3400",,,onoff,,,Aktivierung der eBUS Speisung
 r,,Fluegasvalve,Abgasklappe,,,,"3C00",,,onoff,,,Flüssiggas Magnetventil
 r,,ExternalFaultmessage,Ext. Störmeldung,,,,"3E00",,,onoff,,,Signal für die externe Störmeldeeinrichtung
-r,,GasvalveASICFeedback,Rückmeldung Gasventil,,,,"4700",,,UCH,240=off;15=on,,Rückmeldung Gasventil vom ASIC
-r,,GasvalveUCFeedback,Rückmeldung Gasventil,,,,"4800",,,UCH,240=off;15=on,,Rückmeldung Gasventil vom Prozessor
-r,,Ignitor,Zünder,,,,"4900",,,UCH,240=off;15=on,,Zündung aktiviert
+r,,GasvalveASICFeedback,Rückmeldung Gasventil,,,,"4700",,,onoff2,,,Rückmeldung Gasventil vom ASIC
+r,,GasvalveUCFeedback,Rückmeldung Gasventil,,,,"4800",,,onoff2,,,Rückmeldung Gasventil vom Prozessor
+r,,Ignitor,Zünder,,,,"4900",,,onoff2,,,Zündung aktiviert
 r,,HwcTypes,WW Typen,,,,"4B00",,,UCH,,,DHW type of the appliance
 r,,WarmstartDemand,Warmstartanforderung,,,,"3A04",,,yesno,,,Warmstartaktivierung
 r,,BoilerType,BoilerType_DK,,,,"5E00",,,UCH,,,Boiler typ of the bmu
 r,,ParamToken,ParamToken_DK,,,,"6000",,,UCH,,,token for parameter managment
 r,,expertlevel_ReturnTemp,Rücklauftemperatur,,,,"6B00",,,tempsensor,,,Externer Rücklauftemperatursensor
 r,,FloorHeatingContact,Anlegethermostat,,,,"7000",,,onoff,,,Eingang Anlegethermostat
-r,,Templimiter,Temperaturbegrenzer,,,,"7700",,,UCH,240=off;15=on,,Rückmeldung des Temperaturbegrenzer Signals
+r,,Templimiter,Temperaturbegrenzer,,,,"7700",,,onoff2,,,Rückmeldung des Temperaturbegrenzer Signals
 r,,EbusVoltage,eBUS Spannung,,,,"7F00",,,onoff,,,Rückmeldung der eBUS Spannung
 r,,FluegasvalveOpen,Abgasklappe offen,,,,"8900",,,onoff,,,Rückmeldung Flüssiggasventil
 r,,Testbyte,Testbyte_DK,,,,"9900",,,UCH,,,Testbyte (relevant for the Tester)
@@ -122,18 +122,18 @@ r,,WaterpressureBranchControlOff,Drucksprungerkennung ausschalten,,,,"AF00",,,on
 r,,DSNStart,DSN Startadresse,,,,"3104",,,UIN,,,DSN Startadresse
 r,,ExtStorageModulCon,VR65 angeschlossen,,,,"BF00",,,yesno,,,Externes Speichermodul (VR65) angeschlosssen
 r,,PartnumberBox,Partnumber_Box,,,,"C000",,,HEX:5,,,part number of the eBox
-r,,WPSecondStage,WP_SecondStage_DK,,,,"ED00",,,UCH,240=off;15=on,,Second stage of the pump activated
-r,,TemplimiterWithNTC,SD_STL_with_NTC,,,,"D200",,,UCH,240=no;15=yes,,Temperaturbegrenzer Art:1 = NTC0 = Schaltkontakt
-r,,VolatileLockoutIFCGV,SD_VolatileLockout_IFC_GV_DK,,,,"D300",,,UCH,240=no;15=yes,,Alle IFC Fehler sind nichtflüchtig
+r,,WPSecondStage,WP_SecondStage_DK,,,,"ED00",,,onoff2,,,Second stage of the pump activated
+r,,TemplimiterWithNTC,SD_STL_with_NTC,,,,"D200",,,yesno2,,,Temperaturbegrenzer Art:1 = NTC0 = Schaltkontakt
+r,,VolatileLockoutIFCGV,SD_VolatileLockout_IFC_GV_DK,,,,"D300",,,yesno2,,,Alle IFC Fehler sind nichtflüchtig
 r,,VortexFlowSensor,VortexFlowSensor_DK,,,,"D500",,,UIN,,,"Predictive Maintenance data, CH water flow"
 r,,DisplayMode,DisplayMode_DK,,,,"DA00",,,UCH,,,Display mode of the appliance
-r,,Gasvalve3UC,Gasventil 3,,,,"DB00",,,UCH,240=off;15=on,,Gasventil Schaltsignal (vom Prozessor)
+r,,Gasvalve3UC,Gasventil 3,,,,"DB00",,,onoff2,,,Gasventil Schaltsignal (vom Prozessor)
 r,,InitialisationEEPROM,InitialisationEEPROM_DK,,,,"DC00",,,yesno,,,EEPROM Initialisierrung (für die Produktion)
 r,,TimerInputHc,Eingang Schaltuhr,,,,"DE00",,,onoff,,,timer input (block heatdemand)
 r,,FanMinSpeedOperation,Min. Lüfterdrehzahl,,,,"DF00",,,UIN,,1/min,Lüfter Minimaldrehzahl
 r,,FanMaxSpeedOperation,Max. Lüfterdrehzahl,,,,"E000",,,UIN,,1/min,Lüfter Maximaldrehzahl
 r,,ExternGasvalve,Ext. Gasventil,,,,"E400",,,onoff,,,Externes Magnetventil
-r,,DCFTimeDate,DCF Datum/Uhrzeit,,,,"E500",,,btime;bdate,,,DCF Time / date stamp struct { uchar sec; uchar min; uchar std; uchar tag; uchar mon; uchar wtg; uchar jah; } Tdcf77_time;
+r,,DCFTimeDate,DCF Datum/Uhrzeit,,,,"E500",,,btime;bdate,,,
 r,,FlowSetPotmeter,Vorlaufsollwert Poti,,,,"F003",,,temp,,,Vorlaufsollwert Potentiometer
 r,,HwcSetPotmeter,WW Sollwert Potentiometer,,,,"F103",,,temp,,,WW Sollwertpotentiometer
 r,,ProductionByte,ProductionByte,,,,"3E04",,,UCH,,,

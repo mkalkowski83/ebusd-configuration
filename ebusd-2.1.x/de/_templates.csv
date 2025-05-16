@@ -25,6 +25,6 @@ press,D2B,,bar,Druck
 btime,BTI,,,Uhrzeit
 bdate,BDA,,,Datum
 bday,BDY,,,Wochentag
-id,STR:5,,,Geräte-ID
+#id,STR:5,,,Geräte-ID
 version,PIN,,,Version
 skip,IGN:1,,,
