@@ -15,7 +15,7 @@ r,,PumpED,Pump_ED,,,,"0500",,,percent0,,,Power in %
 r,,CalculatedMixerPosition,CalculatedMixerPosition,,,,"0600",,,UIN,,,0: primary open; 220: primary closed
 r,,ElectricalHeater,ElectricalHeater,,,,"0800",,,onoff,,,
 r,,HeatDemand,HeatDemand,,,,"0900",,,temp,,,
-r;wi,,OperatingMode,OperatingMode,,,,"0A00",,,hwcmode2,,,
+r;wi,,OperatingMode,OperatingMode,,,,"0A00",,,mcmode,,,"0=OFF, 1=ON, 2=AUTO, 3=MANUAL"
 r;wi,,ManualTappingTempDesired,ManualTappingSetpoint,,,,"0B00",,,temp,,,
 r,,AutoTappingTempDesired,AutoTappingSetpoint,,,,"0C00",,,temp,,,
 r,,QuickVetoTempDesired,QuickVetoSetpoint,,,,"0D00",,,temp,,,

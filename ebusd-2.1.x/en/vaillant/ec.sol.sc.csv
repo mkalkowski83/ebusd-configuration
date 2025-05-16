@@ -15,7 +15,7 @@ r,,CollPump,CollectorPump,,,,"0600",,,onoff,,,collector pump's state
 r,,RuntimeCollPump,RuntimeCollectorPump,,,,"2A00",,,hoursum2,,,accumulated runtime of the collector pump
 r,,RuntimeCollPumpSeconds,RuntimeCollectorPumpSeconds,,,,"2900",,,UIN,,,runtime in seconds base for runtime in hours
 r;wi,,KickFunction,KickFunction,,,,"3200",,,onoff,,,enable kick function
-r,,ColKickPumpTime,ColKickPumpTime,,,,"3B00",,,seconds0,,,time pump is running when collector kick function is activated
+r,,ColKickPumpTime,ColKickPumpTime,,,,"3B00",,,UCH,,sec,time pump is running when collector kick function is activated
 r,,ColKickTempDelta,ColKickTempDelta,,,,"3C00",,,temp0,,,temperature difference necessary for activating the pump kick
 r;wi,,FlowRate,FlowRate,,,,"2D00",,,SIN,10,l/min,chosen flow rate of the collector pump (to calculate solar gain)
 r,,SolCollPumpDcIntegrator,SolarCollPumpDcIntegrator,,,,"1900",,,SIN,,,integral part of the solar collector pump's control if duty ratio control is active
@@ -29,7 +29,7 @@ r;wi,,EDFunction,EDFunktion,,,,"3400",,,onoff,,,enable duty ratio control
 r,,SolCollPumpED,SolarCollectorPumpED,,,,"2800",,,percent0,,,percentage of 'pump is on' during one minute (if duty ratio control is enabled)
 r;wi,,ScProtectionLimit,SolarCircuitProtectionLimit,,,,"3000",,,desiredtemp,,,switch off temperature for collector protection (109 <=> off)
 r,,ScProtectionHysteresis,SolarCircuitProtectionHysteresis,,,,"3100",,,calibration0,,,temperature hysteresis for activating solar pump after collector protection
-r,,ScProtectionTime,SolarCircuitProtectionTime,,,,"3E00",,,seconds0,,,time for which KOL temperature has to exceed the protection temperature to enter solar circuit protection mode
+r,,ScProtectionTime,SolarCircuitProtectionTime,,,,"3E00",,,UCH,,sec,time for which KOL temperature has to exceed the protection temperature to enter solar circuit protection mode
 r;wi,,EnableScProtection,EnableSolarCircuitProtection,,,,"5900",,,onoff,,,enable solar circuit protection
 r,,FrostProtectionEnabled,FrostProtectionEnabled,,,,"5A00",,,yesno,,,set TRUE to enable solar frost protection
 r,,FrostProtectionLimit,FrostProtectionLimit,,,,"5B00",,,temps2,,,temperature level for activating solar frost protection

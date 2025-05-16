@@ -23,7 +23,7 @@ r,,DCRoomthermostat,d.16 Raumthermostat,,,,"0E00",,,onoff,,,Wärmeanforderung vo
 r,,HwcDemand,d.22 WW Anforderung,,,,"5800",,,yesno,,,Brauchwasseranforderung (Zapfung oder Schaltsignal vom Speicher)
 r,,HeatingSwitch,d.23 Winterbetrieb,,,,"F203",,,onoff,,,Wintermodus aktiv (Heizbetrieb und Warmwasser)
 r,,StoragereleaseClock,d.25 Speicherfreigabe,,,,"4704",,,yesno,,,Freigabe der Speichrladung oder des Warmstartspeichers durcheinen eBUS Regler
-r,,Gasvalve,d.30 Gasventil,,,,"BB00",,,onoff2,,,GMV Ansteuersignal
+r,,Gasvalve,d.30 Gasventil,,,,"BB00",,,UCH,240=off;15=on,,GMV Ansteuersignal
 r,,TargetFanSpeed,d.33 Lüfter Solldrehzahl,,,,"2400",,,UIN,,1/min,Drehzahlsollwert des Lüfters
 r,,FanSpeed,d.34 Lüfteristdrehzahl,,,,"8300",,,UIN,,1/min,Aktuelle Lüfterdrehzahl
 r,,PositionValveSet,d.35 Position VUV,,,,"5400",,,UCH,,,Position des 3-Wege Ventil: 100=Warmwasser 0=Heizbetrieb 40=Mittenstellung
@@ -40,10 +40,10 @@ r,,AITemp,d.48 Abgassensor innen,,,,"3300",,,tempmirrorsensor,,,Abgassensor inne
 r,,AATemp,d.49 Abgassensor aussen,,,,"3200",,,tempmirrorsensor,,,Abgassensor außen
 r,,externalHwcSwitch,Wasserschalter,,,,"0000",,,onoff,,,Speicheranforderung eines externen Speichers über den Speicherkontakt
 r,,WaterPressure,Wasserdruck,,,,"0200",,,presssensor,,,Wasserdruck
-r,,Flame,Flammensignal,,,,"0500",,,onoff2,,,Flammensignal
+r,,Flame,Flammensignal,,,,"0500",,,UCH,240=off;15=on,,Flammensignal
 r,,ChangesDSN,Anzhl der DSN Änderungen,,,,"0C00",,,UCH,,,Anzahl der DSN (Gerätekennung) Änderungen
-r,,GasvalveUC,Gasventil,,,,"0D00",,,onoff2,,,Schaltsignal für das Gasventil
-r,,VolatileLockout,Verriegelnde Störabschaltungen,,,,"1000",,,yesno2,,,WAHR: STB Fehler sind verriegelnd
+r,,GasvalveUC,Gasventil,,,,"0D00",,,UCH,240=off;15=on,,Schaltsignal für das Gasventil
+r,,VolatileLockout,Verriegelnde Störabschaltungen,,,,"1000",,,UCH,240=no;15=yes,,WAHR: STB Fehler sind verriegelnd
 r,,ModulationTempDesired,Modulationssollwert,,,,"2E00",,,SIN,10,%,Modulationssollwert
 r,,FlameSensingASIC,SD_Flame_Sensing_ASIC_DK,,,,"2F00",,,UIN,,,Ioni/ADC Wert vom Flammenwächter
 r,,HcUnderHundredStarts,HZ_UnderHundred_SwiActi_DK,,,,"3000",,,UCH,,,Heat switch cycles under hundred
@@ -51,9 +51,9 @@ r,,HwcUnderHundredStarts,BW_UnderHundred_SwiActi_DK,,,,"3100",,,UCH,,,DHW switch
 r,,EbusSourceOn,eBUS Spannungsversorgung,,,,"3400",,,onoff,,,Aktivierung der eBUS Speisung
 r,,Fluegasvalve,Abgasklappe,,,,"3C00",,,onoff,,,Flüssiggas Magnetventil
 r,,ExternalFaultmessage,Ext. Störmeldung,,,,"3E00",,,onoff,,,Signal für die externe Störmeldeeinrichtung
-r,,GasvalveASICFeedback,Rückmeldung Gasventil,,,,"4700",,,onoff2,,,Rückmeldung Gasventil vom ASIC
-r,,GasvalveUCFeedback,Rückmeldung Gasventil,,,,"4800",,,onoff2,,,Rückmeldung Gasventil vom Prozessor
-r,,Ignitor,Zünder,,,,"4900",,,onoff2,,,Zündung aktiviert
+r,,GasvalveASICFeedback,Rückmeldung Gasventil,,,,"4700",,,UCH,240=off;15=on,,Rückmeldung Gasventil vom ASIC
+r,,GasvalveUCFeedback,Rückmeldung Gasventil,,,,"4800",,,UCH,240=off;15=on,,Rückmeldung Gasventil vom Prozessor
+r,,Ignitor,Zünder,,,,"4900",,,UCH,240=off;15=on,,Zündung aktiviert
 r,,Fan,Lüfter,,,,"4A00",,,onoff,,,Lüfter eingeschaltet (bei nicht modulierenden Lüfter)
 r,,HwcTypes,WW Typen,,,,"4B00",,,UCH,,,DHW type of the appliance
 r,,HwcImpellorSwitch,Brauchwasserzapfung,,,,"5700",,,yesno,,,WW Zapfung
@@ -63,7 +63,7 @@ r,,BoilerType,BoilerType_DK,,,,"5E00",,,UCH,,,Boiler typ of the bmu
 r,,ParamToken,ParamToken_DK,,,,"6000",,,UCH,,,token for parameter managment
 r,,expertlevel_ReturnTemp,Rücklauftemperatur,,,,"6B00",,,tempsensor,,,Externer Rücklauftemperatursensor
 r,,FloorHeatingContact,Anlegethermostat,,,,"7000",,,onoff,,,Eingang Anlegethermostat
-r,,Templimiter,Temperaturbegrenzer,,,,"7700",,,onoff2,,,Rückmeldung des Temperaturbegrenzer Signals
+r,,Templimiter,Temperaturbegrenzer,,,,"7700",,,UCH,240=off;15=on,,Rückmeldung des Temperaturbegrenzer Signals
 r,,EbusVoltage,eBUS Spannung,,,,"7F00",,,onoff,,,Rückmeldung der eBUS Spannung
 r,,FluegasvalveOpen,Abgasklappe offen,,,,"8900",,,onoff,,,Rückmeldung Flüssiggasventil
 r,,Testbyte,Testbyte_DK,,,,"9900",,,UCH,,,Testbyte (relevant for the Tester)
@@ -75,15 +75,15 @@ r,,WaterpressureBranchControlOff,Drucksprungerkennung ausschalten,,,,"AF00",,,on
 r,,DSNStart,DSN Startadresse,,,,"3104",,,UIN,,,DSN Startadresse
 r,,ExtStorageModulCon,VR65 angeschlossen,,,,"BF00",,,yesno,,,Externes Speichermodul (VR65) angeschlosssen
 r,,PartnumberBox,Partnumber_Box,,,,"C000",,,HEX:5,,,part number of the eBox
-r,,TemplimiterWithNTC,SD_STL_with_NTC,,,,"D200",,,yesno2,,,Temperaturbegrenzer Art:1 = NTC0 = Schaltkontakt
-r,,VolatileLockoutIFCGV,SD_VolatileLockout_IFC_GV_DK,,,,"D300",,,yesno2,,,Alle IFC Fehler sind nichtflüchtig
+r,,TemplimiterWithNTC,SD_STL_with_NTC,,,,"D200",,,UCH,240=no;15=yes,,Temperaturbegrenzer Art:1 = NTC0 = Schaltkontakt
+r,,VolatileLockoutIFCGV,SD_VolatileLockout_IFC_GV_DK,,,,"D300",,,UCH,240=no;15=yes,,Alle IFC Fehler sind nichtflüchtig
 r,,DisplayMode,DisplayMode_DK,,,,"DA00",,,UCH,,,Display mode of the appliance
-r,,Gasvalve3UC,Gasventil 3,,,,"DB00",,,onoff2,,,Gasventil Schaltsignal (vom Prozessor)
+r,,Gasvalve3UC,Gasventil 3,,,,"DB00",,,UCH,240=off;15=on,,Gasventil Schaltsignal (vom Prozessor)
 r,,InitialisationEEPROM,InitialisationEEPROM_DK,,,,"DC00",,,yesno,,,EEPROM Initialisierrung (für die Produktion)
 r,,TimerInputHc,Eingang Schaltuhr,,,,"DE00",,,onoff,,,timer input (block heatdemand)
 r,,ExternGasvalve,Ext. Gasventil,,,,"E400",,,onoff,,,Externes Magnetventil
-r,,DCFTimeDate,DCF Datum/Uhrzeit,,,,"E500",,,btime;bdate,,,
-r,,WPSecondStage,WP_SecondStage_DK,,,,"ED00",,,onoff2,,,Second stage of the pump activated
+r,,DCFTimeDate,DCF Datum/Uhrzeit,,,,"E500",,,btime;bdate,,,DCF Time / date stamp struct { uchar sec; uchar min; uchar std; uchar tag; uchar mon; uchar wtg; uchar jah; } Tdcf77_time;
+r,,WPSecondStage,WP_SecondStage_DK,,,,"ED00",,,UCH,240=off;15=on,,Second stage of the pump activated
 r,,FlowSetPotmeter,Vorlaufsollwert Poti,,,,"F003",,,temp,,,Vorlaufsollwert Potentiometer
 r,,HwcSetPotmeter,WW Sollwert Potentiometer,,,,"F103",,,temp,,,WW Sollwertpotentiometer
 r,,HwcSwitch,Wasserschalter,,,,"F303",,,onoff,,,WW aus/ein
@@ -95,7 +95,7 @@ r;wi,,ReturnRegulation,d.17 Rücklaufregelung,,,,"0C04",,,onoff,,,Aktivierung de
 r;wi,,HcPumpMode,d.18 Pumpenbetriebsart,,,,"4904",,,UCH,0=post run;1=permanent;2=winter,,Pumpenbetriebsart für den Heizbetrieb
 r;wi,,SecondPumpMode,d.19 Betriebsart 2. Pumpe,,,,"0B04",,,UCH,,,Betriebsart 2stufige Pumpe:0 : Brennerbetrieb = Stufe 2 / Vor-Nachlauf = Stufe 11: Brennerbetrieb + Vorlauf = Stufe 1 / Warmwasser = Stufe 22 : Wie 1 aber im Heizbetrieb hängt die Stufe von der Teillast ab (default)3 : Immer Stufe 2
 r;wi,,HwcTempMax,d.20 Max. WW Temperatur,,,,"4304",,,temp,,,Max. Speichersollwert. Begrenzt den max. Einstellbereich des Potentiometers (Rechtsanschlag).
-r,,AircontrolOk,d.24 SD_AircontrolOk_DK,,,,"0300",,,onoff2,,,Druckdose
+r,,AircontrolOk,d.24 SD_AircontrolOk_DK,,,,"0300",,,UCH,240=off;15=on,,Druckdose
 r;wi,,AccessoriesOne,d.27 Zubehörrelais 1,,,,"4B04",,,UCH,1=circulationpump;2=extheatingpump;3=storagechargingpump;4=fluegasflapextractorhood;5=externalgasvalve;6=externalerrormessage;7=solarpump;8=remotecontrol,,Funktion des Zubehörrelais 1
 r;wi,,AccessoriesTwo,d.28 Zubehörrelais 2,,,,"4C04",,,UCH,1=circulationpump;2=extheatingpump;3=storagechargingpump;4=fluegasflapextractorhood;5=externalgasvalve;6=externalerrormessage;7=solarpump;8=remotecontrol,,Funktion des Zubehörrelais 2
 r;wi,,GVStepOffsetMin,d.52 MinGVStepOffset,,,,"7404",,,UCH,,,Offset for minimum gas valve steps

@@ -42,8 +42,6 @@ daynight,UCH,0=night;1=day;7=floorpaving,,Tag-/Nachtmodus
 status,UCH,,,Status
 onoff,UCH,0=off;1=on,,
 yesno,UCH,0=no;1=yes,,
-onoff2,UCH,240=off;15=on,,
-yesno2,UCH,240=no;15=yes,,
 errorok,UCH,0=ok;1=error,,
 sensor,UCH,0=ok;85=circuit;170=cutoff,,Fühlerstatus
 tempsensor,temp;sensor,,,

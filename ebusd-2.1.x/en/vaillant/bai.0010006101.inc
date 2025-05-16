@@ -22,9 +22,9 @@ r,,CirPump,d.13 Circulation pump,,,,"7B00",,,onoff,,,Hot water circulation pump 
 r,,WPPWMPower,d.15 WP_PWMPower_DK,,,,"7300",,,percent0,,,actual PWM-Powerrate of electronic-pump
 r,,HwcDemand,d.22 DHW demand,,,,"5800",,,yesno,,,domestic hot water (tapping or tank contact) demand
 r,,HeatingSwitch,d.23 operation mode,,,,"F203",,,onoff,,,Wintermode active
-r,,AircontrolOk,d.24 SD_AircontrolOk_DK,,,,"0300",,,onoff2,,,Air pressure switch
+r,,AircontrolOk,d.24 SD_AircontrolOk_DK,,,,"0300",,,UCH,240=off;15=on,,Air pressure switch
 r,,StoragereleaseClock,d.25 DHW demand enabled,,,,"4704",,,yesno,,,hot water release (tank storage) via eBus Control
-r,,Gasvalve,d.30 Gasvalve,,,,"BB00",,,onoff2,,,Gasvalve activation signal
+r,,Gasvalve,d.30 Gasvalve,,,,"BB00",,,UCH,240=off;15=on,,Gasvalve activation signal
 r,,TargetFanSpeed,d.33 Target fan speed,,,,"2400",,,UIN,,1/min,Fan speed setpoint
 r,,FanSpeed,d.34 Actual fan speed,,,,"8300",,,UIN,,1/min,fan speed actual value
 r,,PositionValveSet,d.35 Position TWV,,,,"5400",,,UCH,,,"Position of diverter valve; 100 = DHW, 0 = heating, 40 = middle position"
@@ -44,8 +44,8 @@ r,,HwcSwitch,DHWSwitch,,,,"F303",,,onoff,,,DHW on/off
 r,,WaterPressure,Waterpressure,,,,"0200",,,presssensor,,,value of waterpressure-sensor
 r,,ExternGasvalve,ExternGasvalve_DK,,,,"E400",,,onoff,,,external gasvalve activated
 r,,expertlevel_ReturnTemp,ReturnTemperature_DK,,,,"6B00",,,tempsensor,,,external return sensor
-r,,Ignitor,SD_Ignitor_DK,,,,"4900",,,onoff2,,,igniton activated
-r,,Flame,Flame,,,,"0500",,,onoff2,,,flame
+r,,Ignitor,SD_Ignitor_DK,,,,"4900",,,UCH,240=off;15=on,,igniton activated
+r,,Flame,Flame,,,,"0500",,,UCH,240=off;15=on,,flame
 r,,externalHwcSwitch,DHWSwitch_DK,,,,"0000",,,onoff,,,Demand external tank (via contact)
 r,,HcUnderHundredStarts,HZ_UnderHundred_SwiActi_DK,,,,"3000",,,UCH,,,Heat switch cycles under hundred
 r,,HwcUnderHundredStarts,BW_UnderHundred_SwiActi_DK,,,,"3100",,,UCH,,,DHW switch cycles under hundred
@@ -62,11 +62,11 @@ r,,BoilerType,BoilerType_DK,,,,"5E00",,,UCH,,,Boiler typ of the bmu
 r,,BoilerType2,BoilerType_2_DK,,,,"0C01",,,ULG,,,
 r,,DisplayMode,DisplayMode_DK,,,,"DA00",,,UCH,,,Display mode of the appliance
 r,,PowerValue,PowerValue,,,,"AA00",,,HEX:6,,,"Power Values of the Boiler (min Power, max Power)"
-r,,DCFTimeDate,DCF_TimeDate_DK,,,,"E500",,,btime;bdate,,,
+r,,DCFTimeDate,DCF_TimeDate_DK,,,,"E500",,,HEX:8,,,DCF Time / date stamp struct { uchar sec; uchar min; uchar std; uchar tag; uchar mon; uchar wtg; uchar jah; } Tdcf77_time;
 r,,EbusVoltage,EbusVoltage_DK,,,,"7F00",,,onoff,,,feedback signal of the eBus source
 r,,EbusSourceOn,EbusSourceOn_DK,,,,"3400",,,onoff,,,Activation signal of the eBus source
-r,,TemplimiterWithNTC,SD_STL_with_NTC,,,,"D200",,,yesno2,,,Safety temperature limit concept:1 = safety temp. Limit check with NTC0 = safety temp. Limit check with contact
-r,,Templimiter,SD_Temperaturelimiter_DK,,,,"7700",,,onoff2,,,feedback signal of the temperature limiter
+r,,TemplimiterWithNTC,SD_STL_with_NTC,,,,"D200",,,UCH,240=no;15=yes,,Safety temperature limit concept:1 = safety temp. Limit check with NTC0 = safety temp. Limit check with contact
+r,,Templimiter,SD_Temperaturelimiter_DK,,,,"7700",,,UCH,240=off;15=on,,feedback signal of the temperature limiter
 r,,TimerInputHc,TimerInputCH_DK,,,,"DE00",,,onoff,,,timer input (block heatdemand)
 r,,Statenumber,Statenumber_DK,,,,"AB00",,,UCH,,,status number
 r,,ExternalFaultmessage,External_Faultmessage_DK,,,,"3E00",,,onoff,,,external fault message
@@ -112,12 +112,12 @@ r;ws,,DSNOffset,d.93 Device specific number,,,,"3004",,,UCH,,,DSN aplliance vari
 r;wi,,SetFactoryValues,d.96 Set factory settings,,,,"6804",,,yesno,,,Factory settings
 # ##### maintenance data #####,,,,,,,,,,,,,
 r,,minIgnitiontime,min_Ignitiontime_DK,,,,"2B00",,,UCH,10,s,minimum ignition time
-r,,GasvalveUC,SD_Gasvalve_uC_DK,,,,"0D00",,,onoff2,,,Activation signal of the gasvalve (activated via micrcontroller)
-r,,VolatileLockout,SD_VolatileLockout_DK,,,,"1000",,,yesno2,,,TRUE: STB failures is volatileFALSE: STB failure is not volataile
+r,,GasvalveUC,SD_Gasvalve_uC_DK,,,,"0D00",,,UCH,240=off;15=on,,Activation signal of the gasvalve (activated via micrcontroller)
+r,,VolatileLockout,SD_VolatileLockout_DK,,,,"1000",,,UCH,240=no;15=yes,,TRUE: STB failures is volatileFALSE: STB failure is not volataile
 r,,FlameSensingASIC,SD_Flame_Sensing_ASIC_DK,,,,"2F00",,,UIN,,,ioni/adc value from the flame control circuit
 r,,Fluegasvalve,Fluegasvalve_DK,,,,"3C00",,,onoff,,,flue gasvalve activation signal
-r,,GasvalveASICFeedback,SD_Gasvalve_ASICFeedback_DK,,,,"4700",,,onoff2,,,feedback gasvalve (from ASIC)
-r,,GasvalveUCFeedback,SD_Gasvalve_uCFeedback_DK,,,,"4800",,,onoff2,,,feedback gasvalve (from Microcontroller)
+r,,GasvalveASICFeedback,SD_Gasvalve_ASICFeedback_DK,,,,"4700",,,UCH,240=off;15=on,,feedback gasvalve (from ASIC)
+r,,GasvalveUCFeedback,SD_Gasvalve_uCFeedback_DK,,,,"4800",,,UCH,240=off;15=on,,feedback gasvalve (from Microcontroller)
 r,,HwcTypes,DHW_Types_DK,,,,"4B00",,,UCH,,,DHW type of the appliance
 r,,HwcWaterflowMax,DHW Waterflow_max_DK,,,,"5600",,,uin100,,,domestic hot water flow sensor maximum value
 r,,HwcImpellorSwitch,DHW impellor switch,,,,"5700",,,yesno,,,domestic hot water (tapping) demand
@@ -128,14 +128,14 @@ r,,CounterStartAttempts3,CounterStartAttempts3_DK,,,,"8100",,,temp0,,,unsuccessf
 r,,SHEMaxFlowTemp,SHE_MaxFlowTemp_DK,,,,"C300",,,temp,,,maximum flow temperature DHW
 r,,SHEMaxDeltaHwcFlow,SHE_MaxDeltaFlowDHW_DK,,,,"C400",,,temp,,,maximum difference between flow and DHW outlet temperature
 r,,PumpHours,Pump operation hours,,,,"1400",,,hoursum2,,,pump operation hours
-r,,WPSecondStage,WP_SecondStage_DK,,,,"ED00",,,onoff2,,,Second stage of the pump activated
+r,,WPSecondStage,WP_SecondStage_DK,,,,"ED00",,,UCH,240=off;15=on,,Second stage of the pump activated
 r,,HcPumpStarts,CH_PumpCommunt_DK,,,,"1500",,,cntstarts2,,,pump switchings
 r,,ValveStarts,TWV_Communt_DK,,,,"1A00",,,cntstarts2,,,commutations of the three way valve
 r,,FanHours,Fan operation hours,,,,"1B00",,,hoursum2,,,fan operation hours
 r,,FanStarts,FanCommunt_DK,,,,"1C00",,,cntstarts2,,,commutations of the fan
 r,,FanPWMTest,Fan_PWM_Test_DK,,,,"3B00",,,UCH,,,Predictive Maintenance data for the fan damage recognition
 r,,FanPWMSum,Fan_PWM_Sum_DK,,,,"3A00",,,UIN,,,Predictive Maintenance data for the fan damage recognition
-r,,Gasvalve3UC,SD_Gasvalve3_uC_DK,,,,"DB00",,,onoff2,,,Gasvalve activation signal (from Microcontroller)
+r,,Gasvalve3UC,SD_Gasvalve3_uC_DK,,,,"DB00",,,UCH,240=off;15=on,,Gasvalve activation signal (from Microcontroller)
 r,,WaterpressureMeasureCounter,WaterpressureMeasureCounter_DK,,,,"F100",,,UCH,,,Predictive Maintenance data
 r,,WaterpressureVariantSum,WaterpressureVariantSum_DK,,,,"F000",,,pressm2,,,Predictive Maintenance data
 r,,StorageLoadPumpHours,TankLoadPumpOperationHours_DK,,,,"4C00",,,hoursum2,,,Preditive maintenance data

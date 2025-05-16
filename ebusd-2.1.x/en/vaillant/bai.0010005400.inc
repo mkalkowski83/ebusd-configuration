@@ -23,7 +23,7 @@ r,,HwcDemand,d.22 DHW demand,,,,"5800",,,yesno,,,domestic hot water (tapping or 
 r,,HeatingSwitch,d.23 operation mode,,,,"F203",,,onoff,,,Wintermode active
 r,,SourcePressureSwitch,d.24 AirPressureSwitch_DK,,,,"0300",,,yesno,,,contact of the air pressure switch
 r,,StoragereleaseClock,d.25 DHW demand enabled,,,,"4704",,,yesno,,,hot water release (tank storage) via eBus Control
-r,,Gasvalve,d.30 Gasvalve,,,,"BB00",,,onoff2,,,Gasvalve activation signal
+r,,Gasvalve,d.30 Gasvalve,,,,"BB00",,,UCH,240=off;15=on,,Gasvalve activation signal
 r,,TargetFanSpeed,d.33 Target fan speed,,,,"2400",,,UIN,,1/min,Fan speed setpoint
 r,,FanSpeed,d.34 Actual fan speed,,,,"8300",,,UIN,,1/min,fan speed actual value
 r,,FlowTemp,d.40 TFT_DK,,,,"1800",,,tempsensor,,,flow temperature
@@ -105,11 +105,11 @@ r;wi,,PrEnergyCountHc1,PrEnergyCountCH1_DK,,,,"F600",,,ULG,,,Predictive Maintena
 # ##### expert level\Main #####,,,,,,,,,,,,,
 r,,externalFlowTempDesired,external flowsetpoint,,,,"2500",,,temp,,,Flow target temperature from external regulator to terminal 7-8-9
 r,,externalHwcSwitch,DHWSwitch_DK,,,,"0000",,,onoff,,,Demand external tank (via contact)
-r,,Flame,Flame,,,,"0500",,,onoff2,,,flame
-r,,IFCFault,SD_IFC_Fault_DK,,,,"0700",,,onoff2,,,IFC error
+r,,Flame,Flame,,,,"0500",,,UCH,240=off;15=on,,flame
+r,,IFCFault,SD_IFC_Fault_DK,,,,"0700",,,UCH,240=off;15=on,,IFC error
 r,,ChangesDSN,Changes_DSN_DK,,,,"0C00",,,UCH,,,Numbers adjusting (storing) the DSN
-r,,Brennstoffventil,Brennstoffventil,,,,"0D00",,,onoff2,,,Activation signal of the gasvalve (activated via micrcontroller)
-r,,VolatileLockout,SD_VolatileLockout_DK,,,,"1000",,,yesno2,,,TRUE: STB failures is volatileFALSE: STB failure is not volataile
+r,,Brennstoffventil,Brennstoffventil,,,,"0D00",,,UCH,240=off;15=on,,Activation signal of the gasvalve (activated via micrcontroller)
+r,,VolatileLockout,SD_VolatileLockout_DK,,,,"1000",,,UCH,240=no;15=yes,,TRUE: STB failures is volatileFALSE: STB failure is not volataile
 r,,Faultlist,Faultlist_DK,,,,"2600",,,HEX:10,,,last 10 fault codes
 r,,ModulationTempDesired,Modulationsetpoint_DK,,,,"2E00",,,SIN,10,%,Modulation set point
 r,,FlameSensingASIC,SD_Flame_Sensing_ASIC_DK,,,,"2F00",,,UIN,,,ioni/adc value from the flame control circuit
@@ -118,25 +118,25 @@ r,,HwcUnderHundredStarts,BW_UnderHundred_SwiActi_DK,,,,"3100",,,UCH,,,DHW switch
 r,,EbusSourceOn,EbusSourceOn_DK,,,,"3400",,,onoff,,,Activation signal of the eBus source
 r,,Fluegasvalve,Fluegasvalve_DK,,,,"3C00",,,onoff,,,flue gasvalve activation signal
 r,,ExternalFaultmessage,External_Faultmessage_DK,,,,"3E00",,,onoff,,,external fault message
-r,,RueckmeldungBrennstoffventil1,Rückmeldung Brennstoffventil 1,,,,"4700",,,onoff2,,,feedback gasvalve (from ASIC)
-r,,RueckmeldungBrennstoffventil2,Rückmeldung Brennstoffventil 2,,,,"4800",,,onoff2,,,feedback gasvalve (from Microcontroller)
-r,,Ignitor,SD_Ignitor_DK,,,,"4900",,,onoff2,,,igniton activated
+r,,RueckmeldungBrennstoffventil1,Rückmeldung Brennstoffventil 1,,,,"4700",,,UCH,240=off;15=on,,feedback gasvalve (from ASIC)
+r,,RueckmeldungBrennstoffventil2,Rückmeldung Brennstoffventil 2,,,,"4800",,,UCH,240=off;15=on,,feedback gasvalve (from Microcontroller)
+r,,Ignitor,SD_Ignitor_DK,,,,"4900",,,UCH,240=off;15=on,,igniton activated
 r,,Fan,Fan_DK,,,,"4A00",,,yesno,,,Fan activation signal
 r,,HwcTypes,DHW_Types_DK,,,,"4B00",,,UCH,,,DHW type of the appliance
-r,,TemplimiterFault,SD_TL_Fault_DK,,,,"4D00",,,onoff2,,,temperature limiter error
-r,,ADCOk,SD_ADC_ok_DK,,,,"4E00",,,onoff2,,,internal electronic error
-r,,FanFault,SD_Fan_Fault_DK,,,,"5300",,,onoff2,,,Fan error
+r,,TemplimiterFault,SD_TL_Fault_DK,,,,"4D00",,,UCH,240=off;15=on,,temperature limiter error
+r,,ADCOk,SD_ADC_ok_DK,,,,"4E00",,,UCH,240=off;15=on,,internal electronic error
+r,,FanFault,SD_Fan_Fault_DK,,,,"5300",,,UCH,240=off;15=on,,Fan error
 r,,BoilerType,BoilerType_DK,,,,"5E00",,,UCH,,,Boiler typ of the bmu
 r,,FunctionFlags,FunctionFlags_DK,,,,"5F00",,,UCH,,,differrent function flags
 r,,ParamToken,ParamToken_DK,,,,"6000",,,UCH,,,token for parameter managment
 r,,expertlevelMain_ReturnTemp,ReturnTemperature_DK,,,,"6B00",,,tempsensor,,,external return sensor
 r,,FloorHeatingContact,Floor heating contact,,,,"7000",,,onoff,,,Floor heating contact
-r,,Templimiter,SD_Temperaturelimiter_DK,,,,"7700",,,onoff2,,,feedback signal of the temperature limiter
+r,,Templimiter,SD_Temperaturelimiter_DK,,,,"7700",,,UCH,240=off;15=on,,feedback signal of the temperature limiter
 r,,SRIFCEEFaultCause,SR_IFC_EE_FaultCause_DK,,,,"7A00",,,UCH,,,current IFC fault cause
 r,,ParamReplication,ParamReplication_DK,,,,"7C00",,,yesno,,,activated the parameter managment again
 r,,AnodeINFeedback,Anode_IN_Feedback_DK,,,,"7E00",,,yesno,,,feedback signal of the anode
 r,,EbusVoltage,EbusVoltage_DK,,,,"7F00",,,onoff,,,feedback signal of the eBus source
-r,,SRTFINSDFeedback,SR_TF_IN_SD_Feedback_DK,,,,"8400",,,onoff2,,,Thermal fuse error
+r,,SRTFINSDFeedback,SR_TF_IN_SD_Feedback_DK,,,,"8400",,,UCH,240=off;15=on,,Thermal fuse error
 r,,DemandCirPump,Demand_CirculationPump_DK,,,,"8800",,,yesno,,,remote control activated accessory circulation pump
 r,,FluegasvalveOpen,FluegasvalveOpen_DK,,,,"8900",,,onoff,,,feedback of the flue gas valve
 r,,FunctionFault,Function_Fault_DK,,,,"9500",,,yesno,,,boiler stopped by a internal function fault
@@ -149,11 +149,11 @@ r,,DSNStart,DSN start,,,,"BC00",,,UIN,,,DSN Start adress
 r,,Shiftloadtankpump,Shiftloadtankpump_DK,,,,"B400",,,yesno,,,current status of the shift load pump
 r,,ExtStorageModulCon,ExtTankModulCon_DK,,,,"BF00",,,yesno,,,external tank modul connected (VR65)
 r,,PartnumberBox,Partnumber_Box,,,,"C000",,,HEX:5,,,part number of the eBox
-r,,SRSyphonINSDSwitch,SR_Syphon_IN_SD_Switch_DK,,,,"CF00",,,yesno2,,,feedback of the syphon switch contact
-r,,TemplimiterWithNTC,SD_STL_with_NTC,,,,"D200",,,yesno2,,,Safety temperature limit concept:1 = safety temp. Limit check with NTC0 = safety temp. Limit check with contact
-r,,VolatileLockoutIFCGV,SD_VolatileLockout_IFC_GV_DK,,,,"D300",,,yesno2,,,all IFC faults are volataile
+r,,SRSyphonINSDSwitch,SR_Syphon_IN_SD_Switch_DK,,,,"CF00",,,UCH,240=no;15=yes,,feedback of the syphon switch contact
+r,,TemplimiterWithNTC,SD_STL_with_NTC,,,,"D200",,,UCH,240=no;15=yes,,Safety temperature limit concept:1 = safety temp. Limit check with NTC0 = safety temp. Limit check with contact
+r,,VolatileLockoutIFCGV,SD_VolatileLockout_IFC_GV_DK,,,,"D300",,,UCH,240=no;15=yes,,all IFC faults are volataile
 r,,DisplayMode,DisplayMode_DK,,,,"DA00",,,UCH,,,Display mode of the aplliance
-r,,RueckmeldungBrennstoffventil3,Rückmeldung Brennstoffventil 3,,,,"DB00",,,onoff2,,,Gasvalve activation signal (from Microcontroller)
+r,,RueckmeldungBrennstoffventil3,Rückmeldung Brennstoffventil 3,,,,"DB00",,,UCH,240=off;15=on,,Gasvalve activation signal (from Microcontroller)
 r,,InitialisationEEPROM,InitialisationEEPROM,,,,"DC00",,,yesno,,,Initialisation off all EEPROM values (done in the production)
 r,,DefaultSettingEEPROM,DefaultSettingEEPROM_DK,,,,"DD00",,,yesno,,,default value setting off all EEPROM values (done in the production)
 r,,TimerInputHc,TimerInputCH_DK,,,,"DE00",,,onoff,,,timer input (block heatdemand)
@@ -161,7 +161,7 @@ r,,FanMinSpeedOperation,FanMinSpeedOperation,,,,"DF00",,,UIN,,1/min,Minimum Fan 
 r,,FanMaxSpeedOperation,FanMaxSpeedOperation,,,,"E000",,,UIN,,1/min,Maximum Fan speed of the appliance
 r;wi,,RManagEE.VirtualPartloadEnableTemp,TR_Manag_EE.Virtual_Partload_Enable_DK,,,,"E300",,,UCH,,,enable the adaptive CH- and or DHW-partload calulation
 r,,ExternGasvalve,ExternGasvalve_DK,,,,"E400",,,onoff,,,external gasvalve activated
-r,,DCFTimeDate,DCF_TimeDate_DK,,,,"E500",,,btime;bdate,,,
+r,,DCFTimeDate,DCF_TimeDate_DK,,,,"E500",,,HEX:8,,,DCF Time / date stamp struct { uchar sec; uchar min; uchar std; uchar tag; uchar mon; uchar wtg; uchar jah; } Tdcf77_time;
 r,,InitialisationSequence,InitialisationSequence_DK,,,,"9A01",,,UCH,,,value:0 -> off1-> full initialisation incl. all defaultvalues (done in the production)
 r,,FlowSetPotmeter,FlowSetPotmeter,,,,"F003",,,temp,,,flow setpoint potentiometer
 r,,HwcSetPotmeter,DHWSetPotmeter,,,,"F103",,,temp,,,DHW setpoint potentiometer

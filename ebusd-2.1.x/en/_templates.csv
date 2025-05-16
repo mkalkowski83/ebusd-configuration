@@ -25,6 +25,6 @@ press,D2B,,bar,pressure
 btime,BTI,,,time
 bdate,BDA,,,date
 bday,BDY,,,weekday
-#id,STR:5,,,device ID
+id,STR:5,,,device ID
 version,PIN,,,version
 skip,IGN:1,,,
