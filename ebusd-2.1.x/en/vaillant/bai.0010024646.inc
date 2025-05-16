@@ -51,7 +51,7 @@ r,,,HcPumpStarts,HcPumpStarts: Central heating pump starts,,,b509,0d5603,value,,
 r,,,HcStarts,HcStarts: Central heating burner starts,,,b509,0d3803,value,,UCH,,,
 r,,,HwcHours,HwcHours: Hot water operation hours,,,b509,0d7701,value,,ULG,,h,hours
 r,,,HwcStarts,HwcStarts: Hot water burner starts,,,b509,0d7703,value,,UIN,,,start count
-r,,,PumpHours,PumpHours: Pump operation hours,,,b509,0d5601,value,,UIR,,,
+r,,,PumpHours,PumpHours: Pump operation hours,,,b509,0d1400,,,BCD,,h,hours
 r,,,StorageLoadPumpHours,StorageLoadPumpHours: Storage load pump operation hours,,,b509,0d7301,value,,ULG,,h,hours
 r,,,StorageloadPumpStarts,StorageloadPumpStarts: Storage load pump starts,,,b509,0d7303,value,,UIN,,,start count
 r,,,ValveMode,Valve mode,,,b509,0df403,value,,UCH,,,
@@ -68,7 +68,7 @@ r,,,FlowTempMax,FlowTempMax: Maximum flow temperature,,,b509,0d3700,value,,D2C,,
 r,,,ReturnTempMax,ReturnTempMax: Maximum return temperature,,,b509,0dbe00,value,,D2C,,°C,temperature
 r,,,ModulationTempDesired,ModulationTempDesired: Desired modulation temperature,,,b509,0d2e00,value,,D2C,,°C,temperature
 r,,,PumpPower,PumpPower: Pump power value,,,b509,0d7300,value,,UCH,,,
-r,,,PumpPowerDesired,PumpPowerDesired: Desired pump power,,,b509,0da100,value,,UCH,,,
+r,,,PumpPowerDesired,PumpPowerDesired: Desired pump power,,,b509,0da100,,,UCH,,%,
 r,,,HwcWaterflow,HwcWaterflow: Hot water flow rate,,,b509,0d5500,value,,UIN,100,,
 r,,,HwcWaterflowMax,HwcWaterflowMax: Maximum hot water flow rate,,,b509,0d5600,value,,UIN,100,,
 r,,,HwcImpellorSwitch,HwcImpellorSwitch: Hot water impellor switch,,,b509,0d5700,value,,UCH,0=no;1=yes,,

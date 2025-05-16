@@ -227,9 +227,9 @@ namespace Bai._0010024646_inc {
   model HwcStarts is ReadonlyRegister<cntstarts2>;
 
   /** PumpHours: Pump operation hours */
-  @ext(0x56, 0x01)
-  model PumpHours is ReadonlyRegister<UIR>;
-
+  @ext(0x14, 0x00)
+  model PumpHours is ReadonlyRegister<BCD>;
+  
   /** StorageLoadPumpHours: Storage load pump operation hours */
   @ext(0x73, 0x01)
   model StorageLoadPumpHours is ReadonlyRegister<hoursum>;
@@ -298,7 +298,10 @@ namespace Bai._0010024646_inc {
 
   /** PumpPowerDesired: Desired pump power */
   @ext(0xa1, 0x00)
-  model PumpPowerDesired is ReadonlyRegister<UCH>;
+  model PumpPowerDesired {
+    @unit("%")
+    value: UCH;
+  }
 
   /** HwcWaterflow: Hot water flow rate */
   @ext(0x55, 0x00)
