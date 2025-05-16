@@ -21,7 +21,7 @@ r,,,CirPump,d.13 Circulation pump: Hot water circulation pump (via external modu
 r,,,HwcDemand,d.22 DHW demand: domestic hot water (tapping or tank contact) demand,,,b509,0d5800,value,,UCH,0=no;1=yes,,
 r,,,HeatingSwitch,d.23 operation mode: Wintermode active,,,b509,0df203,value,,UCH,0=off;1=on,,
 r,,,StoragereleaseClock,d.25 DHW demand enabled: hot water release (tank storage) via eBus Control,,,b509,0d4704,value,,UCH,0=no;1=yes,,
-r,,,Gasvalve,d.30 Gasvalve: Gasvalve activation signal,,,b509,0dbb00,value,,onoff2,,,
+r,,,Gasvalve,d.30 Gasvalve: Gasvalve activation signal,,,b509,0dbb00,value,,UCH,240=off;15=on,,
 r,,,TargetFanSpeed,d.33 Target fan speed,,,b509,0d2400,value,,UIN,,1/min,Fan speed setpoint
 r,,,FanSpeed,d.34 Actual fan speed,,,b509,0d8300,value,,UIN,,1/min,fan speed actual value
 r,,,PositionValveSet,"d.35 Position TWV: Position of diverter valve; 100 = DHW, 0 = heating, 40 = middle position",,,b509,0d5400,value,,UCH,,,
@@ -37,33 +37,28 @@ r,,,RemainingBoilerblocktime,d.67 Remaining burner block time: Remaining burner 
 r,,,CounterStartattempts1,d.68 ignition attempts 1: unsuccessfull ignitions in the first attempt,,,b509,0d6e00,value,,UCH,,°C,temperature
 r,,,CounterStartattempts2,d.69 ignition attempts 2: unsuccessfull ignitions in the second attempt,,,b509,0d6f00,value,,UCH,,°C,temperature
 r,,,EBusHeatcontrol,d.90 Digital control recognized: Digital regulator status,,,b509,0d0004,value,,UCH,0=no;1=yes,,
-r,,,Flame,Flame,,,b509,0d0500,value,,onoff2,,,
-r,,,FanHours,Fan operation hours,,,b509,0d1b00,value,,hoursum2,,,
+r,,,Flame,Flame,,,b509,0d0500,value,,UCH,240=off;15=on,,
+r,,,FanHours,Fan operation hours,,,b509,0d1b00,value,,UIN,,h,hours
 r,,,FanStarts,FanCommunt_DK: commutations of the fan,,,b509,0d1c00,value,,UIN,,,start count
 r,,,CounterStartAttempts3,CounterStartAttempts3_DK: unsuccessfull ignitions in the third attempt,,,b509,0d8100,value,,UCH,,°C,temperature
 r,,,CounterStartAttempts4,CounterStartAttempts4_DK: unsuccessfull ignitions in the fourth attempt,,,b509,0d8200,value,,UCH,,°C,temperature
 r,,,TempDiffBlock,TempDiffBlock_DK: Number of modulationblocking of the boilers cause of to high/incorrect difference of flow/return temperatures,,,b509,0d1200,value,,UCH,,°C,temperature
 r,,,TempDiffFailure,TempDiffFailure_DK: Number of cut offs of the boilers cause of to high/incorrect differences of flow/return temperatures,,,b509,0d1300,value,,UCH,,°C,temperature
 r,,,ValveStarts,TWV_Communt_DK: commutations of the three way valve,,,b509,0d1a00,value,,UIN,,,start count
-r,,,TemplimiterWithNTC,TemplimiterWithNTC: Safety temperature limit concept,,,b509,0dd200,value,,yesno2,,,
+r,,,TemplimiterWithNTC,TemplimiterWithNTC: Safety temperature limit concept,,,b509,0dd200,value,,UCH,240=no;15=yes,,
 r,,,HcHours,HcHours: Central heating operation hours,,,b509,0d3801,value,,ULG,,h,hours
 r,,,HcPumpStarts,HcPumpStarts: Central heating pump starts,,,b509,0d5603,value,,UCH,,,
 r,,,HcStarts,HcStarts: Central heating burner starts,,,b509,0d3803,value,,UCH,,,
 r,,,HwcHours,HwcHours: Hot water operation hours,,,b509,0d7701,value,,ULG,,h,hours
 r,,,HwcStarts,HwcStarts: Hot water burner starts,,,b509,0d7703,value,,UIN,,,start count
-r,,,PumpHours,PumpHours: Pump operation hours,,,b509,0d1400,,,BCD,,h,hours
+r,,,PumpHours,PumpHours: Pump operation hours,,,b509,0d1400,value,,BCD,,,
 r,,,StorageLoadPumpHours,StorageLoadPumpHours: Storage load pump operation hours,,,b509,0d7301,value,,ULG,,h,hours
 r,,,StorageloadPumpStarts,StorageloadPumpStarts: Storage load pump starts,,,b509,0d7303,value,,UIN,,,start count
 r,,,ValveMode,Valve mode,,,b509,0df403,value,,UCH,,,
 r,,,HcPumpMode,HcPumpMode: Heating pump mode,,,b509,0d4e04,value,,UCH,,,
-#r,,,DisplayMode,Display operation mode,,,b509,0dda00,,,UCH,,,
-#r,,,DisplayMode,Display operation mode,,,b509,0dda00,,,UIN,,,
-#r,,,DisplayMode,Display operation mode,,,b509,0dda00,,,HEX:3,,,
-#r,,,DisplayMode,Display operation mode,,,b509,0dda00,value,,UCH,,,
-r,,,DisplayMode,Display operation mode,,,b509,0dda01,value,,UCH,,, 
-#r,,,DisplayMode,Display operation mode,,,b509,0dda02,value,,UCH,,,
-#r,,,DisplayMode,Display operation mode,,,b509,0dda,,,UCH,,,
-#r,,,DisplayMode,Display operation mode,,,b509,0d,da00,,UCH,,,
+r,,,DisplayMode,Display mode parameters based on testingDisplayMode: Display operation mode,,,b509,0dda01,value,,UCH,,,
+r,,,DisplayModeFlag,DisplayModeFlag: Display mode flag,,,b509,0dda02,value,,UCH,,,
+r,,,DisplayModeFlag2,DisplayModeFlag2: Alternative display mode value,,,b509,0dda00,value,,UCH,,,
 r,,,WaterpressureMeasureCounter,WaterpressureMeasureCounter: Water pressure measurement counter,,,b509,0df100,value,,UCH,,,
 r,,,HwcUnderHundredStarts,HwcUnderHundredStarts: Hot water starts under hundred counter,,,b509,0d3100,value,,UCH,,,
 r,,,HcUnderHundredStarts,HcUnderHundredStarts: Heating starts under hundred counter,,,b509,0d3000,value,,UCH,,,
@@ -75,11 +70,7 @@ r,,,FlowTempMax,FlowTempMax: Maximum flow temperature,,,b509,0d3700,value,,D2C,,
 r,,,ReturnTempMax,ReturnTempMax: Maximum return temperature,,,b509,0dbe00,value,,D2C,,°C,temperature
 r,,,ModulationTempDesired,ModulationTempDesired: Desired modulation temperature,,,b509,0d2e00,value,,D2C,,°C,temperature
 r,,,PumpPower,PumpPower: Pump power value,,,b509,0d7300,value,,UCH,,,
-r,,,PumpPowerDesired,PumpPowerDesired1: With UCH,,,b509,0da100,,,UCH,,%,
-#r,,,PumpPowerDesired,PumpPowerDesired2: With HEX,,,b509,0da100,,,HEX:3,,,
-#r,,,PumpPowerDesired,PumpPowerDesired3: With U1L,,,b509,0da100,,,U1L,,%,
-#r,,,PumpPowerDesired,PumpPowerDesired4: With data parts,,,b509,0da100,first,,UCH,,,second,,UCH,,,third,,UCH,,,
-#r,,,PumpPowerDesired,PumpPowerDesired5: Just 00 byte,,,b509,0da102,,,UCH,,%,
+r,,,PumpPowerDesired,PumpPowerDesired: Desired pump power,,,a100,,value,,UCH,,%,
 r,,,HwcWaterflow,HwcWaterflow: Hot water flow rate,,,b509,0d5500,value,,UIN,100,,
 r,,,HwcWaterflowMax,HwcWaterflowMax: Maximum hot water flow rate,,,b509,0d5600,value,,UIN,100,,
 r,,,HwcImpellorSwitch,HwcImpellorSwitch: Hot water impellor switch,,,b509,0d5700,value,,UCH,0=no;1=yes,,
