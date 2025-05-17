@@ -8,7 +8,7 @@ DOCKER_COMPOSE = docker compose
 TARGET_DIR = ebusd-2.1.x/en/vaillant
 OUTPUT_DIR = outcsv/@ebusd/ebus-typespec/vaillant/
 
-.PHONY: up sh compile clean-output all down
+.PHONY: up bash compile clean-output all down
 
 # Start Docker containers
 up:
@@ -16,9 +16,9 @@ up:
 	$(DOCKER_COMPOSE) up -d
 
 # Execute shell in npm container
-sh:
+bash:
 	@echo "Opening shell in npm container"
-	$(DOCKER_COMPOSE) exec -it $(NPM_CONTAINER) /bin/sh
+	$(DOCKER_COMPOSE) exec -it $(NPM_CONTAINER) /bin/bash
 
 # Compile TypeScript file and copy result to target directory
 compile:
@@ -31,7 +31,7 @@ clean-output:
 	rm -f $(OUTPUT_FILE)
 
 # Run all steps
-all: docker-up compile clean-output
+all: up compile clean-output
 	@echo "All tasks completed"
 
 # Clean up
