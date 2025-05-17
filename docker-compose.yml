@@ -8,8 +8,7 @@ services:
       sh -c "git config --global credential.helper store &&
             git config --global user.name ${GITHUB_USER} &&
             touch /root/.git-credentials &&
-            echo 'https://${GITHUB_TOKEN}:x-oauth-basic@github.com' >> /root/.git-credentials &&
-            npm install -g github:john30/ebus-typespec"
+            echo 'https://${GITHUB_TOKEN}:x-oauth-basic@github.com' >> /root/.git-credentials
     environment:
       - NODE_ENV=development
     tty: true
