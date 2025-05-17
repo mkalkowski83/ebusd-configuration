@@ -2,7 +2,7 @@
 
 # Docker container names
 NPM_CONTAINER = npm
-DOCKER_COMPOSE = docker-compose
+DOCKER_COMPOSE = docker compose
 
 # Paths
 TARGET_DIR = ebusd-2.1.x/en/vaillant
@@ -13,12 +13,12 @@ OUTPUT_DIR = outcsv/@ebusd/ebus-typespec/vaillant/
 # Start Docker containers
 docker-up:
 	@echo "Starting Docker containers with GitHub credentials..."
-	$(DOCKER_COMPOSE) up -d -e GITHUB_USER=$(GITHUB_ACTOR) -e GITHUB_TOKEN=$(GITHUB_TOKEN)
+	$(DOCKER_COMPOSE) up -d
 
 # Execute shell in npm container
 docker-exec:
 	@echo "Opening shell in npm container with GitHub credentials..."
-	$(DOCKER_COMPOSE) exec -it -e GITHUB_USER=$(GITHUB_ACTOR) -e GITHUB_TOKEN=$(GITHUB_TOKEN) $(NPM_CONTAINER) /bin/sh
+	$(DOCKER_COMPOSE) exec -it $(NPM_CONTAINER) /bin/sh
 
 # Compile TypeScript file and copy result to target directory
 compile:
