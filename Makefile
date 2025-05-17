@@ -13,7 +13,7 @@ OUTPUT_DIR = outcsv/@ebusd/ebus-typespec/vaillant/
 # Start Docker containers
 up:
 	@echo "Starting Docker containers"
-	$(DOCKER_COMPOSE) up
+	$(DOCKER_COMPOSE) up -d
 
 # Execute shell in npm container
 sh:
