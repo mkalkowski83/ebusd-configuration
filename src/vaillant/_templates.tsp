@@ -193,6 +193,7 @@ model tempsensor {
   sensor: sensor;
 }
 
+@unit("°C")
 scalar tempmirror extends UIN;
 
 model tempmirrorsensor {
@@ -432,8 +433,9 @@ model slotTimeFrame {
   htm_1: HTM;
 }
 
-/** Temperature stored in the slot. Degrees Celsius */
+/** Temperature stored in the slot. */
 @divisor(10)
+@unit("°C")
 scalar slotTemp extends UIN;
 
 /** Complete Slot for writing the time table settings. */
@@ -541,6 +543,7 @@ enum Values_mixer {
 enum Values_daynight {
   night: 0,
   day: 1,
+  load: 4,
   floorpaving: 7,
 }
 
