@@ -137,7 +137,6 @@ namespace Bai._0010002315_inc {
   @ext(0x6, 0)
   model SMGVCurrent {
     /** current for the gasvalve */
-    @unit("ADC")
     value: UIN;
   }
 
@@ -156,7 +155,7 @@ namespace Bai._0010002315_inc {
   /** Modulationsetpoint_DK */
   @inherit(r)
   @ext(0x2e, 0)
-  model ModulationTempDesired {
+  model ModulationDesired {
     /** Modulation set point */
     @unit("%")
     @divisor(10)
@@ -591,7 +590,6 @@ namespace Bai._0010002315_inc {
   @ext(0xf4, 0)
   model PrVortexFlowSensorValue {
     /** Predictive Maintenance data */
-    @unit("ADC")
     value: SIN;
   }
 
