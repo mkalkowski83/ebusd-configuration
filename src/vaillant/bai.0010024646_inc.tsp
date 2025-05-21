@@ -2,6 +2,8 @@ import "@ebusd/ebus-typespec";
 import "./_templates.tsp";
 import "./errors_inc.tsp";
 import "./service_inc.tsp";
+import "./hwcmode_inc.tsp";
+
 using Ebus;
 using Ebus.Num;
 using Ebus.Dtm;
@@ -157,6 +159,7 @@ namespace Bai._0010024646_inc {
   union _includes {
     Errors_inc,
     Service_inc,
+    Hwcmode_inc,
   }
 }
 
