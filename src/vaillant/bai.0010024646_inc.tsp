@@ -930,12 +930,8 @@ namespace Bai._0010024646_inc {
   model Status16 {
     value: temp;
   }
+
   // HC operation mode2
-
-  /** default *r */
-  @base(MF, 0x11)
-  model r_1 {}
-
   /** default *uw */
   @write
   @passive
