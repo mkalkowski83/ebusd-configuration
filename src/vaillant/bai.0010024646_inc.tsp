@@ -189,6 +189,14 @@ namespace Bai._0010024646_inc {
   @ext(0xea, 0x3)
   model HwcTempDesired is ReadonlyRegister<temp>;
 
+  @inherit(r)
+  @ext(0x0d, 0xea, 0x03)
+  model HwcTempDesiredAlt {
+    /** d.06 DHW setpoint: Hot water temperature target value */
+    @unit("°C")
+    value: UCH;
+  }
+
   /** d.07 Storage setpoint: Warm start temperature value (combination boiler plus only), Storage temperature target value (system boiler only) */
   @ext(0x4, 0)
   model StorageTempDesired is ReadonlyRegister<temp>;
