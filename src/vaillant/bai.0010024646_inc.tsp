@@ -923,14 +923,6 @@ namespace Bai._0010024646_inc {
   @ext(0xfa, 0)
   model PrEnergyCountHc3 is InstallRegister<ULG>;
 
-
-  /** outside temperature */
-  @inherit(rm)
-  @ext(0x16)
-  model Status16 {
-    value: temp;
-  }
-
   // HC operation mode2
   /** default *uw */
   @write
