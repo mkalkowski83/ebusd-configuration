@@ -3659,3 +3659,4 @@ zone 2 label (second part): zone 2 label (second part)
 zone name: zone name
 'ZustandOAWLogic: Output of "OAW_control" statemachine': 'ZustandOAWLogic: Output of "OAW_control" statemachine'
 ZweipunktAnalogSlct: ZweipunktAnalogSlct
+'ElectricalHeatingSystem': "Całkowite zużycie energii elektrycznej dla ogrzewania (Wh)"
