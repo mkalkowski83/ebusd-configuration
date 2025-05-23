@@ -957,27 +957,6 @@ namespace Bai._0010024646_inc {
 //   }
   // potential last byte: currentmode,s,UCH,0=off;1=standby;2=heat;3=water
 
-  @inherit(r_1)
-  @ext(0x2)
-  model Status02 {
-    hwcmode: hwcmode;
-    temp: temp0;
-    temp_1: temp1;
-    temp_2: temp0;
-    temp_3: temp1;
-  }
-
-  /** Status */
-  @inherit(r_1)
-  @ext(0x3)
-  model Status {
-    temp: temp;
-    press: press;
-    press_1: press;
-    hcmode: hcmode2;
-    hex: HEX;
-  }
-
   /** default *uw */
   @write
   @passive
