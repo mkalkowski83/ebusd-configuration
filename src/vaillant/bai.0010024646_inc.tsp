@@ -957,19 +957,6 @@ namespace Bai._0010024646_inc {
 //   }
   // potential last byte: currentmode,s,UCH,0=off;1=standby;2=heat;3=water
 
-  /** Vorlauftemperatur/Rücklauftemperatur/Aussentemperatur/WW Temperatur/Speichertemperatur/Pumpenstatus */
-  @inherit(r_1)
-  @ext(1)
-  model Status01 {
-    temp: temp1;
-    temp_1: temp1;
-    temp_2: temp2;
-    temp_3: temp1;
-    temp_4: temp1;
-    pumpstate: pumpstate;
-  }
-
-  /** Betriebsart/Maximaltemperatur/ReglerCurrentTemp/Maximaltemperatur/ReglerCurrentTemp */
   @inherit(r_1)
   @ext(0x2)
   model Status02 {
