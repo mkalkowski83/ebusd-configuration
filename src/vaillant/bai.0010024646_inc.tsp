@@ -83,18 +83,6 @@ namespace Bai._0010024646_inc {
   }
 
   @inherit(r_1)
-  @ext(0x03, 0xff, 0xff, 0x03, 0x00, 0x21, 0x30)
-  model EnergySumHc1Alt {
-    value: energye;
-  }
-
-  @inherit(r_1)
-  @ext(0x04, 0x04, 0x21, 0x32)
-  model EnergySumHc1_v2 {
-    value: energye;
-  }
-
-  @inherit(r_1)
   @ext(0x10, 0x00, 0xff, 0xff, 0x03, 0x03, 0x21, 0x30)
   model EnergyCountHc1 {
     value: energye;
@@ -862,30 +850,6 @@ namespace Bai._0010024646_inc {
   @ext(0xc4, 0)
   model SHEMaxDeltaHwcFlow is ReadonlyRegister<temp>;
 
-  /** PrEnergySumDHW1_DK: Predictive Maintenance data */
-  @ext(0xc5, 0)
-  model PrEnergySumHwc1 is InstallRegister<ULG>;
-
-  /** PrEnergyCountDHW1_DK: Predictive Maintenance data */
-  @ext(0xc6, 0)
-  model PrEnergyCountHwc1 is InstallRegister<ULG>;
-
-  /** PrEnergySumDHW2_DK: Predictive Maintenance data */
-  @ext(0xc7, 0)
-  model PrEnergySumHwc2 is InstallRegister<ULG>;
-
-  /** PrEnergyCountDHW2_DK: Predictive Maintenance data */
-  @ext(0xc8, 0)
-  model PrEnergyCountHwc2 is InstallRegister<ULG>;
-
-  /** PrEnergySumDHW3_DK: Predictive Maintenance data */
-  @ext(0xc9, 0)
-  model PrEnergySumHwc3 is InstallRegister<ULG>;
-
-  /** PrEnergyCountDHW3_DK: Predictive Maintenance data */
-  @ext(0xca, 0)
-  model PrEnergyCountHwc3 is InstallRegister<ULG>;
-
   /** MaxWaterFlowCH_DK: Predictive Maintenance data */
   @ext(0xd0, 0)
   model WaterHcFlowMax is ReadonlyRegister<UIN>;
@@ -906,13 +870,6 @@ namespace Bai._0010024646_inc {
   @ext(0xf3, 0)
   model PrAPSSum is ReadonlyRegister<seconds2>;
 
-  /** PrVortexFlowSensorValue_DK */
-  @inherit(r)
-  @ext(0xf4, 0)
-  model PrVortexFlowSensorValue {
-    /** Predictive Maintenance data */
-    value: SIN;
-  }
   // HC operation mode2
   /** default *uw */
   @write

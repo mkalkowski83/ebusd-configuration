@@ -24,6 +24,19 @@ if [ ! -s "$TEMP_FILE" ]; then
     exit 1
 fi
 
+# Process the file to extract just the register names
+PROCESSED_FILE=$(mktemp)
+while read -r line; do
+    # Extract the register name (second field) from format like "bai EnvironmentalSumSystem = 0.0"
+    register_name=$(echo "$line" | awk '{print $2}')
+    if [ -n "$register_name" ]; then
+        echo "$register_name" >> "$PROCESSED_FILE"
+    fi
+done < "$TEMP_FILE"
+
+# Replace the original file with the processed one
+mv "$PROCESSED_FILE" "$TEMP_FILE"
+
 # Count total registers
 TOTAL_REGISTERS=$(wc -l < "$TEMP_FILE")
 echo "Found $TOTAL_REGISTERS registers"
@@ -34,13 +47,14 @@ COUNTER=0
 while read -r register; do
     COUNTER=$((COUNTER + 1))
     echo "[$COUNTER/$TOTAL_REGISTERS] Reading: $register"
-    ebusctl -p $PORT read "$register"
+    echo ebusctl -p "$PORT" read "$register"
+    ebusctl -p "$PORT" read "$register"
     echo "----------------------------------------"
     # Optional: Add a small delay to prevent overwhelming ebusd
     sleep 0.1
 done < "$TEMP_FILE"
 
 # Clean up
-rm "$TEMP_FILE"
+#rm "$TEMP_FILE"
 
 echo "All registers read successfully"
