@@ -25,9 +25,11 @@ compile:
 	@echo "Compiling TypeScript file..."
 	$(DOCKER_COMPOSE) exec $(NPM_CONTAINER) npm run compile
 
+
 compile-pl:
 	@echo "Compiling TypeScript file..."
 	$(DOCKER_COMPOSE) exec $(NPM_CONTAINER) npm run compile-pl
+
 
 clean-output:
 	@echo "Cleaning up output files..."
@@ -36,6 +38,12 @@ clean-output:
 # Run all steps
 all: up compile clean-output
 	@echo "All tasks completed"
+
+restart-daemon:
+	@echo "Running restarting ebusd darmon..."
+	systemctl restart ebusd
+
+compile-restart: compile restart-daemon
 
 # Clean up
 down:
