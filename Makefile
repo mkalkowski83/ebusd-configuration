@@ -40,7 +40,7 @@ all: up compile clean-output
 	@echo "All tasks completed"
 
 restart-daemon:
-	@echo "Running restarting ebusd darmon..."
+	@echo "Running restarting ebusd daemon..."
 	systemctl restart ebusd
 
 compile-restart: compile restart-daemon
