@@ -17,64 +17,50 @@ namespace Bai._0010024646_inc {
     @unit("Wh")
     energye: EXP;
   }
+  enum Values_StatusCirPump {
+      off: 0,
+      on: 100,
+  }
+
+  enum Values_PumpPowerDesired {
+    auto: 0,
+    _53: 1,
+    _60: 2,
+    _70: 3,
+    _85: 4,
+    _100: 5,
+  }
+
+  enum Values_HcPumpMode {
+    post_run: 0,
+    permanent: 1,
+    winter: 2,
+  }
+
+  enum Values_AccessoriesOne {
+    circulationpump: 1,
+    extheatingpump: 2,
+    storagechargingpump: 3,
+    fluegasflapextractorhood: 4,
+    externalgasvalve: 5,
+    externalerrormessage: 6,
+    solarpump: 7,
+    remotecontrol: 8,
+  }
+
+  enum Values_AccessoriesTwo {
+    circulationpump: 1,
+    extheatingpump: 2,
+    storagechargingpump: 3,
+    fluegasflapextractorhood: 4,
+    externalgasvalve: 5,
+    externalerrormessage: 6,
+    solarpump: 7,
+    remotecontrol: 8,
+  }
 
   @base(MF, 0x16, 0x10)
   model r_1 {}
-
-  @inherit(r_1)
-  @ext(0x00, 0xff, 0xff, 0x02, 0x00, 0x00, 0x30)
-  model EnvironmentalSumSystem {
-    value: energye;
-  }
-
-  @inherit(r_1)
-  @ext(0x00, 0xff, 0xff, 0x02, 0x03, 0x00, 0x30)
-  model EnvironmentalHeatingSystem {
-    value: energye;
-  }
-
-  @inherit(r_1)
-  @ext(0x00, 0xff, 0xff, 0x02, 0x04, 0x00, 0x30)
-  model EnvironmentalHotWaterSystem {
-    value: energye;
-  }
-
-  @inherit(r_1)
-  @ext(0x00, 0xff, 0xff, 0x03, 0x00, 0x00, 0x30)
-  model ElectricalSumSystem {
-    //Total electricity consumption for heating (Wh)
-    value: energye;
-  }
-
-  @inherit(r_1)
-  @ext(0x00, 0xff, 0xff, 0x03, 0x03, 0x00, 0x30)
-  model ElectricalHeatingSystem {
-    value: energye;
-  }
-
-  @inherit(r_1)
-  @ext(0x00, 0xff, 0xff, 0x03, 0x04, 0x00, 0x30)
-  model ElectricalHotWaterSystem {
-    value: energye;
-  }
-
-  @inherit(r_1)
-  @ext(0x00, 0xff, 0xff, 0x04, 0x00, 0x00, 0x30)
-  model FuelSumSystem {
-    value: energye;
-  }
-
-  @inherit(r_1)
-  @ext(0x00, 0xff, 0xff, 0x04, 0x03, 0x00, 0x30)
-  model FuelHeatingSystem {
-    value: energye;
-  }
-
-  @inherit(r_1)
-  @ext(0x00, 0xff, 0xff, 0x04, 0x04, 0x00, 0x30)
-  model FuelHotWaterSystem {
-    value: energye;
-  }
 
   @inherit(r_1)
   @ext(0x00, 0xff, 0xff, 0x04, 0x03, 0x21, 0x30)
@@ -83,67 +69,73 @@ namespace Bai._0010024646_inc {
   }
 
   @inherit(r_1)
-  @ext(0x10, 0x00, 0xff, 0xff, 0x03, 0x03, 0x21, 0x30)
+  @ext(0x03, 0xff, 0xff, 0x03, 0x00, 0x21, 0x30)
+  model EnergySumHc1Alt {
+    value: energye;
+  }
+
+  @inherit(r_1)
+  @ext(0x00, 0xff, 0xff, 0x03, 0x03, 0x21, 0x30)
   model EnergyCountHc1 {
     value: energye;
   }
 
   @inherit(r_1)
-  @ext(0x10, 0x00, 0xff, 0xff, 0x04, 0x03, 0x22, 0x30)
+  @ext(0x00, 0xff, 0xff, 0x04, 0x03, 0x22, 0x30)
   model EnergySumHc2 {
     value: energye;
   }
 
   @inherit(r_1)
-  @ext(0x10, 0x00, 0xff, 0xff, 0x03, 0x03, 0x22, 0x30)
+  @ext(0x00, 0xff, 0xff, 0x03, 0x03, 0x22, 0x30)
   model EnergyCountHc2 {
     value: energye;
   }
 
   @inherit(r_1)
-  @ext(0x10, 0x00, 0xff, 0xff, 0x04, 0x03, 0x23, 0x30)
+  @ext(0x00, 0xff, 0xff, 0x04, 0x03, 0x23, 0x30)
   model EnergySumHc3 {
     value: energye;
   }
 
   @inherit(r_1)
-  @ext(0x10, 0x00, 0xff, 0xff, 0x03, 0x03, 0x23, 0x30)
+  @ext(0x00, 0xff, 0xff, 0x03, 0x03, 0x23, 0x30)
   model EnergyCountHc3 {
     value: energye;
   }
 
   @inherit(r_1)
-  @ext(0x10, 0x00, 0xff, 0xff, 0x04, 0x04, 0x21, 0x30)
+  @ext(0x00, 0xff, 0xff, 0x04, 0x04, 0x21, 0x30)
   model EnergySumHwc1 {
     value: energye;
   }
 
   @inherit(r_1)
-  @ext(0x10, 0x00, 0xff, 0xff, 0x03, 0x04, 0x21, 0x30)
+  @ext(0x00, 0xff, 0xff, 0x03, 0x04, 0x21, 0x30)
   model EnergyCountHwc1 {
     value: energye;
   }
 
   @inherit(r_1)
-  @ext(0x10, 0x00, 0xff, 0xff, 0x04, 0x04, 0x22, 0x30)
+  @ext(0x00, 0xff, 0xff, 0x04, 0x04, 0x22, 0x30)
   model EnergySumHwc2 {
     value: energye;
   }
 
   @inherit(r_1)
-  @ext(0x10, 0x00, 0xff, 0xff, 0x03, 0x04, 0x22, 0x30)
+  @ext(0x00, 0xff, 0xff, 0x03, 0x04, 0x22, 0x30)
   model EnergyCountHwc2 {
     value: energye;
   }
 
   @inherit(r_1)
-  @ext(0x10, 0x00, 0xff, 0xff, 0x04, 0x04, 0x23, 0x30)
+  @ext(0x00, 0xff, 0xff, 0x04, 0x04, 0x23, 0x30)
   model EnergySumHwc3 {
     value: energye;
   }
 
   @inherit(r_1)
-  @ext(0x10, 0x00, 0xff, 0xff, 0x03, 0x04, 0x23, 0x30)
+  @ext(0x00, 0xff, 0xff, 0x03, 0x04, 0x23, 0x30)
   model EnergyCountHwc3 {
     value: energye;
   }
@@ -156,7 +148,8 @@ namespace Bai._0010024646_inc {
     @unit("rpm")
     value: UIN;
   }
-/** d.00 heating partload: Heating part load */
+
+  /** d.00 heating partload: Heating part load */
   @ext(0x7, 0x4)
   model PartloadHcKW is InstallRegister<power>;
 
@@ -850,6 +843,30 @@ namespace Bai._0010024646_inc {
   @ext(0xc4, 0)
   model SHEMaxDeltaHwcFlow is ReadonlyRegister<temp>;
 
+  /** PrEnergySumDHW1_DK: Predictive Maintenance data */
+  @ext(0xc5, 0)
+  model PrEnergySumHwc1 is InstallRegister<ULG>;
+
+  /** PrEnergyCountDHW1_DK: Predictive Maintenance data */
+  @ext(0xc6, 0)
+  model PrEnergyCountHwc1 is InstallRegister<ULG>;
+
+  /** PrEnergySumDHW2_DK: Predictive Maintenance data */
+  @ext(0xc7, 0)
+  model PrEnergySumHwc2 is InstallRegister<ULG>;
+
+  /** PrEnergyCountDHW2_DK: Predictive Maintenance data */
+  @ext(0xc8, 0)
+  model PrEnergyCountHwc2 is InstallRegister<ULG>;
+
+  /** PrEnergySumDHW3_DK: Predictive Maintenance data */
+  @ext(0xc9, 0)
+  model PrEnergySumHwc3 is InstallRegister<ULG>;
+
+  /** PrEnergyCountDHW3_DK: Predictive Maintenance data */
+  @ext(0xca, 0)
+  model PrEnergyCountHwc3 is InstallRegister<ULG>;
+
   /** MaxWaterFlowCH_DK: Predictive Maintenance data */
   @ext(0xd0, 0)
   model WaterHcFlowMax is ReadonlyRegister<UIN>;
@@ -870,6 +887,38 @@ namespace Bai._0010024646_inc {
   @ext(0xf3, 0)
   model PrAPSSum is ReadonlyRegister<seconds2>;
 
+  /** PrVortexFlowSensorValue_DK */
+  @inherit(r)
+  @ext(0xf4, 0)
+  model PrVortexFlowSensorValue {
+    /** Predictive Maintenance data */
+    value: SIN;
+  }
+
+  /** PrEnergySumCH1_DK: Predictive Maintenance data */
+  @ext(0xf5, 0)
+  model PrEnergySumHc1 is InstallRegister<ULG>;
+
+  /** PrEnergyCountCH1_DK: Predictive Maintenance data */
+  @ext(0xf6, 0)
+  model PrEnergyCountHc1 is InstallRegister<ULG>;
+
+  /** PrEnergySumCH2_DK: Predictive Maintenance data */
+  @ext(0xf7, 0)
+  model PrEnergySumHc2 is InstallRegister<ULG>;
+
+  /** PrEnergyCountCH2_DK: Predictive Maintenance data */
+  @ext(0xf8, 0)
+  model PrEnergyCountHc2 is InstallRegister<ULG>;
+
+  /** PrEnergySumCH3_DK: Predictive Maintenance data */
+  @ext(0xf9, 0)
+  model PrEnergySumHc3 is InstallRegister<ULG>;
+
+  /** PrEnergyCountCH3_DK: Predictive Maintenance data */
+  @ext(0xfa, 0)
+  model PrEnergyCountHc3 is InstallRegister<ULG>;
+
   // HC operation mode2
   /** default *uw */
   @write
@@ -883,52 +932,427 @@ namespace Bai._0010024646_inc {
   @base(MF, 0x10)
   model wi_1 {}
 
+//   /** Operation mode */
+//   @inherit(uw, wi_1)
+//   @ext(0)
+//   model SetMode {
+//     hcmode: hcmode;
+//     flowtempdesired: temp1;
+//     hwctempdesired: temp1;
+//     hwcflowtempdesired: temp0;
+//
+//     @maxLength(1)
+//     ign: IGN;
+//
+//     disablehc: BI0;
+//     disablehwctapping: BI1;
+//     disablehwcload: BI2;
+//
+//     @maxLength(1)
+//     ign_1: IGN;
+//
+//     remoteControlHcPump: BI0;
+//     releaseBackup: BI1;
+//     releaseCooling: BI2;
+//   }
+  // potential last byte: currentmode,s,UCH,0=off;1=standby;2=heat;3=water
+
+  /** Vorlauftemperatur/Rücklauftemperatur/Aussentemperatur/WW Temperatur/Speichertemperatur/Pumpenstatus */
+  @inherit(r_1)
+  @ext(1)
+  model Status01 {
+    temp: temp1;
+    temp_1: temp1;
+    temp_2: temp2;
+    temp_3: temp1;
+    temp_4: temp1;
+    pumpstate: pumpstate;
+  }
+
+  /** Betriebsart/Maximaltemperatur/ReglerCurrentTemp/Maximaltemperatur/ReglerCurrentTemp */
+  @inherit(r_1)
+  @ext(0x2)
+  model Status02 {
+    hwcmode: hwcmode;
+    temp: temp0;
+    temp_1: temp1;
+    temp_2: temp0;
+    temp_3: temp1;
+  }
+
+  /** Status */
+  @inherit(r_1)
+  @ext(0x3)
+  model Status {
+    temp: temp;
+    press: press;
+    press_1: press;
+    hcmode: hcmode2;
+    hex: HEX;
+  }
+
   /** default *uw */
   @write
   @passive
   @base(MF, 0x12)
   model uw_1 {}
 
-  enum Values_StatusCirPump {
-    off: 0,
-    on: 100,
+  /** Status circulation pump */
+  @inherit(uw_1)
+  @ext(0)
+  model StatusCirPump {
+    @values(Values_StatusCirPump)
+    value: UCH;
   }
-  
-  enum Values_PumpPowerDesired {
-    auto: 0,
-    _53: 1,
-    _60: 2,
-    _70: 3,
-    _85: 4,
-    _100: 5,
+  // Energy values models based on the algorithm
+  // X (period): 0=All, 1=Day, 2=Month, 3=Year
+  // Y (source): 1=Solar, 2=Environmental, 3=Electricity, 4=Gas, 9=unidentified heat pump-related
+  // Z (usage): 0=All, 3=Heating, 4=Hot water, 5=Cooling
+
+  // Period: All time (X=0)
+  @inherit(r_1)
+  @ext(0x00, 0xff, 0xff, 0x01, 0x00, 0x00, 0x30)
+  model EnergySolarAllTotal {
+    value: energye;
   }
 
-  enum Values_HcPumpMode {
-    post_run: 0,
-    permanent: 1,
-    winter: 2,
+  @inherit(r_1)
+  @ext(0x00, 0xff, 0xff, 0x01, 0x03, 0x00, 0x30)
+  model EnergySolarAllHeating {
+    value: energye;
   }
 
-  enum Values_AccessoriesOne {
-    circulationpump: 1,
-    extheatingpump: 2,
-    storagechargingpump: 3,
-    fluegasflapextractorhood: 4,
-    externalgasvalve: 5,
-    externalerrormessage: 6,
-    solarpump: 7,
-    remotecontrol: 8,
+  @inherit(r_1)
+  @ext(0x00, 0xff, 0xff, 0x01, 0x04, 0x00, 0x30)
+  model EnergySolarAllHotWater {
+    value: energye;
   }
 
-  enum Values_AccessoriesTwo {
-    circulationpump: 1,
-    extheatingpump: 2,
-    storagechargingpump: 3,
-    fluegasflapextractorhood: 4,
-    externalgasvalve: 5,
-    externalerrormessage: 6,
-    solarpump: 7,
-    remotecontrol: 8,
+  @inherit(r_1)
+  @ext(0x00, 0xff, 0xff, 0x01, 0x05, 0x00, 0x30)
+  model EnergySolarAllCooling {
+    value: energye;
+  }
+
+  @inherit(r_1)
+  @ext(0x00, 0xff, 0xff, 0x02, 0x00, 0x00, 0x30)
+  model EnergyEnvironmentalAllTotal {
+    value: energye;
+  }
+
+  @inherit(r_1)
+  @ext(0x00, 0xff, 0xff, 0x02, 0x03, 0x00, 0x30)
+  model EnergyEnvironmentalAllHeating {
+    value: energye;
+  }
+
+  @inherit(r_1)
+  @ext(0x00, 0xff, 0xff, 0x02, 0x04, 0x00, 0x30)
+  model EnergyEnvironmentalAllHotWater {
+    value: energye;
+  }
+
+  @inherit(r_1)
+  @ext(0x00, 0xff, 0xff, 0x02, 0x05, 0x00, 0x30)
+  model EnergyEnvironmentalAllCooling {
+    value: energye;
+  }
+
+  @inherit(r_1)
+  @ext(0x00, 0xff, 0xff, 0x03, 0x00, 0x00, 0x30)
+  model EnergyElectricalAllTotal {
+    value: energye;
+  }
+
+  @inherit(r_1)
+  @ext(0x00, 0xff, 0xff, 0x03, 0x03, 0x00, 0x30)
+  model EnergyElectricalAllHeating {
+    value: energye;
+  }
+
+  @inherit(r_1)
+  @ext(0x00, 0xff, 0xff, 0x03, 0x04, 0x00, 0x30)
+  model EnergyElectricalAllHotWater {
+    value: energye;
+  }
+
+  @inherit(r_1)
+  @ext(0x00, 0xff, 0xff, 0x03, 0x05, 0x00, 0x30)
+  model EnergyElectricalAllCooling {
+    value: energye;
+  }
+
+  @inherit(r_1)
+  @ext(0x00, 0xff, 0xff, 0x04, 0x00, 0x00, 0x30)
+  model EnergyGasAllTotal {
+    value: energye;
+  }
+
+  @inherit(r_1)
+  @ext(0x00, 0xff, 0xff, 0x04, 0x03, 0x00, 0x30)
+  model EnergyGasAllHeating {
+    value: energye;
+  }
+
+  @inherit(r_1)
+  @ext(0x00, 0xff, 0xff, 0x04, 0x04, 0x00, 0x30)
+  model EnergyGasAllHotWater {
+    value: energye;
+  }
+
+  @inherit(r_1)
+  @ext(0x00, 0xff, 0xff, 0x04, 0x05, 0x00, 0x30)
+  model EnergyGasAllCooling {
+    value: energye;
+  }
+
+  @inherit(r_1)
+  @ext(0x00, 0xff, 0xff, 0x09, 0x00, 0x00, 0x30)
+  model EnergyHeatPumpAllTotal {
+    value: energye;
+  }
+
+  @inherit(r_1)
+  @ext(0x00, 0xff, 0xff, 0x09, 0x03, 0x00, 0x30)
+  model EnergyHeatPumpAllHeating {
+    value: energye;
+  }
+
+  @inherit(r_1)
+  @ext(0x00, 0xff, 0xff, 0x09, 0x04, 0x00, 0x30)
+  model EnergyHeatPumpAllHotWater {
+    value: energye;
+  }
+
+  @inherit(r_1)
+  @ext(0x00, 0xff, 0xff, 0x09, 0x05, 0x00, 0x30)
+  model EnergyHeatPumpAllCooling {
+    value: energye;
+  }
+
+  // Period: Year (X=3)
+  // Current Year (Q=2)
+  @inherit(r_1)
+  @ext(0x03, 0xff, 0xff, 0x01, 0x00, 0x00, 0x32)
+  model EnergySolarCurrentYearTotal {
+    value: energye;
+  }
+
+  @inherit(r_1)
+  @ext(0x03, 0xff, 0xff, 0x01, 0x03, 0x00, 0x32)
+  model EnergySolarCurrentYearHeating {
+    value: energye;
+  }
+
+  @inherit(r_1)
+  @ext(0x03, 0xff, 0xff, 0x01, 0x04, 0x00, 0x32)
+  model EnergySolarCurrentYearHotWater {
+    value: energye;
+  }
+
+  @inherit(r_1)
+  @ext(0x03, 0xff, 0xff, 0x01, 0x05, 0x00, 0x32)
+  model EnergySolarCurrentYearCooling {
+    value: energye;
+  }
+
+  @inherit(r_1)
+  @ext(0x03, 0xff, 0xff, 0x02, 0x00, 0x00, 0x32)
+  model EnergyEnvironmentalCurrentYearTotal {
+    value: energye;
+  }
+
+  @inherit(r_1)
+  @ext(0x03, 0xff, 0xff, 0x02, 0x03, 0x00, 0x32)
+  model EnergyEnvironmentalCurrentYearHeating {
+    value: energye;
+  }
+
+  @inherit(r_1)
+  @ext(0x03, 0xff, 0xff, 0x02, 0x04, 0x00, 0x32)
+  model EnergyEnvironmentalCurrentYearHotWater {
+    value: energye;
+  }
+
+  @inherit(r_1)
+  @ext(0x03, 0xff, 0xff, 0x02, 0x05, 0x00, 0x32)
+  model EnergyEnvironmentalCurrentYearCooling {
+    value: energye;
+  }
+
+  @inherit(r_1)
+  @ext(0x03, 0xff, 0xff, 0x03, 0x00, 0x00, 0x32)
+  model EnergyElectricalCurrentYearTotal {
+    value: energye;
+  }
+
+  @inherit(r_1)
+  @ext(0x03, 0xff, 0xff, 0x03, 0x03, 0x00, 0x32)
+  model EnergyElectricalCurrentYearHeating {
+    value: energye;
+  }
+
+  @inherit(r_1)
+  @ext(0x03, 0xff, 0xff, 0x03, 0x04, 0x00, 0x32)
+  model EnergyElectricalCurrentYearHotWater {
+    value: energye;
+  }
+
+  @inherit(r_1)
+  @ext(0x03, 0xff, 0xff, 0x03, 0x05, 0x00, 0x32)
+  model EnergyElectricalCurrentYearCooling {
+    value: energye;
+  }
+
+  @inherit(r_1)
+  @ext(0x03, 0xff, 0xff, 0x04, 0x00, 0x00, 0x32)
+  model EnergyGasCurrentYearTotal {
+    value: energye;
+  }
+
+  @inherit(r_1)
+  @ext(0x03, 0xff, 0xff, 0x04, 0x03, 0x00, 0x32)
+  model EnergyGasCurrentYearHeating {
+    value: energye;
+  }
+
+  @inherit(r_1)
+  @ext(0x03, 0xff, 0xff, 0x04, 0x04, 0x00, 0x32)
+  model EnergyGasCurrentYearHotWater {
+    value: energye;
+  }
+
+  @inherit(r_1)
+  @ext(0x03, 0xff, 0xff, 0x04, 0x05, 0x00, 0x32)
+  model EnergyGasCurrentYearCooling {
+    value: energye;
+  }
+
+  // Previous Year (Q=0)
+  @inherit(r_1)
+  @ext(0x03, 0xff, 0xff, 0x01, 0x00, 0x00, 0x30)
+  model EnergySolarPreviousYearTotal {
+    value: energye;
+  }
+
+  @inherit(r_1)
+  @ext(0x03, 0xff, 0xff, 0x01, 0x03, 0x00, 0x30)
+  model EnergySolarPreviousYearHeating {
+    value: energye;
+  }
+
+  @inherit(r_1)
+  @ext(0x03, 0xff, 0xff, 0x01, 0x04, 0x00, 0x30)
+  model EnergySolarPreviousYearHotWater {
+    value: energye;
+  }
+
+  @inherit(r_1)
+  @ext(0x03, 0xff, 0xff, 0x01, 0x05, 0x00, 0x30)
+  model EnergySolarPreviousYearCooling {
+    value: energye;
+  }
+
+  @inherit(r_1)
+  @ext(0x03, 0xff, 0xff, 0x02, 0x00, 0x00, 0x30)
+  model EnergyEnvironmentalPreviousYearTotal {
+    value: energye;
+  }
+
+  @inherit(r_1)
+  @ext(0x03, 0xff, 0xff, 0x02, 0x03, 0x00, 0x30)
+  model EnergyEnvironmentalPreviousYearHeating {
+    value: energye;
+  }
+
+  @inherit(r_1)
+  @ext(0x03, 0xff, 0xff, 0x02, 0x04, 0x00, 0x30)
+  model EnergyEnvironmentalPreviousYearHotWater {
+    value: energye;
+  }
+
+  @inherit(r_1)
+  @ext(0x03, 0xff, 0xff, 0x02, 0x05, 0x00, 0x30)
+  model EnergyEnvironmentalPreviousYearCooling {
+    value: energye;
+  }
+
+  @inherit(r_1)
+  @ext(0x03, 0xff, 0xff, 0x03, 0x00, 0x00, 0x30)
+  model EnergyElectricalPreviousYearTotal {
+    value: energye;
+  }
+
+  @inherit(r_1)
+  @ext(0x03, 0xff, 0xff, 0x03, 0x03, 0x00, 0x30)
+  model EnergyElectricalPreviousYearHeating {
+    value: energye;
+  }
+
+  @inherit(r_1)
+  @ext(0x03, 0xff, 0xff, 0x03, 0x04, 0x00, 0x30)
+  model EnergyElectricalPreviousYearHotWater {
+    value: energye;
+  }
+
+  @inherit(r_1)
+  @ext(0x03, 0xff, 0xff, 0x03, 0x05, 0x00, 0x30)
+  model EnergyElectricalPreviousYearCooling {
+    value: energye;
+  }
+
+  @inherit(r_1)
+  @ext(0x03, 0xff, 0xff, 0x04, 0x00, 0x00, 0x30)
+  model EnergyGasPreviousYearTotal {
+    value: energye;
+  }
+
+  @inherit(r_1)
+  @ext(0x03, 0xff, 0xff, 0x04, 0x03, 0x00, 0x30)
+  model EnergyGasPreviousYearHeating {
+    value: energye;
+  }
+
+  @inherit(r_1)
+  @ext(0x03, 0xff, 0xff, 0x04, 0x04, 0x00, 0x30)
+  model EnergyGasPreviousYearHotWater {
+    value: energye;
+  }
+
+  @inherit(r_1)
+  @ext(0x03, 0xff, 0xff, 0x04, 0x05, 0x00, 0x30)
+  model EnergyGasPreviousYearCooling {
+    value: energye;
+  }
+
+  // Example models for current month (X=2) with selected combinations
+  // Current Month (January) - Current Year
+  @inherit(r_1)
+  @ext(0x02, 0xff, 0xff, 0x04, 0x04, 0x02, 0x32)
+  model EnergyGasCurrentYearJanuaryHotWater {
+    value: energye;
+  }
+
+  // Current Month (February) - Current Year
+  @inherit(r_1)
+  @ext(0x02, 0xff, 0xff, 0x04, 0x04, 0x04, 0x32)
+  model EnergyGasCurrentYearFebruaryHotWater {
+    value: energye;
+  }
+
+  // Example models for current day (X=1) with selected combinations
+  // Current Year, Current Month (January), Day 1
+  @inherit(r_1)
+  @ext(0x01, 0xff, 0xff, 0x04, 0x04, 0x02, 0x31)
+  model EnergyGasCurrentYearJanuaryDay1HotWater {
+    value: energye;
+  }
+
+  // Current Year, Current Month (January), Day 15
+  @inherit(r_1)
+  @ext(0x01, 0xff, 0xff, 0x04, 0x04, 0x0f, 0x31)
+  model EnergyGasCurrentYearJanuaryDay15HotWater {
+    value: energye;
   }
 
   /** included parts */
