@@ -955,12 +955,6 @@ namespace Bai._0010024646_inc {
   }
 
   @inherit(r_1)
-  @ext(0x00, 0xff, 0xff, 0x02, 0x05, 0x00, 0x30)
-  model EnergyEnvironmentalAllCooling {
-    value: energye;
-  }
-
-  @inherit(r_1)
   @ext(0x00, 0xff, 0xff, 0x03, 0x00, 0x00, 0x30)
   model EnergyElectricalAllTotal {
     value: energye;
