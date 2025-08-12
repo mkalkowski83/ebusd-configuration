@@ -936,31 +936,6 @@ namespace Bai._0010024646_inc {
   // Y (source): 1=Solar, 2=Environmental, 3=Electricity, 4=Gas, 9=unidentified heat pump-related
   // Z (usage): 0=All, 3=Heating, 4=Hot water, 5=Cooling
 
-  // Period: All time (X=0)
-  @inherit(r_1)
-  @ext(0x00, 0xff, 0xff, 0x01, 0x00, 0x00, 0x30)
-  model EnergySolarAllTotal {
-    value: energye;
-  }
-
-  @inherit(r_1)
-  @ext(0x00, 0xff, 0xff, 0x01, 0x03, 0x00, 0x30)
-  model EnergySolarAllHeating {
-    value: energye;
-  }
-
-  @inherit(r_1)
-  @ext(0x00, 0xff, 0xff, 0x01, 0x04, 0x00, 0x30)
-  model EnergySolarAllHotWater {
-    value: energye;
-  }
-
-  @inherit(r_1)
-  @ext(0x00, 0xff, 0xff, 0x01, 0x05, 0x00, 0x30)
-  model EnergySolarAllCooling {
-    value: energye;
-  }
-
   @inherit(r_1)
   @ext(0x00, 0xff, 0xff, 0x02, 0x00, 0x00, 0x30)
   model EnergyEnvironmentalAllTotal {
@@ -1022,12 +997,6 @@ namespace Bai._0010024646_inc {
   }
 
   @inherit(r_1)
-  @ext(0x00, 0xff, 0xff, 0x04, 0x05, 0x00, 0x30)
-  model EnergyGasAllCooling {
-    value: energye;
-  }
-
-  @inherit(r_1)
   @ext(0x00, 0xff, 0xff, 0x09, 0x00, 0x00, 0x30)
   model EnergyHeatPumpAllTotal {
     value: energye;
@@ -1064,12 +1033,6 @@ namespace Bai._0010024646_inc {
   }
 
   @inherit(r_1)
-  @ext(0x03, 0xff, 0xff, 0x03, 0x05, 0x00, 0x32)
-  model EnergyElectricalCurrentYearCooling {
-    value: energye;
-  }
-
-  @inherit(r_1)
   @ext(0x03, 0xff, 0xff, 0x04, 0x00, 0x00, 0x32)
   model EnergyGasCurrentYearTotal {
     value: energye;
@@ -1084,12 +1047,6 @@ namespace Bai._0010024646_inc {
   @inherit(r_1)
   @ext(0x03, 0xff, 0xff, 0x04, 0x04, 0x00, 0x32)
   model EnergyGasCurrentYearHotWater {
-    value: energye;
-  }
-
-  @inherit(r_1)
-  @ext(0x03, 0xff, 0xff, 0x04, 0x05, 0x00, 0x32)
-  model EnergyGasCurrentYearCooling {
     value: energye;
   }
 
@@ -1129,12 +1086,6 @@ namespace Bai._0010024646_inc {
     value: energye;
   }
 
-  @inherit(r_1)
-  @ext(0x03, 0xff, 0xff, 0x04, 0x05, 0x00, 0x30)
-  model EnergyGasPreviousYearCooling {
-    value: energye;
-  }
-
   // Example models for current month (X=2) with selected combinations
   // Current Month (January) - Current Year
   @inherit(r_1)
@@ -1147,21 +1098,6 @@ namespace Bai._0010024646_inc {
   @inherit(r_1)
   @ext(0x02, 0xff, 0xff, 0x04, 0x04, 0x04, 0x32)
   model EnergyGasCurrentYearFebruaryHotWater {
-    value: energye;
-  }
-
-  // Example models for current day (X=1) with selected combinations
-  // Current Year, Current Month (January), Day 1
-  @inherit(r_1)
-  @ext(0x01, 0xff, 0xff, 0x04, 0x04, 0x02, 0x31)
-  model EnergyGasCurrentYearJanuaryDay1HotWater {
-    value: energye;
-  }
-
-  // Current Year, Current Month (January), Day 15
-  @inherit(r_1)
-  @ext(0x01, 0xff, 0xff, 0x04, 0x04, 0x0f, 0x31)
-  model EnergyGasCurrentYearJanuaryDay15HotWater {
     value: energye;
   }
 
