@@ -69,26 +69,8 @@ namespace Bai._0010024646_inc {
   }
 
   @inherit(r_1)
-  @ext(0x03, 0xff, 0xff, 0x03, 0x00, 0x21, 0x30)
-  model EnergySumHc1Alt {
-    value: energye;
-  }
-
-  @inherit(r_1)
   @ext(0x00, 0xff, 0xff, 0x03, 0x03, 0x21, 0x30)
   model EnergyCountHc1 {
-    value: energye;
-  }
-
-  @inherit(r_1)
-  @ext(0x00, 0xff, 0xff, 0x04, 0x03, 0x22, 0x30)
-  model EnergySumHc2 {
-    value: energye;
-  }
-
-  @inherit(r_1)
-  @ext(0x00, 0xff, 0xff, 0x03, 0x03, 0x22, 0x30)
-  model EnergyCountHc2 {
     value: energye;
   }
 
@@ -99,44 +81,14 @@ namespace Bai._0010024646_inc {
   }
 
   @inherit(r_1)
-  @ext(0x00, 0xff, 0xff, 0x03, 0x03, 0x23, 0x30)
-  model EnergyCountHc3 {
-    value: energye;
-  }
-
-  @inherit(r_1)
-  @ext(0x00, 0xff, 0xff, 0x04, 0x04, 0x21, 0x30)
-  model EnergySumHwc1 {
-    value: energye;
-  }
-
-  @inherit(r_1)
   @ext(0x00, 0xff, 0xff, 0x03, 0x04, 0x21, 0x30)
   model EnergyCountHwc1 {
     value: energye;
   }
 
   @inherit(r_1)
-  @ext(0x00, 0xff, 0xff, 0x04, 0x04, 0x22, 0x30)
-  model EnergySumHwc2 {
-    value: energye;
-  }
-
-  @inherit(r_1)
-  @ext(0x00, 0xff, 0xff, 0x03, 0x04, 0x22, 0x30)
-  model EnergyCountHwc2 {
-    value: energye;
-  }
-
-  @inherit(r_1)
-  @ext(0x00, 0xff, 0xff, 0x04, 0x04, 0x23, 0x30)
-  model EnergySumHwc3 {
-    value: energye;
-  }
-
-  @inherit(r_1)
-  @ext(0x00, 0xff, 0xff, 0x03, 0x04, 0x23, 0x30)
-  model EnergyCountHwc3 {
+  @ext(0x00, 0xff, 0xff, 0x04, 0x04, 0x21, 0x30)
+  model EnergySumHwc1 {
     value: energye;
   }
 
@@ -178,7 +130,7 @@ namespace Bai._0010024646_inc {
 
   /** d.07 Storage setpoint: Warm start temperature value (combination boiler plus only), Storage temperature target value (system boiler only) */
   @ext(0x4, 0)
-  model StorageTempDesired is ReadonlyRegister<temp>;
+  model StorageTempDesired is Register<temp>;
 
   /** d.08 Room thermostat 230 V: External controls heat demand (Clamp 3-4) */
   @ext(0x2a, 0)
@@ -647,6 +599,14 @@ namespace Bai._0010024646_inc {
   @ext(0x6f, 0)
   model CounterStartattempts2 is ReadonlyRegister<temp0>;
 
+  /** CounterStartAttempts3_DK: unsuccessfull ignitions in the third attempt */
+  @ext(0x81, 0)
+  model CounterStartAttempts3 is ReadonlyRegister<temp0>;
+
+  /** CounterStartAttempts4_DK: unsuccessfull ignitions in the fourth attempt */
+  @ext(0x82, 0)
+  model CounterStartAttempts4 is ReadonlyRegister<temp0>;
+
   /** d.70 diverter valve position: Set diverter valve position 0=normal mode, 1=middle position (GB), 2=permanent CH position */
   @ext(0x2a, 0x4)
   model ValveMode is InstallRegister<UCH>;
@@ -805,14 +765,6 @@ namespace Bai._0010024646_inc {
   /** DHW Waterflow_max_DK: domestic hot water flow sensor maximum value */
   @ext(0x56, 0)
   model HwcWaterflowMax is ReadonlyRegister<uin100>;
-
-  /** CounterStartAttempts3_DK: unsuccessfull ignitions in the third attempt */
-  @ext(0x81, 0)
-  model CounterStartAttempts3 is ReadonlyRegister<temp0>;
-
-  /** CounterStartAttempts4_DK: unsuccessfull ignitions in the fourth attempt */
-  @ext(0x82, 0)
-  model CounterStartAttempts4 is ReadonlyRegister<temp0>;
 
   /** TRT_max_DK: max. return temperature */
   @ext(0xbe, 0)
@@ -1077,21 +1029,6 @@ namespace Bai._0010024646_inc {
   @inherit(r_1)
   @ext(0x03, 0xff, 0xff, 0x04, 0x04, 0x00, 0x30)
   model EnergyGasPreviousYearHotWater {
-    value: energye;
-  }
-
-  // Example models for current month (X=2) with selected combinations
-  // Current Month (January) - Current Year
-  @inherit(r_1)
-  @ext(0x02, 0xff, 0xff, 0x04, 0x04, 0x02, 0x32)
-  model EnergyGasCurrentYearJanuaryHotWater {
-    value: energye;
-  }
-
-  // Current Month (February) - Current Year
-  @inherit(r_1)
-  @ext(0x02, 0xff, 0xff, 0x04, 0x04, 0x04, 0x32)
-  model EnergyGasCurrentYearFebruaryHotWater {
     value: energye;
   }
 
