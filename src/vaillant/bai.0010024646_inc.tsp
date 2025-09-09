@@ -2,6 +2,7 @@ import "@ebusd/ebus-typespec";
 import "./_templates.tsp";
 import "./errors_inc.tsp";
 import "./service_inc.tsp";
+import "./hwcmode_inc.tsp";
 
 using Ebus;
 using Ebus.Num;
@@ -75,12 +76,6 @@ namespace Bai._0010024646_inc {
   }
 
   @inherit(r_1)
-  @ext(0x00, 0xff, 0xff, 0x04, 0x03, 0x23, 0x30)
-  model EnergySumHc3 {
-    value: energye;
-  }
-
-  @inherit(r_1)
   @ext(0x00, 0xff, 0xff, 0x03, 0x04, 0x21, 0x30)
   model EnergyCountHwc1 {
     value: energye;
@@ -127,10 +122,6 @@ namespace Bai._0010024646_inc {
   /** d.06 DHW setpoint: Hot water temperature target value */
   @ext(0xea, 0x3)
   model HwcTempDesired is ReadonlyRegister<temp>;
-
-  /** d.07 Storage setpoint: Warm start temperature value (combination boiler plus only), Storage temperature target value (system boiler only) */
-  @ext(0x4, 0)
-  model StorageTempDesired is Register<temp>;
 
   /** d.08 Room thermostat 230 V: External controls heat demand (Clamp 3-4) */
   @ext(0x2a, 0)
@@ -678,6 +669,10 @@ namespace Bai._0010024646_inc {
   /** d.96 Set factory settings */
   @ext(0x68, 0x4)
   model SetFactoryValues is InstallRegister<yesno>;
+
+  /** d.97 Set mode override: Override operation mode setting */
+  @ext(0x69, 0x4)
+  model SetModeOverride is InstallRegister<hcmode>;
   // ##### maintenance data #####
 
   /** TempGradientFailure_DK: Number of cut offs of the boilers cause of to high gradient (S.54) */
@@ -786,30 +781,6 @@ namespace Bai._0010024646_inc {
   @ext(0xc4, 0)
   model SHEMaxDeltaHwcFlow is ReadonlyRegister<temp>;
 
-  /** PrEnergySumDHW1_DK: Predictive Maintenance data */
-  @ext(0xc5, 0)
-  model PrEnergySumHwc1 is InstallRegister<ULG>;
-
-  /** PrEnergyCountDHW1_DK: Predictive Maintenance data */
-  @ext(0xc6, 0)
-  model PrEnergyCountHwc1 is InstallRegister<ULG>;
-
-  /** PrEnergySumDHW2_DK: Predictive Maintenance data */
-  @ext(0xc7, 0)
-  model PrEnergySumHwc2 is InstallRegister<ULG>;
-
-  /** PrEnergyCountDHW2_DK: Predictive Maintenance data */
-  @ext(0xc8, 0)
-  model PrEnergyCountHwc2 is InstallRegister<ULG>;
-
-  /** PrEnergySumDHW3_DK: Predictive Maintenance data */
-  @ext(0xc9, 0)
-  model PrEnergySumHwc3 is InstallRegister<ULG>;
-
-  /** PrEnergyCountDHW3_DK: Predictive Maintenance data */
-  @ext(0xca, 0)
-  model PrEnergyCountHwc3 is InstallRegister<ULG>;
-
   /** MaxWaterFlowCH_DK: Predictive Maintenance data */
   @ext(0xd0, 0)
   model WaterHcFlowMax is ReadonlyRegister<UIN>;
@@ -821,46 +792,6 @@ namespace Bai._0010024646_inc {
   /** WaterpressureMeasureCounter_DK: Predictive Maintenance data */
   @ext(0xf1, 0)
   model WaterpressureMeasureCounter is ReadonlyRegister<UCH>;
-
-  /** PrAPSCounter_DK: Predictive Maintenance data */
-  @ext(0xf2, 0)
-  model PrAPSCounter is ReadonlyRegister<UCH>;
-
-  /** PrAPSSum_DK: Predictive Maintenance data */
-  @ext(0xf3, 0)
-  model PrAPSSum is ReadonlyRegister<seconds2>;
-
-  /** PrVortexFlowSensorValue_DK */
-  @inherit(r)
-  @ext(0xf4, 0)
-  model PrVortexFlowSensorValue {
-    /** Predictive Maintenance data */
-    value: SIN;
-  }
-
-  /** PrEnergySumCH1_DK: Predictive Maintenance data */
-  @ext(0xf5, 0)
-  model PrEnergySumHc1 is InstallRegister<ULG>;
-
-  /** PrEnergyCountCH1_DK: Predictive Maintenance data */
-  @ext(0xf6, 0)
-  model PrEnergyCountHc1 is InstallRegister<ULG>;
-
-  /** PrEnergySumCH2_DK: Predictive Maintenance data */
-  @ext(0xf7, 0)
-  model PrEnergySumHc2 is InstallRegister<ULG>;
-
-  /** PrEnergyCountCH2_DK: Predictive Maintenance data */
-  @ext(0xf8, 0)
-  model PrEnergyCountHc2 is InstallRegister<ULG>;
-
-  /** PrEnergySumCH3_DK: Predictive Maintenance data */
-  @ext(0xf9, 0)
-  model PrEnergySumHc3 is InstallRegister<ULG>;
-
-  /** PrEnergyCountCH3_DK: Predictive Maintenance data */
-  @ext(0xfa, 0)
-  model PrEnergyCountHc3 is InstallRegister<ULG>;
 
   // HC operation mode2
   /** default *uw */
@@ -887,24 +818,6 @@ namespace Bai._0010024646_inc {
   // X (period): 0=All, 1=Day, 2=Month, 3=Year
   // Y (source): 1=Solar, 2=Environmental, 3=Electricity, 4=Gas, 9=unidentified heat pump-related
   // Z (usage): 0=All, 3=Heating, 4=Hot water, 5=Cooling
-
-  @inherit(r_1)
-  @ext(0x00, 0xff, 0xff, 0x02, 0x00, 0x00, 0x30)
-  model EnergyEnvironmentalAllTotal {
-    value: energye;
-  }
-
-  @inherit(r_1)
-  @ext(0x00, 0xff, 0xff, 0x02, 0x03, 0x00, 0x30)
-  model EnergyEnvironmentalAllHeating {
-    value: energye;
-  }
-
-  @inherit(r_1)
-  @ext(0x00, 0xff, 0xff, 0x02, 0x04, 0x00, 0x30)
-  model EnergyEnvironmentalAllHotWater {
-    value: energye;
-  }
 
   @inherit(r_1)
   @ext(0x00, 0xff, 0xff, 0x03, 0x00, 0x00, 0x30)
@@ -1034,6 +947,7 @@ namespace Bai._0010024646_inc {
 
   /** included parts */
   union _includes {
+    Hwcmode_inc,
     Errors_inc,
     Service_inc,
   }

@@ -30,11 +30,6 @@ compile-pl:
 	@echo "Compiling TypeScript file..."
 	$(DOCKER_COMPOSE) exec $(NPM_CONTAINER) npm run compile-pl
 
-
-clean-output:
-	@echo "Cleaning up output files..."
-	rm -f $(OUTPUT_FILE)
-
 # Run all steps
 all: up compile clean-output
 	@echo "All tasks completed"
