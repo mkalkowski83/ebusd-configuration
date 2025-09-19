@@ -75,25 +75,25 @@ namespace Hwcmode_inc {
   }
 
   /** Status flow temperature/mixer/pump/desired flow temperature */
-  @inherit(rm)
-  @ext(0xa)
-  model Status0a {
-    flowtemp: temp;
-    mixer: mixer;
-    pump: onoff;
-    onoff: onoff;
-    flowtempdesired: temp0;
-  }
+//   @inherit(rm)
+//   @ext(0xa)
+//   model Status0a {
+//     flowtemp: temp;
+//     mixer: mixer;
+//     pump: onoff;
+//     onoff: onoff;
+//     flowtempdesired: temp0;
+//   }
 
   /** Desired flow/status/flow/desired temperature */
-  @inherit(rm)
-  @ext(0xd)
-  model Status {
-    temp: temp0;
-    onoff: onoff;
-    temp_1: temp;
-    temp_2: temp0;
-  }
+//   @inherit(rm)
+//   @ext(0xd)
+//   model Status {
+//     temp: temp0;
+//     onoff: onoff;
+//     temp_1: temp;
+//     temp_2: temp0;
+//   }
 
   /** outside temperature */
   @inherit(rm)
