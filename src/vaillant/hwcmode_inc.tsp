@@ -40,11 +40,11 @@ namespace Hwcmode_inc {
   }
 
   /** Set operation mode */
-  @inherit(wm)
-  @ext(0x2)
-  model SetMode {
-    value: hwcmode;
-  }
+//   @inherit(wm)
+//   @ext(0x2)
+//   model SetMode {
+//     value: hwcmode;
+//   }
 
   /** Set min flow temperature */
   @inherit(wm)
