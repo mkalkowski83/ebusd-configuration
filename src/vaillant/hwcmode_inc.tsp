@@ -10,14 +10,14 @@ namespace Hwcmode_inc {
   // HWC/CC: Operation mode
 
   /** date/time */
-  @inherit(rm)
-  @ext(0)
-  model DateTime {
-    dcfstate: dcfstate;
-    btime: btime;
-    bdate: bdate;
-    temp: temp2;
-  }
+//   @inherit(rm)
+//   @ext(0)
+//   model DateTime {
+//     dcfstate: dcfstate;
+//     btime: btime;
+//     bdate: bdate;
+//     temp: temp2;
+//   }
 
   /** Operation mode */
   @inherit(rm)
