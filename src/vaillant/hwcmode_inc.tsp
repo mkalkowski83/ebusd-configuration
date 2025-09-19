@@ -96,9 +96,9 @@ namespace Hwcmode_inc {
 //   }
 
   /** outside temperature */
-  @inherit(rm)
-  @ext(0x16)
-  model Status16 {
-    value: temp;
-  }
+//   @inherit(rm)
+//   @ext(0x16)
+//   model Status16 {
+//     value: temp;
+//   }
 }
