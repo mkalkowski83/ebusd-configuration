@@ -421,10 +421,6 @@ namespace Bai._0010024646_inc {
   @ext(0xd5, 0)
   model VortexFlowSensor is ReadonlyRegister<UIN>;
 
-  /** DisplayMode_DK: Display mode of the aplliance */
-  @ext(0xda, 0)
-  model DisplayMode is ReadonlyRegister<UCH>;
-
   /** SD_Gasvalve3_uC_DK: Gasvalve activation signal (from Microcontroller) */
   @ext(0xdb, 0)
   model Gasvalve3UC is ReadonlyRegister<onoff2>;
@@ -509,10 +505,6 @@ namespace Bai._0010024646_inc {
   /** d.19 Mode of 2 speed pump: Operating mode of the two-stage heating pump0: burner mode = 2, pre/post-run = 1; 1: CH + post-run = 1, DHW = 2, 2: as 1 but rotation speed in CH is dependent of heating part load, (defaultsetting)3: always stage 2 */
   @ext(0xb, 0x4)
   model SecondPumpMode is InstallRegister<UCH>;
-
-  /** d.20 Max value tanksetpoint: Adjustment of maximum tank setpoint range (maximum endposition of potmeter) */
-  @ext(0x43, 0x4)
-  model HwcTempMax is InstallRegister<temp>;
 
   /** d.27 Option relais 1 */
   @inherit(r, wi)
