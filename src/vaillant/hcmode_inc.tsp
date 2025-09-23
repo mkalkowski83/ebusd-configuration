@@ -20,11 +20,11 @@ namespace Hcmode_inc {
   }
 
   /** outside temperature */
-  @inherit(rm)
-  @ext(0x16)
-  model Status16 {
-    value: temp;
-  }
+//   @inherit(rm)
+//   @ext(0x16)
+//   model Status16 {
+//     value: temp;
+//   }
   // HC operation mode2
 
   /** default *r */
@@ -92,15 +92,15 @@ namespace Hcmode_inc {
   }
 
   /** Status */
-  @inherit(r_1)
-  @ext(0x3)
-  model Status {
-    temp: temp;
-    press: press;
-    press_1: press;
-    hcmode: hcmode2;
-    hex: HEX;
-  }
+//   @inherit(r_1)
+//   @ext(0x3)
+//   model Status {
+//     temp: temp;
+//     press: press;
+//     press_1: press;
+//     hcmode: hcmode2;
+//     hex: HEX;
+//   }
 
   /** default *uw */
   @write
