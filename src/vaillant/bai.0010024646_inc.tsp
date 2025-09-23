@@ -23,14 +23,14 @@ namespace Bai._0010024646_inc {
       on: 100,
   }
 
-  enum Values_PumpPowerDesired {
-    auto: 0,
-    _53: 1,
-    _60: 2,
-    _70: 3,
-    _85: 4,
-    _100: 5,
-  }
+//   enum Values_PumpPowerDesired {
+//     auto: 0,
+//     _53: 1,
+//     _60: 2,
+//     _70: 3,
+//     _85: 4,
+//     _100: 5,
+//   }
 
   enum Values_HcPumpMode {
     post_run: 0,
@@ -128,8 +128,8 @@ namespace Bai._0010024646_inc {
   model ACRoomthermostat is ReadonlyRegister<onoff>;
 
   /** d.09 ext flowsetpoint: minimum out of Kl.7 and eBus flow setpoint */
-  @ext(0x6e, 0x4)
-  model ExtFlowTempDesiredMin is ReadonlyRegister<temp>;
+  // @ext(0x6e, 0x4)
+  // model ExtFlowTempDesiredMin is ReadonlyRegister<temp>;
 
   /** d.10 Central heating pump: internal heating pump */
   @ext(0x44, 0)
@@ -241,8 +241,8 @@ namespace Bai._0010024646_inc {
   // ##### expert level #####
 
   /** external flowsetpoint: Flow target temperature from external regulator to terminal 7-8-9 */
-  @ext(0x25, 0)
-  model ExternalFlowTempDesired is ReadonlyRegister<temp>;
+  // @ext(0x25, 0)
+  // model ExternalFlowTempDesired is ReadonlyRegister<temp>;
 
   /** DHWSwitch_DK: Demand external tank (via contact) */
   @ext(0, 0)
@@ -371,14 +371,14 @@ namespace Bai._0010024646_inc {
     value: UIN;
   }
 
-  /** PowerValue */
-  @inherit(r)
-  @ext(0xaa, 0)
-  model PowerValue {
-    /** Power Values of the Boiler (min Power, max Power) */
-    @maxLength(6)
-    value: HEX;
-  }
+//   /** PowerValue */
+//   @inherit(r)
+//   @ext(0xaa, 0)
+//   model PowerValue {
+//     /** Power Values of the Boiler (min Power, max Power) */
+//     @maxLength(6)
+//     value: HEX;
+//   }
 
   /** Statenumber_DK: status number */
   @ext(0xab, 0)
@@ -417,9 +417,9 @@ namespace Bai._0010024646_inc {
   @ext(0xd3, 0)
   model VolatileLockoutIFCGV is ReadonlyRegister<yesno2>;
 
-  /** VortexFlowSensor_DK: Predictive Maintenance data, CH water flow */
-  @ext(0xd5, 0)
-  model VortexFlowSensor is ReadonlyRegister<UIN>;
+//   /** VortexFlowSensor_DK: Predictive Maintenance data, CH water flow */
+//   @ext(0xd5, 0)
+//   model VortexFlowSensor is ReadonlyRegister<UIN>;
 
   /** SD_Gasvalve3_uC_DK: Gasvalve activation signal (from Microcontroller) */
   @ext(0xdb, 0)
@@ -429,9 +429,9 @@ namespace Bai._0010024646_inc {
   @ext(0xdc, 0)
   model InitialisationEEPROM is ReadonlyRegister<yesno>;
 
-  /** TimerInputCH_DK: timer input (block heatdemand) */
-  @ext(0xde, 0)
-  model TimerInputHc is ReadonlyRegister<onoff>;
+//   /** TimerInputCH_DK: timer input (block heatdemand) */
+//   @ext(0xde, 0)
+//   model TimerInputHc is ReadonlyRegister<onoff>;
 
   /** FanMinSpeedOperation */
   @inherit(r)
@@ -703,9 +703,9 @@ namespace Bai._0010024646_inc {
   @ext(0x1e, 0)
   model OverflowCounter is ReadonlyRegister<yesno>;
 
-  /** MaxTempDiffExtTFT_DK: Predictive maintenance data */
-  @ext(0x27, 0)
-  model TempMaxDiffExtTFT is ReadonlyRegister<temp>;
+//   /** MaxTempDiffExtTFT_DK: Predictive maintenance data */
+//   @ext(0x27, 0)
+//   model TempMaxDiffExtTFT is ReadonlyRegister<temp>;
 
   /** min_Ignitiontime_DK */
   @inherit(r)

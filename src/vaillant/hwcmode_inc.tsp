@@ -20,17 +20,17 @@ namespace Hwcmode_inc {
 //   }
 
   /** Operation mode */
-  @inherit(rm)
-  @ext(1)
-  model Mode {
-    temp: temp0;
-    hwcmode: hwcmode;
-    @maxLength(2) ign: IGN;
-    hwcmode_1: hwcmode;
-    mctype: mctype7;
-    hex: HEX;
-    daynight: daynight;
-  }
+//   @inherit(rm)
+//   @ext(1)
+//   model Mode {
+//     temp: temp0;
+//     hwcmode: hwcmode;
+//     @maxLength(2) ign: IGN;
+//     hwcmode_1: hwcmode;
+//     mctype: mctype7;
+//     hex: HEX;
+//     daynight: daynight;
+//   }
 
   /** Set desired temperature */
   @inherit(wm)
