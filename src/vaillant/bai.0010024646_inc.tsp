@@ -23,14 +23,14 @@ namespace Bai._0010024646_inc {
       on: 100,
   }
 
-//   enum Values_PumpPowerDesired {
-//     auto: 0,
-//     _53: 1,
-//     _60: 2,
-//     _70: 3,
-//     _85: 4,
-//     _100: 5,
-//   }
+  enum Values_PumpPowerDesired {
+    auto: 0,
+    _53: 1,
+    _60: 2,
+    _70: 3,
+    _85: 4,
+    _100: 5,
+  }
 
   enum Values_HcPumpMode {
     post_run: 0,
@@ -148,14 +148,14 @@ namespace Bai._0010024646_inc {
   model CirPump is ReadonlyRegister<onoff>;
 
   /** d.14 Desired heating pump power */
-  @inherit(r, wi)
-  @ext(0xa1, 0)
-  model PumpPowerDesired {
-    /** PWM-Desired central heating pump power */
-    @unit("%")
-    @values(Values_PumpPowerDesired)
-    value: UCH;
-  }
+//   @inherit(r, wi)
+//   @ext(0xa1, 0)
+//   model PumpPowerDesired {
+//     /** PWM-Desired central heating pump power */
+//     @unit("%")
+//     @values(Values_PumpPowerDesired)
+//     value: UCH;
+//   }
 
   /** d.15 Current heating pump power: Current central heating pump power */
   @ext(0x73, 0)
