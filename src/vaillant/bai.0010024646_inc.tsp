@@ -33,9 +33,8 @@ namespace Bai._0010024646_inc {
   }
 
   enum Values_HcPumpMode {
-    post_run: 0,
     permanent: 1,
-    winter: 2,
+    eco: 3,
   }
 
   enum Values_AccessoriesOne {
@@ -105,11 +104,11 @@ namespace Bai._0010024646_inc {
 
   /** d.02 Max blocking time CH: max. burner anti cycling period at 20°C Flow temperature setpoint */
   @ext(0x9, 0x4)
-  model BlockTimeHcMax is InstallRegister<minutes0>;
+  model BlockTimeHcMax is InstallRegister<minutes0>; //incorrect value
 
-  /** d.03 Temp DHW: hot water flow temperature (combination boiler only) */
-  @ext(0x16, 0)
-  model HwcTemp is ReadonlyRegister<tempsensor>;
+//   /** d.03 Temp DHW: hot water flow temperature (combination boiler only) */
+//   @ext(0x16, 0)
+//   model HwcTemp is ReadonlyRegister<tempsensor>;
 
   /** d.04 Temp storage / she: current temperature for warm start sensor (combinations boiler only) Current storage tank sensor (system boiler only) */
   @ext(0x17, 0)
@@ -120,18 +119,18 @@ namespace Bai._0010024646_inc {
   model FlowTempDesired is ReadonlyRegister<temp>;
 
   /** d.06 DHW setpoint: Hot water temperature target value */
-  @ext(0xea, 0x3)
-  model HwcTempDesired is ReadonlyRegister<temp>;
+//   @ext(0xea, 0x3)
+//   model HwcTempDesired is ReadonlyRegister<temp>; //incorrect
 
   /** d.08 Room thermostat 230 V: External controls heat demand (Clamp 3-4) */
-  @ext(0x2a, 0)
-  model ACRoomthermostat is ReadonlyRegister<onoff>;
+//   @ext(0x2a, 0)
+//   model ACRoomthermostat is ReadonlyRegister<onoff>;
 
   /** d.09 ext flowsetpoint: minimum out of Kl.7 and eBus flow setpoint */
   // @ext(0x6e, 0x4)
   // model ExtFlowTempDesiredMin is ReadonlyRegister<temp>;
 
-  /** d.10 Central heating pump: internal heating pump */
+  /** d.10 Central heating pump: internal heating pump - status pompy obiegu grzewczego */
   @ext(0x44, 0)
   model WP is ReadonlyRegister<onoff>;
 
@@ -140,8 +139,8 @@ namespace Bai._0010024646_inc {
   model ExtWP is ReadonlyRegister<onoff>;
 
   /** d.12 storage load pump: tank load pump demand */
-  @ext(0x9e, 0)
-  model Storageloadpump is ReadonlyRegister<percent0>;
+//   @ext(0x9e, 0)
+//   model Storageloadpump is ReadonlyRegister<percent0>;
 
   /** d.13 Circulation pump: Hot water circulation pump (via external module) */
   @ext(0x7b, 0)
@@ -157,13 +156,30 @@ namespace Bai._0010024646_inc {
 //     value: UCH;
 //   }
 
-  /** d.15 Current heating pump power: Current central heating pump power */
+  /** d.15 Current heating pump power: Current central heating pump power - rzeczywiste obroty pomopy w %*/
   @ext(0x73, 0)
   model PumpPower is ReadonlyRegister<UCH>;
 
   /** d.16 room thermostat 24 V: External controls heat demand (Clamp 3'-4') */
   @ext(0xe, 0)
   model DCRoomthermostat is ReadonlyRegister<onoff>;
+
+  /** d.17 Return regulation: heating flow/return regulation activation */
+  @ext(0xc, 0x4)
+  model ReturnRegulation is InstallRegister<onoff>;
+
+  /** d.18 CH pump mode */
+  @inherit(r, wi_1)
+  @ext(0xb7, 0)
+  model HcPumpMode {
+    /** Pump mode */
+    @values(Values_HcPumpMode)
+    value: UCH;
+  }
+
+  /** d.19 Mode of 2 speed pump: Operating mode of the two-stage heating pump0: burner mode = 2, pre/post-run = 1; 1: CH + post-run = 1, DHW = 2, 2: as 1 but rotation speed in CH is dependent of heating part load, (defaultsetting)3: always stage 2 */
+  @ext(0xb, 0x4)
+  model SecondPumpMode is InstallRegister<UCH>;
 
   /** d.22 DHW demand: domestic hot water (tapping or tank contact) demand */
   @ext(0x58, 0)
@@ -489,22 +505,6 @@ namespace Bai._0010024646_inc {
   }
   // ##### dia level 2 #####
 
-  /** d.17 Return regulation: heating flow/return regulation activation */
-  @ext(0xc, 0x4)
-  model ReturnRegulation is InstallRegister<onoff>;
-
-  /** d.18 CH pump mode */
-  @inherit(r, wi)
-  @ext(0x49, 0x4)
-  model HcPumpMode {
-    /** Pump mode */
-    @values(Values_HcPumpMode)
-    value: UCH;
-  }
-
-  /** d.19 Mode of 2 speed pump: Operating mode of the two-stage heating pump0: burner mode = 2, pre/post-run = 1; 1: CH + post-run = 1, DHW = 2, 2: as 1 but rotation speed in CH is dependent of heating part load, (defaultsetting)3: always stage 2 */
-  @ext(0xb, 0x4)
-  model SecondPumpMode is InstallRegister<UCH>;
 
   /** d.27 Option relais 1 */
   @inherit(r, wi)
