@@ -939,7 +939,6 @@ namespace Bai._0010024646_inc {
 
   /** New register - EXP type */
   @inherit(r)
-  @ext(0x03, 0xfe)
   model NewExp {
     /** New EXP register value */
     value: EXP;
@@ -947,7 +946,6 @@ namespace Bai._0010024646_inc {
 
   /** New register - EXR type */
   @inherit(r)
-  @ext(0x31, 0x03)
   model NewExr {
     /** New EXR register value */
     value: EXR;
