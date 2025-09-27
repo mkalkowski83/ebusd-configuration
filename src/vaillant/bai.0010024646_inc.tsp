@@ -34,7 +34,7 @@ namespace Bai._0010024646_inc {
 
   enum Values_HcPumpMode {
     permanent: 1,
-    eco: 3,
+    eco: 49,
   }
 
   enum Values_AccessoriesOne {
@@ -106,10 +106,6 @@ namespace Bai._0010024646_inc {
   @ext(0x9, 0x4)
   model BlockTimeHcMax is InstallRegister<minutes0>; //incorrect value
 
-//   /** d.03 Temp DHW: hot water flow temperature (combination boiler only) */
-//   @ext(0x16, 0)
-//   model HwcTemp is ReadonlyRegister<tempsensor>;
-
   /** d.04 Temp storage / she: current temperature for warm start sensor (combinations boiler only) Current storage tank sensor (system boiler only) */
   @ext(0x17, 0)
   model StorageTemp is ReadonlyRegister<tempsensor>;
@@ -122,14 +118,6 @@ namespace Bai._0010024646_inc {
 //   @ext(0xea, 0x3)
 //   model HwcTempDesired is ReadonlyRegister<temp>; //incorrect
 
-  /** d.08 Room thermostat 230 V: External controls heat demand (Clamp 3-4) */
-//   @ext(0x2a, 0)
-//   model ACRoomthermostat is ReadonlyRegister<onoff>;
-
-  /** d.09 ext flowsetpoint: minimum out of Kl.7 and eBus flow setpoint */
-  // @ext(0x6e, 0x4)
-  // model ExtFlowTempDesiredMin is ReadonlyRegister<temp>;
-
   /** d.10 Central heating pump: internal heating pump - status pompy obiegu grzewczego */
   @ext(0x44, 0)
   model WP is ReadonlyRegister<onoff>;
@@ -138,23 +126,9 @@ namespace Bai._0010024646_inc {
   @ext(0x3f, 0)
   model ExtWP is ReadonlyRegister<onoff>;
 
-  /** d.12 storage load pump: tank load pump demand */
-//   @ext(0x9e, 0)
-//   model Storageloadpump is ReadonlyRegister<percent0>;
-
   /** d.13 Circulation pump: Hot water circulation pump (via external module) */
   @ext(0x7b, 0)
   model CirPump is ReadonlyRegister<onoff>;
-
-  /** d.14 Desired heating pump power */
-//   @inherit(r, wi)
-//   @ext(0xa1, 0)
-//   model PumpPowerDesired {
-//     /** PWM-Desired central heating pump power */
-//     @unit("%")
-//     @values(Values_PumpPowerDesired)
-//     value: UCH;
-//   }
 
   /** d.15 Current heating pump power: Current central heating pump power - rzeczywiste obroty pomopy w %*/
   @ext(0x73, 0)
