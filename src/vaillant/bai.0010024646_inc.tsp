@@ -96,8 +96,8 @@ namespace Bai._0010024646_inc {
   }
 
   /** d.00 heating partload: Heating part load */
-//   @ext(0x7, 0x4)
-//   model PartloadHcKW is InstallRegister<power>;
+  @ext(0x7, 0x4)
+  model PartloadHcKW is InstallRegister<power>;
 
   /** d.01 central heating overruntime: water pump overrun time for heating mode */
   @ext(0xf7, 0x3)

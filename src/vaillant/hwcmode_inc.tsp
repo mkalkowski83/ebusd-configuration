@@ -46,19 +46,19 @@ namespace Hwcmode_inc {
 //     value: hwcmode;
 //   }
 
-  /** Set min flow temperature */
-  @inherit(wm)
-  @ext(0xe)
-  model SetFlowTempMin {
-    value: temp0;
-  }
+//   /** Set min flow temperature */
+//   @inherit(wm)
+//   @ext(0xe)
+//   model SetFlowTempMin {
+//     value: temp0;
+//   }
 
-  /** Set max flow temperature */
-  @inherit(wm)
-  @ext(0xf)
-  model SetFlowTempMax {
-    value: temp0;
-  }
+//   /** Set max flow temperature */
+//   @inherit(wm)
+//   @ext(0xf)
+//   model SetFlowTempMax {
+//     value: temp0;
+//   }
 
   /** Parameters */
   @inherit(rm)
