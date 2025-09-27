@@ -937,6 +937,22 @@ namespace Bai._0010024646_inc {
     value: energye;
   }
 
+  /** New register - EXP type */
+  @inherit(r)
+  @ext(0x03, 0xfe, 0xb5, 0x55, 0x03, 0x03, 0x00)
+  model NewExp {
+    /** New EXP register value */
+    value: UIN;
+  }
+
+  /** New register - EXR type */
+  @inherit(r)
+  @ext(0x31, 0x03, 0xfe, 0xb5, 0x05, 0x55, 0x03)
+  model NewExr {
+    /** New EXR register value */
+    value: UIN;
+  }
+
   /** included parts */
   union _includes {
     Hwcmode_inc,
