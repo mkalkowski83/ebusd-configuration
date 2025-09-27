@@ -63,29 +63,29 @@ namespace Bai._0010024646_inc {
   @base(MF, 0x16, 0x10)
   model r_1 {}
 
-  @inherit(r_1)
-  @ext(0x00, 0xff, 0xff, 0x04, 0x03, 0x21, 0x30)
-  model EnergySumHc1 {
-    value: energye;
-  }
-
-  @inherit(r_1)
-  @ext(0x00, 0xff, 0xff, 0x03, 0x03, 0x21, 0x30)
-  model EnergyCountHc1 {
-    value: energye;
-  }
-
-  @inherit(r_1)
-  @ext(0x00, 0xff, 0xff, 0x03, 0x04, 0x21, 0x30)
-  model EnergyCountHwc1 {
-    value: energye;
-  }
-
-  @inherit(r_1)
-  @ext(0x00, 0xff, 0xff, 0x04, 0x04, 0x21, 0x30)
-  model EnergySumHwc1 {
-    value: energye;
-  }
+//   @inherit(r_1)
+//   @ext(0x00, 0xff, 0xff, 0x04, 0x03, 0x21, 0x30)
+//   model EnergySumHc1 {
+//     value: energye;
+//   }
+//
+//   @inherit(r_1)
+//   @ext(0x00, 0xff, 0xff, 0x03, 0x03, 0x21, 0x30)
+//   model EnergyCountHc1 {
+//     value: energye;
+//   }
+//
+//   @inherit(r_1)
+//   @ext(0x00, 0xff, 0xff, 0x03, 0x04, 0x21, 0x30)
+//   model EnergyCountHwc1 {
+//     value: energye;
+//   }
+//
+//   @inherit(r_1)
+//   @ext(0x00, 0xff, 0xff, 0x04, 0x04, 0x21, 0x30)
+//   model EnergySumHwc1 {
+//     value: energye;
+//   }
 
   @inherit(r)
   @ext(0x24, 0)
@@ -96,8 +96,8 @@ namespace Bai._0010024646_inc {
   }
 
   /** d.00 heating partload: Heating part load */
-  @ext(0x7, 0x4)
-  model PartloadHcKW is InstallRegister<power>;
+//   @ext(0x7, 0x4)
+//   model PartloadHcKW is InstallRegister<power>;
 
   /** d.01 central heating overruntime: water pump overrun time for heating mode */
   @ext(0xf7, 0x3)
