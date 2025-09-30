@@ -14,6 +14,6 @@ TYPES=("BCD" "BCD:2" "BCD:3" "BCD:4" "BDA" "BDA:3" "BDY" "BDZ" "BTI" "BTM" "D1B"
 
 for TYPE in "${TYPES[@]}"; do
   echo "Dekodowanie dla typu: $TYPE"
-  ebusctl -p 9999 decode "$TYPE" "$HEX"
+  ebusctl -p 9999 decode "$TYPE" $(ebusctl hex "$HEX"  | tail -c 10)
   echo "-----------------------------"
 done
