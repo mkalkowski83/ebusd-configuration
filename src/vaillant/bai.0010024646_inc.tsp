@@ -893,6 +893,28 @@ namespace Bai._0010024646_inc {
       value: energye;
     }
 
+    enum Values_AccessoriesOne {
+      circulationpump: 1,
+      extheatingpump: 2,
+      storagechargingpump: 3,
+      fluegasflapextractorhood: 4,
+      externalgasvalve: 5,
+      externalerrormessage: 6,
+      solarpump: 7,
+      remotecontrol: 8,
+    }
+
+    enum Values_AccessoriesTwo {
+      circulationpump: 1,
+      extheatingpump: 2,
+      storagechargingpump: 3,
+      fluegasflapextractorhood: 4,
+      externalgasvalve: 5,
+      externalerrormessage: 6,
+      solarpump: 7,
+      remotecontrol: 8,
+    }
+
     model energye {
       @maxLength(7)
       ign: IGN;
