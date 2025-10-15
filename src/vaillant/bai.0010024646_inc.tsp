@@ -705,30 +705,6 @@ namespace Bai._0010024646_inc {
     @ext(0xc4, 0)
     model SHEMaxDeltaHwcFlow is ReadonlyRegister<temp>;
 
-    /** PrEnergySumDHW1_DK: Predictive Maintenance data */
-    @ext(0xc5, 0)
-    model PrEnergySumHwc1 is InstallRegister<ULG>;
-
-    /** PrEnergyCountDHW1_DK: Predictive Maintenance data */
-    @ext(0xc6, 0)
-    model PrEnergyCountHwc1 is InstallRegister<ULG>;
-
-    /** PrEnergySumDHW2_DK: Predictive Maintenance data */
-    @ext(0xc7, 0)
-    model PrEnergySumHwc2 is InstallRegister<ULG>;
-
-    /** PrEnergyCountDHW2_DK: Predictive Maintenance data */
-    @ext(0xc8, 0)
-    model PrEnergyCountHwc2 is InstallRegister<ULG>;
-
-    /** PrEnergySumDHW3_DK: Predictive Maintenance data */
-    @ext(0xc9, 0)
-    model PrEnergySumHwc3 is InstallRegister<ULG>;
-
-    /** PrEnergyCountDHW3_DK: Predictive Maintenance data */
-    @ext(0xca, 0)
-    model PrEnergyCountHwc3 is InstallRegister<ULG>;
-
     /** MaxWaterFlowCH_DK: Predictive Maintenance data */
     @ext(0xd0, 0)
     model WaterHcFlowMax is ReadonlyRegister<UIN>;
@@ -757,6 +733,30 @@ namespace Bai._0010024646_inc {
       value: SIN;
     }
 
+    /** PrEnergySumDHW1_DK: Predictive Maintenance data */
+    @ext(0xc5, 0)
+    model PrEnergySumHwc1 is InstallRegister<ULG>;
+
+    /** PrEnergyCountDHW1_DK: Predictive Maintenance data */
+    @ext(0xc6, 0)
+    model PrEnergyCountHwc1 is InstallRegister<ULG>;
+
+    /** PrEnergySumDHW2_DK: Predictive Maintenance data */
+    @ext(0xc7, 0)
+    model PrEnergySumHwc2 is InstallRegister<ULG>;
+
+    /** PrEnergyCountDHW2_DK: Predictive Maintenance data */
+    @ext(0xc8, 0)
+    model PrEnergyCountHwc2 is InstallRegister<ULG>;
+
+    /** PrEnergySumDHW3_DK: Predictive Maintenance data */
+    @ext(0xc9, 0)
+    model PrEnergySumHwc3 is InstallRegister<ULG>;
+
+    /** PrEnergyCountDHW3_DK: Predictive Maintenance data */
+    @ext(0xca, 0)
+    model PrEnergyCountHwc3 is InstallRegister<ULG>;
+
     /** PrEnergySumCH1_DK: Predictive Maintenance data */
     @ext(0xf5, 0)
     model PrEnergySumHc1 is InstallRegister<ULG>;
@@ -778,8 +778,12 @@ namespace Bai._0010024646_inc {
     model PrEnergySumHc3 is InstallRegister<ULG>;
 
     /** PrEnergyCountCH3_DK: Predictive Maintenance data */
+    @inherit(r_1)
     @ext(0xfa, 0)
-    model PrEnergyCountHc3 is InstallRegister<ULG>;
+    model PrEnergyCountHc3 {
+      value: energye;
+    };
+
     // Energy values models based on the algorithm
     // X (period): 0=All, 1=Day, 2=Month, 3=Year
     // Y (source): 1=Solar, 2=Environmental, 3=Electricity, 4=Gas, 9=unidentified heat pump-related
