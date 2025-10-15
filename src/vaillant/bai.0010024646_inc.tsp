@@ -926,6 +926,16 @@ namespace Bai._0010024646_inc {
       permanent: 1,
       eco: 49,
     }
+
+    enum Values_PumpPowerDesired {
+      auto: 0,
+      _53: 1,
+      _60: 2,
+      _70: 3,
+      _85: 4,
+      _100: 5,
+    }
+
     /** included parts */
     union _includes {
       Errors_inc,
