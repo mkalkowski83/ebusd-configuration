@@ -784,110 +784,127 @@ namespace Bai._0010024646_inc {
     // X (period): 0=All, 1=Day, 2=Month, 3=Year
     // Y (source): 1=Solar, 2=Environmental, 3=Electricity, 4=Gas, 9=unidentified heat pump-related
     // Z (usage): 0=All, 3=Heating, 4=Hot water, 5=Cooling
-
+    @inherit(r_1)
     @ext(0x00, 0xff, 0xff, 0x03, 0x00, 0x00, 0x30)
     model EnergyElectricalAllTotal {
       value: energye;
     }
 
+    @inherit(r_1)
     @ext(0x00, 0xff, 0xff, 0x03, 0x03, 0x00, 0x30)
     model EnergyElectricalAllHeating {
       value: energye;
     }
 
+    @inherit(r_1)
     @ext(0x00, 0xff, 0xff, 0x03, 0x04, 0x00, 0x30)
     model EnergyElectricalAllHotWater {
       value: energye;
     }
 
+    @inherit(r_1)
     @ext(0x00, 0xff, 0xff, 0x04, 0x00, 0x00, 0x30)
     model EnergyGasAllTotal {
       value: energye;
     }
 
+    @inherit(r_1)
     @ext(0x00, 0xff, 0xff, 0x04, 0x03, 0x00, 0x30)
     model EnergyGasAllHeating {
       value: energye;
     }
 
+    @inherit(r_1)
     @ext(0x00, 0xff, 0xff, 0x04, 0x04, 0x00, 0x30)
     model EnergyGasAllHotWater {
       value: energye;
     }
 
+    @inherit(r_1)
     @ext(0x00, 0xff, 0xff, 0x09, 0x00, 0x00, 0x30)
     model EnergyHeatPumpAllTotal {
       value: energye;
     }
 
+    @inherit(r_1)
     @ext(0x00, 0xff, 0xff, 0x09, 0x03, 0x00, 0x30)
     model EnergyHeatPumpAllHeating {
       value: energye;
     }
 
+    @inherit(r_1)
     @ext(0x00, 0xff, 0xff, 0x09, 0x04, 0x00, 0x30)
     model EnergyHeatPumpAllHotWater {
       value: energye;
     }
 
+    @inherit(r_1)
     @ext(0x03, 0xff, 0xff, 0x03, 0x00, 0x00, 0x32)
     model EnergyElectricalCurrentYearTotal {
       value: energye;
     }
 
+    @inherit(r_1)
     @ext(0x03, 0xff, 0xff, 0x03, 0x03, 0x00, 0x32)
     model EnergyElectricalCurrentYearHeating {
       value: energye;
     }
 
+    @inherit(r_1)
     @ext(0x03, 0xff, 0xff, 0x03, 0x04, 0x00, 0x32)
     model EnergyElectricalCurrentYearHotWater {
       value: energye;
     }
 
+    @inherit(r_1)
     @ext(0x03, 0xff, 0xff, 0x04, 0x00, 0x00, 0x32)
     model EnergyGasCurrentYearTotal {
       value: energye;
     }
 
-
+    @inherit(r_1)
     @ext(0x03, 0xff, 0xff, 0x04, 0x03, 0x00, 0x32)
     model EnergyGasCurrentYearHeating {
       value: energye;
     }
 
+    @inherit(r_1)
     @ext(0x03, 0xff, 0xff, 0x04, 0x04, 0x00, 0x32)
     model EnergyGasCurrentYearHotWater {
       value: energye;
     }
 
+    @inherit(r_1)
     @ext(0x03, 0xff, 0xff, 0x03, 0x00, 0x00, 0x30)
     model EnergyElectricalPreviousYearTotal {
       value: energye;
     }
 
-
+    @inherit(r_1)
     @ext(0x03, 0xff, 0xff, 0x03, 0x03, 0x00, 0x30)
     model EnergyElectricalPreviousYearHeating {
       value: energye;
     }
 
+    @inherit(r_1)
     @ext(0x03, 0xff, 0xff, 0x03, 0x04, 0x00, 0x30)
     model EnergyElectricalPreviousYearHotWater {
       value: energye;
     }
 
-
+    @inherit(r_1)
     @ext(0x03, 0xff, 0xff, 0x04, 0x00, 0x00, 0x30)
     model EnergyGasPreviousYearTotal {
       value: energye;
     }
 
+    @inherit(r_1)
     @ext(0x03, 0xff, 0xff, 0x04, 0x03, 0x00, 0x30)
     model EnergyGasPreviousYearHeating {
       value: energye;
     }
 
+    @inherit(r_1)
     @ext(0x03, 0xff, 0xff, 0x04, 0x04, 0x00, 0x30)
     model EnergyGasPreviousYearHotWater {
       value: energye;
@@ -935,6 +952,9 @@ namespace Bai._0010024646_inc {
       _85: 4,
       _100: 5,
     }
+
+    @base(MF, 0x16, 0x10)
+    model r_1 {}
 
     /** included parts */
     union _includes {
