@@ -1,8 +1,6 @@
 import "@ebusd/ebus-typespec";
 import "./_templates.tsp";
 import "./errors_inc.tsp";
-import "./service_inc.tsp";
-import "./hwcmode_inc.tsp";
 
 using Ebus;
 using Ebus.Num;
