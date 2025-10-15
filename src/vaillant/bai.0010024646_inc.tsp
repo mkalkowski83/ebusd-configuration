@@ -39,7 +39,7 @@ namespace Bai._0010024646_inc {
     model HwcTempDesired is ReadonlyRegister<temp>;
 
     /** d.07 Storage setpoint: Warm start temperature value (combination boiler plus only), Storage temperature target value (system boiler only) */
-    @ext(0x4, 0x3)
+    @ext(0x4, 0)
     model StorageTempDesired is Register<temp>;
 
     /** d.08 Room thermostat 230 V: External controls heat demand (Clamp 3-4) */
