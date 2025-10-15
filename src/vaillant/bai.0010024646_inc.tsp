@@ -944,8 +944,8 @@ namespace Bai._0010024646_inc {
     }
 
     enum Values_HcPumpMode {
+      eco: 0,
       permanent: 1,
-      eco: 49,
     }
 
     enum Values_PumpPowerDesired {
