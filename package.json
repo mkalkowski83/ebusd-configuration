@@ -35,7 +35,7 @@
     "@typespec/json-schema": "~1.0.0",
     "@typespec/library-linter": "~0.70.0",
     "csv-parser": "^3.2.0",
-    "js-yaml": "^4.1.0",
+    "js-yaml": "^4.1.1",
     "typescript": "^5.8.3"
   },
   "dependencies": {
