@@ -46,10 +46,6 @@ namespace Bai._0010024646_inc {
     @ext(0x2a, 0)
     model ACRoomthermostat is ReadonlyRegister<onoff>;
 
-    /** d.09 ext flowsetpoint: minimum out of Kl.7 and eBus flow setpoint */
-    @ext(0x6e, 0x4)
-    model ExtFlowTempDesiredMin is ReadonlyRegister<temp>;
-
     /** d.10 Central heating pump: internal heating pump */
     @ext(0x44, 0)
     model WP is ReadonlyRegister<onoff>;
@@ -65,16 +61,6 @@ namespace Bai._0010024646_inc {
     /** d.13 Circulation pump: Hot water circulation pump (via external module) */
     @ext(0x7b, 0)
     model CirPump is ReadonlyRegister<onoff>;
-
-    /** d.14 Desired heating pump power */
-    @inherit(r, wi)
-    @ext(0xa1, 0)
-    model PumpPowerDesired {
-      /** PWM-Desired central heating pump power */
-      @unit("%")
-      @values(Values_PumpPowerDesired)
-      value: UCH;
-    }
 
     /** d.15 Current heating pump power: Current central heating pump power */
     @ext(0x73, 0)
@@ -168,10 +154,6 @@ namespace Bai._0010024646_inc {
     model DcfState is ReadonlyRegister<dcfstate>;
     // ##### expert level #####
 
-    /** external flowsetpoint: Flow target temperature from external regulator to terminal 7-8-9 */
-    @ext(0x25, 0)
-    model ExternalFlowTempDesired is ReadonlyRegister<temp>;
-
     /** DHWSwitch_DK: Demand external tank (via contact) */
     @ext(0, 0)
     model ExternalHwcSwitch is ReadonlyRegister<onoff>;
@@ -234,10 +216,6 @@ namespace Bai._0010024646_inc {
     @ext(0x47, 0)
     model GasvalveASICFeedback is ReadonlyRegister<onoff2>;
 
-    /** SD_Gasvalve_uCFeedback_DK: feedback gasvalve (from Microcontroller) */
-    @ext(0x48, 0)
-    model GasvalveUCFeedback is ReadonlyRegister<onoff2>;
-
     /** SD_Ignitor_DK: igniton activated */
     @ext(0x49, 0)
     model Ignitor is ReadonlyRegister<onoff2>;
@@ -299,19 +277,6 @@ namespace Bai._0010024646_inc {
       value: UIN;
     }
 
-    /** PowerValue */
-    @inherit(r)
-    @ext(0xaa, 0)
-    model PowerValue {
-      /** Power Values of the Boiler (min Power, max Power) */
-      @maxLength(6)
-      value: HEX;
-    }
-
-    /** Statenumber_DK: status number */
-    @ext(0xab, 0)
-    model Statenumber is ReadonlyRegister<UCH>;
-
     /** WaterpressureBranchControlOff_DK: water pressure branch controll off */
     @ext(0xaf, 0)
     model WaterpressureBranchControlOff is ReadonlyRegister<onoff>;
@@ -333,10 +298,6 @@ namespace Bai._0010024646_inc {
       value: HEX;
     }
 
-    /** WP_SecondStage_DK: Second stage of the pump activated */
-    @ext(0xed, 0)
-    model WPSecondStage is ReadonlyRegister<onoff>;
-
     /** SD_STL_with_NTC: Safety temperature limit concept:1 = safety temp. Limit check with NTC0 = safety temp. Limit check with contact */
     @ext(0xd2, 0)
     model TemplimiterWithNTC is ReadonlyRegister<yesno2>;
@@ -345,14 +306,6 @@ namespace Bai._0010024646_inc {
     @ext(0xd3, 0)
     model VolatileLockoutIFCGV is ReadonlyRegister<yesno2>;
 
-    /** VortexFlowSensor_DK: Predictive Maintenance data, CH water flow */
-    @ext(0xd5, 0)
-    model VortexFlowSensor is ReadonlyRegister<UIN>;
-
-    /** DisplayMode_DK: Display mode of the aplliance */
-    @ext(0xda, 0)
-    model DisplayMode is ReadonlyRegister<UCH>;
-
     /** SD_Gasvalve3_uC_DK: Gasvalve activation signal (from Microcontroller) */
     @ext(0xdb, 0)
     model Gasvalve3UC is ReadonlyRegister<onoff2>;
@@ -360,10 +313,6 @@ namespace Bai._0010024646_inc {
     /** InitialisationEEPROM: Initialisation off all EEPROM values (done in the production) */
     @ext(0xdc, 0)
     model InitialisationEEPROM is ReadonlyRegister<yesno>;
-
-    /** TimerInputCH_DK: timer input (block heatdemand) */
-    @ext(0xde, 0)
-    model TimerInputHc is ReadonlyRegister<onoff>;
 
     /** FanMinSpeedOperation */
     @inherit(r)
@@ -395,10 +344,6 @@ namespace Bai._0010024646_inc {
       bdate: bdate;
     }
 
-    /** FlowSetPotmeter: flow setpoint potentiometer */
-    @ext(0xf0, 0x3)
-    model FlowSetPotmeter is ReadonlyRegister<temp>;
-
     /** DHWSetPotmeter: DHW setpoint potentiometer */
     @ext(0xf1, 0x3)
     model HwcSetPotmeter is ReadonlyRegister<temp>;
@@ -407,23 +352,7 @@ namespace Bai._0010024646_inc {
     @ext(0xf3, 0x3)
     model HwcSwitch is ReadonlyRegister<onoff>;
 
-    /** ProductionByte */
-    @ext(0x3e, 0x4)
-    model ProductionByte is ReadonlyRegister<UCH>;
-
-    /** SerialNumber */
-    @inherit(r)
-    @ext(0x3f, 0x4)
-    model SerialNumber {
-      /** serial number of AI */
-      @maxLength(8)
-      value: HEX;
-    }
     // ##### dia level 2 #####
-
-    /** d.17 Return regulation: heating flow/return regulation activation */
-    @ext(0xc, 0x4)
-    model ReturnRegulation is InstallRegister<onoff>;
 
     /** d.18 CH pump mode */
     @inherit(r, wi)
@@ -437,10 +366,6 @@ namespace Bai._0010024646_inc {
     /** d.19 Mode of 2 speed pump: Operating mode of the two-stage heating pump0: burner mode = 2, pre/post-run = 1; 1: CH + post-run = 1, DHW = 2, 2: as 1 but rotation speed in CH is dependent of heating part load, (defaultsetting)3: always stage 2 */
     @ext(0xb, 0x4)
     model SecondPumpMode is InstallRegister<UCH>;
-
-    /** d.20 Max value tanksetpoint: Adjustment of maximum tank setpoint range (maximum endposition of potmeter) */
-    @ext(0x43, 0x4)
-    model HwcTempMax is InstallRegister<temp>;
 
     /** d.27 Option relais 1 */
     @inherit(r, wi)
@@ -458,24 +383,6 @@ namespace Bai._0010024646_inc {
       /** Accesory relay 2 function */
       @values(Values_AccessoriesTwo)
       value: UCH;
-    }
-
-    /** d.50 MinFanSpeedOffset */
-    @inherit(r, wi)
-    @ext(0x24, 0x4)
-    model FanSpeedOffsetMin {
-      /** Offset for minimum fan speed */
-      @unit("rpm")
-      value: SIN;
-    }
-
-    /** d.51 MaxFanSpeedOffset */
-    @inherit(r, wi)
-    @ext(0x25, 0x4)
-    model FanSpeedOffsetMax {
-      /** Offset for maximum fan speed */
-      @unit("rpm")
-      value: SIN;
     }
 
     /** d.58 solar function: special DHW functions0: solar function deactivated (default)1: solar function activated and DHW setpoint minimum 60°C2: solar function activated and DHW setpoint like combi standard (min 35°)3: DHW setpoint minimum 60°C (poti) */
@@ -521,10 +428,6 @@ namespace Bai._0010024646_inc {
     /** d.70 diverter valve position: Set diverter valve position 0=normal mode, 1=middle position (GB), 2=permanent CH position */
     @ext(0x2a, 0x4)
     model ValveMode is InstallRegister<UCH>;
-
-    /** d.71 Max value flow temp: Adjustment of maximum central heating setpoint range (maximum endposition of potmeter) */
-    @ext(0xe, 0x4)
-    model FlowsetHcMax is InstallRegister<temp>;
 
     /** d.72 postrun time storage */
     @inherit(r, wi)
@@ -627,10 +530,6 @@ namespace Bai._0010024646_inc {
     @ext(0x1e, 0)
     model OverflowCounter is ReadonlyRegister<yesno>;
 
-    /** MaxTempDiffExtTFT_DK: Predictive maintenance data */
-    @ext(0x27, 0)
-    model TempMaxDiffExtTFT is ReadonlyRegister<temp>;
-
     /** min_Ignitiontime_DK */
     @inherit(r)
     @ext(0x2b, 0)
@@ -652,18 +551,6 @@ namespace Bai._0010024646_inc {
     /** TFT_max_DK: maximum temperature measured by the flow sensor */
     @ext(0x37, 0)
     model FlowTempMax is ReadonlyRegister<temp>;
-
-    /** Fan_PWM_Sum_DK: Predictive Maintenance data for the fan damage recognition */
-    @ext(0x3a, 0)
-    model FanPWMSum is ReadonlyRegister<UIN>;
-
-    /** Fan_PWM_Test_DK: Predictive Maintenance data for the fan damage recognition */
-    @ext(0x3b, 0)
-    model FanPWMTest is ReadonlyRegister<UCH>;
-
-    /** MaxDeltaFlowReturn_DK: Predictive Maintenance data */
-    @ext(0x3d, 0)
-    model DeltaFlowReturnMax is ReadonlyRegister<temp>;
 
     /** TankLoadPumpOperationHours_DK: Preditive maintenance data */
     @ext(0x4c, 0)
@@ -689,14 +576,6 @@ namespace Bai._0010024646_inc {
     @ext(0xbe, 0)
     model ReturnTempMax is ReadonlyRegister<temp>;
 
-    /** PumpDHWFlowSum_DK: summed up DHW flow rate */
-    @ext(0xc1, 0)
-    model PumpHwcFlowSum is ReadonlyRegister<UIN>;
-
-    /** PumpDHWFlowNumber_DK: number of times DHW flow rate was detected */
-    @ext(0xc2, 0)
-    model PumpHwcFlowNumber is ReadonlyRegister<UCH>;
-
     /** SHE_MaxFlowTemp_DK: maximum flow temperature DHW */
     @ext(0xc3, 0)
     model SHEMaxFlowTemp is ReadonlyRegister<temp>;
@@ -716,73 +595,6 @@ namespace Bai._0010024646_inc {
     /** WaterpressureMeasureCounter_DK: Predictive Maintenance data */
     @ext(0xf1, 0)
     model WaterpressureMeasureCounter is ReadonlyRegister<UCH>;
-
-    /** PrAPSCounter_DK: Predictive Maintenance data */
-    @ext(0xf2, 0)
-    model PrAPSCounter is ReadonlyRegister<UCH>;
-
-    /** PrAPSSum_DK: Predictive Maintenance data */
-    @ext(0xf3, 0)
-    model PrAPSSum is ReadonlyRegister<seconds2>;
-
-    /** PrVortexFlowSensorValue_DK */
-    @inherit(r)
-    @ext(0xf4, 0)
-    model PrVortexFlowSensorValue {
-      /** Predictive Maintenance data */
-      value: SIN;
-    }
-
-    /** PrEnergySumDHW1_DK: Predictive Maintenance data */
-    @ext(0xc5, 0)
-    model PrEnergySumHwc1 is InstallRegister<ULG>;
-
-    /** PrEnergyCountDHW1_DK: Predictive Maintenance data */
-    @ext(0xc6, 0)
-    model PrEnergyCountHwc1 is InstallRegister<ULG>;
-
-    /** PrEnergySumDHW2_DK: Predictive Maintenance data */
-    @ext(0xc7, 0)
-    model PrEnergySumHwc2 is InstallRegister<ULG>;
-
-    /** PrEnergyCountDHW2_DK: Predictive Maintenance data */
-    @ext(0xc8, 0)
-    model PrEnergyCountHwc2 is InstallRegister<ULG>;
-
-    /** PrEnergySumDHW3_DK: Predictive Maintenance data */
-    @ext(0xc9, 0)
-    model PrEnergySumHwc3 is InstallRegister<ULG>;
-
-    /** PrEnergyCountDHW3_DK: Predictive Maintenance data */
-    @ext(0xca, 0)
-    model PrEnergyCountHwc3 is InstallRegister<ULG>;
-
-    /** PrEnergySumCH1_DK: Predictive Maintenance data */
-    @ext(0xf5, 0)
-    model PrEnergySumHc1 is InstallRegister<ULG>;
-
-    /** PrEnergyCountCH1_DK: Predictive Maintenance data */
-    @ext(0xf6, 0)
-    model PrEnergyCountHc1 is InstallRegister<ULG>;
-
-    /** PrEnergySumCH2_DK: Predictive Maintenance data */
-    @ext(0xf7, 0)
-    model PrEnergySumHc2 is InstallRegister<ULG>;
-
-    /** PrEnergyCountCH2_DK: Predictive Maintenance data */
-    @ext(0xf8, 0)
-    model PrEnergyCountHc2 is InstallRegister<EXP>;
-
-    /** PrEnergySumCH3_DK: Predictive Maintenance data */
-    @ext(0xf9, 0)
-    model PrEnergySumHc3 is InstallRegister<ULG>;
-
-    /** PrEnergyCountCH3_DK: Predictive Maintenance data */
-    @inherit(r_1)
-    @ext(0xfa, 0)
-    model PrEnergyCountHc3 {
-      value: energye;
-    };
 
     // Energy values models based on the algorithm
     // X (period): 0=All, 1=Day, 2=Month, 3=Year
@@ -946,15 +758,6 @@ namespace Bai._0010024646_inc {
     enum Values_HcPumpMode {
       eco: 0,
       permanent: 1,
-    }
-
-    enum Values_PumpPowerDesired {
-      auto: 0,
-      _53: 1,
-      _60: 2,
-      _70: 3,
-      _85: 4,
-      _100: 5,
     }
 
     @base(MF, 0x16, 0x10)
