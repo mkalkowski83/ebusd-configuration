@@ -35,12 +35,16 @@ namespace Bai._0010024646_inc {
     model FlowTempDesired is ReadonlyRegister<temp>;
 
     /** d.06 DHW setpoint: Hot water temperature target value */
-//     @ext(0xea, 0x3)
-//     model HwcTempDesired is ReadonlyRegister<temp>;
+    @ext(0xea, 0x3)
+    model HwcTempDesired is ReadonlyRegister<temp>;
 
     /** d.07 Storage setpoint: Warm start temperature value (combination boiler plus only), Storage temperature target value (system boiler only) */
     @ext(0x4, 0x3)
     model StorageTempDesired is Register<temp>;
+
+    /** ManualTankSetpoint: DHW setpoint in case of manual mode */
+    @ext(0x47, 0)
+    model ManualStorageTempDesired is Register<temp>;
 
     /** d.08 Room thermostat 230 V: External controls heat demand (Clamp 3-4) */
     @ext(0x2a, 0)
