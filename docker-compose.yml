@@ -1,0 +1,16 @@
+services:
+  npm:
+    image: node:latest
+    volumes:
+      - .:/app
+    working_dir: /app
+    command: >
+      sh -c "git config --global credential.helper store &&
+            git config --global user.name ${GITHUB_USER} &&
+            touch /root/.git-credentials &&
+            echo 'https://${GITHUB_TOKEN}:x-oauth-basic@github.com' >> /root/.git-credentials &&
+            npm install &&
+            tail -f /dev/null"
+    environment:
+      - NODE_ENV=development
+    tty: true
