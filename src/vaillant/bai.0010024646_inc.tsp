@@ -217,8 +217,8 @@ namespace Bai._0010024646_inc {
     model ExternalFaultmessage is ReadonlyRegister<onoff>;
 
     /** SD_Gasvalve_ASICFeedback_DK: feedback gasvalve (from ASIC) */
-    @ext(0x47, 0)
-    model GasvalveASICFeedback is ReadonlyRegister<onoff2>;
+//     @ext(0x47, 0)
+//     model GasvalveASICFeedback is ReadonlyRegister<onoff2>;
 
     /** SD_Ignitor_DK: igniton activated */
     @ext(0x49, 0)
