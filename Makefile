@@ -23,12 +23,20 @@ bash:
 # Compile TypeScript file and copy result to target directory
 compile:
 	@echo "Compiling TypeScript file..."
-	$(DOCKER_COMPOSE) exec $(NPM_CONTAINER) npm run compile
+	@if $(DOCKER_COMPOSE) ps --status running -q $(NPM_CONTAINER) 2>/dev/null | grep -q .; then \
+		$(DOCKER_COMPOSE) exec -T $(NPM_CONTAINER) npm run compile; \
+	else \
+		$(DOCKER_COMPOSE) run --rm --no-deps $(NPM_CONTAINER) npm run compile; \
+	fi
 
 
 compile-pl:
 	@echo "Compiling TypeScript file..."
-	$(DOCKER_COMPOSE) exec $(NPM_CONTAINER) npm run compile-pl
+	@if $(DOCKER_COMPOSE) ps --status running -q $(NPM_CONTAINER) 2>/dev/null | grep -q .; then \
+		$(DOCKER_COMPOSE) exec -T $(NPM_CONTAINER) npm run compile-pl; \
+	else \
+		$(DOCKER_COMPOSE) run --rm --no-deps $(NPM_CONTAINER) npm run compile-pl; \
+	fi
 
 # Run all steps
 all: up compile clean-output
