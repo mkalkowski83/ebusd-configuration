@@ -12,15 +12,15 @@ namespace Bai._0010024646_inc {
     // ,BAI00,Vaillant ecoTEC,0010024646
     /** d.00 heating partload: Heating part load */
     @ext(0x7, 0x4)
-    model PartloadHcKW is InstallRegister<power>;
+    model PartloadHcKW is ReadonlyRegister<power>;
 
     /** d.01 central heating overruntime: water pump overrun time for heating mode */
     @ext(0xf7, 0x3)
-    model WPPostrunTime is InstallRegister<minutes0>;
+    model WPPostrunTime is ReadonlyRegister<minutes0>;
 
     /** d.02 Max blocking time CH: max. burner anti cycling period at 20°C Flow temperature setpoint */
     @ext(0x9, 0x4)
-    model BlockTimeHcMax is InstallRegister<minutes0>;
+    model BlockTimeHcMax is ReadonlyRegister<minutes0>;
 
     /** d.03 Temp DHW: hot water flow temperature (combination boiler only) */
     @ext(0x16, 0)
@@ -39,12 +39,8 @@ namespace Bai._0010024646_inc {
     model HwcTempDesired is ReadonlyRegister<temp>;
 
     /** d.07 Storage setpoint: Warm start temperature value (combination boiler plus only), Storage temperature target value (system boiler only) */
-    @ext(0x4, 0x3)
-    model StorageTempDesired is Register<temp>;
-
-    /** ManualTankSetpoint: DHW setpoint in case of manual mode */
-    @ext(0x47, 0)
-    model ManualStorageTempDesired is Register<temp>;
+    @ext(0x4, 0)
+    model StorageTempDesired is ReadonlyRegister<temp>;
 
     /** d.08 Room thermostat 230 V: External controls heat demand (Clamp 3-4) */
     @ext(0x2a, 0)
@@ -217,8 +213,8 @@ namespace Bai._0010024646_inc {
     model ExternalFaultmessage is ReadonlyRegister<onoff>;
 
     /** SD_Gasvalve_ASICFeedback_DK: feedback gasvalve (from ASIC) */
-//     @ext(0x47, 0)
-//     model GasvalveASICFeedback is ReadonlyRegister<onoff2>;
+    @ext(0x47, 0)
+    model GasvalveASICFeedback is ReadonlyRegister<onoff2>;
 
     /** SD_Ignitor_DK: igniton activated */
     @ext(0x49, 0)
@@ -271,15 +267,6 @@ namespace Bai._0010024646_inc {
     /** DSN_DK: DSN: Device Specific number */
     @ext(0x9a, 0)
     model DSN is ReadonlyRegister<UIN>;
-
-    /** TargetFan_Speed_Output_DK */
-    @inherit(r)
-    @ext(0x9f, 0)
-    model TargetFanSpeedOutput {
-      /** output fan speed */
-      @unit("rpm")
-      value: UIN;
-    }
 
     /** WaterpressureBranchControlOff_DK: water pressure branch controll off */
     @ext(0xaf, 0)
@@ -340,14 +327,6 @@ namespace Bai._0010024646_inc {
     @ext(0xe4, 0)
     model ExternGasvalve is ReadonlyRegister<onoff>;
 
-    /** DCF_TimeDate_DK */
-    @inherit(r)
-    @ext(0xe5, 0)
-    model DCFTimeDate {
-      btime: btime;
-      bdate: bdate;
-    }
-
     /** DHWSetPotmeter: DHW setpoint potentiometer */
     @ext(0xf1, 0x3)
     model HwcSetPotmeter is ReadonlyRegister<temp>;
@@ -359,7 +338,7 @@ namespace Bai._0010024646_inc {
     // ##### dia level 2 #####
 
     /** d.18 CH pump mode */
-    @inherit(r, wi)
+    @inherit(r)
     @ext(0x49, 0x4)
     model HcPumpMode {
       /** Pump mode */
@@ -369,10 +348,10 @@ namespace Bai._0010024646_inc {
 
     /** d.19 Mode of 2 speed pump: Operating mode of the two-stage heating pump0: burner mode = 2, pre/post-run = 1; 1: CH + post-run = 1, DHW = 2, 2: as 1 but rotation speed in CH is dependent of heating part load, (defaultsetting)3: always stage 2 */
     @ext(0xb, 0x4)
-    model SecondPumpMode is InstallRegister<UCH>;
+    model SecondPumpMode is ReadonlyRegister<UCH>;
 
     /** d.27 Option relais 1 */
-    @inherit(r, wi)
+    @inherit(r)
     @ext(0x4b, 0x4)
     model AccessoriesOne {
       /** Accesory relay 1 function */
@@ -381,7 +360,7 @@ namespace Bai._0010024646_inc {
     }
 
     /** d.28 Option relais 2 */
-    @inherit(r, wi)
+    @inherit(r)
     @ext(0x4c, 0x4)
     model AccessoriesTwo {
       /** Accesory relay 2 function */
@@ -391,7 +370,7 @@ namespace Bai._0010024646_inc {
 
     /** d.58 solar function: special DHW functions0: solar function deactivated (default)1: solar function activated and DHW setpoint minimum 60°C2: solar function activated and DHW setpoint like combi standard (min 35°)3: DHW setpoint minimum 60°C (poti) */
     @ext(0x73, 0x4)
-    model SolPostHeat is InstallRegister<UCH>;
+    model SolPostHeat is ReadonlyRegister<UCH>;
 
     /** d.60 Number STL cut off: Number of safety temperature limiter cut offs */
     @ext(0x20, 0)
@@ -431,10 +410,10 @@ namespace Bai._0010024646_inc {
 
     /** d.70 diverter valve position: Set diverter valve position 0=normal mode, 1=middle position (GB), 2=permanent CH position */
     @ext(0x2a, 0x4)
-    model ValveMode is InstallRegister<UCH>;
+    model ValveMode is ReadonlyRegister<UCH>;
 
     /** d.72 postrun time storage */
-    @inherit(r, wi)
+    @inherit(r)
     @ext(0x11, 0x4)
     model HwcPostrunTime {
       /** Pump overrun time after charging a storage (charging through C1-C2, external/internal tank with tank sensor) */
@@ -445,19 +424,19 @@ namespace Bai._0010024646_inc {
 
     /** d.73 Warmstart offset: Offset for warm start target value (combination boilers only) */
     @ext(0x10, 0x4)
-    model WarmstartOffset is InstallRegister<temp>;
+    model WarmstartOffset is ReadonlyRegister<temp>;
 
     /** d.75 Max load time storage: Maximum charging time for a storage without own control */
     @ext(0x12, 0x4)
-    model StorageLoadTimeMax is InstallRegister<minutes0>;
+    model StorageLoadTimeMax is ReadonlyRegister<minutes0>;
 
     /** d.77 hot water partload: storage part load (storage charging capacity limit) */
     @ext(0x8, 0x4)
-    model PartloadHwcKW is InstallRegister<power>;
+    model PartloadHwcKW is ReadonlyRegister<power>;
 
     /** d.78 Max value flow temp storage: storage charging temperature limit (target flow temperature in storage mode) */
     @ext(0xf, 0x4)
-    model FlowsetHwcMax is InstallRegister<temp>;
+    model FlowsetHwcMax is ReadonlyRegister<temp>;
 
     /** d.80 operating hours CH: central heating operation hours */
     @ext(0x28, 0)
@@ -487,15 +466,15 @@ namespace Bai._0010024646_inc {
 
     /** d.84 Hours till next service: Maintenance indicator:Number of hours until the next maintenance */
     @ext(0x20, 0x4)
-    model HoursTillService is InstallRegister<hoursum2>;
+    model HoursTillService is ReadonlyRegister<hoursum2>;
 
     /** d.93 Device specific number: DSN aplliance variant setting */
     @ext(0x30, 0x4)
-    model DSNOffset is ServiceRegister<UCH>;
+    model DSNOffset is ReadonlyRegister<UCH>;
 
     /** d.96 Set factory settings */
     @ext(0x68, 0x4)
-    model SetFactoryValues is InstallRegister<yesno>;
+    model SetFactoryValues is ReadonlyRegister<yesno>;
     // ##### maintenance data #####
 
     /** TempGradientFailure_DK: Number of cut offs of the boilers cause of to high gradient (S.54) */
