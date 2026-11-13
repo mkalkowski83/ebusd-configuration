@@ -100,3 +100,27 @@ primary heating circuit the number is not appended, though.
 ## Contact
 
 The author can be contacted at ebusd@ebusd.eu .
+
+## Using the Make Command
+
+This repository provides a `Makefile` with several useful commands to help with development and compilation of the configuration files.
+
+### Available Make Commands
+
+- `make up` - Starts Docker containers
+- `make sh` - Opens a shell in the npm container
+- `make compile` - Compiles TypeScript files
+- `make clean-output` - Cleans up output files
+- `make all` - Runs all steps: docker-up, compile, and clean-output
+- `make down` - Stops and removes Docker containers
+
+### Compiling CSV Files
+
+The repository supports compiling TypeSpec files into CSV format in multiple languages. The following npm scripts are available for compilation:
+
+- `npm run compile-en` - Compiles CSV files in English
+- `npm run compile-de` - Compiles CSV files in German
+- `npm run compile-pl` - Compiles CSV files in Polish
+- `npm run compile` - Compiles CSV files in all supported languages (English, German, and Polish)
+
+The Polish translation output is generated in the `outcsv.pl/` directory. This allows using ebusd with Polish language interface by pointing to this directory using the `--configpath` option.
