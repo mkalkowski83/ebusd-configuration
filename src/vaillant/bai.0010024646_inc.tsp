@@ -402,11 +402,11 @@ namespace Bai._0010024646_inc {
 
     /** d.68 ignition attempts 1: unsuccessfull ignitions in the first attempt */
     @ext(0x6e, 0)
-    model CounterStartattempts1 is ReadonlyRegister<temp0>;
+    model CounterStartattempts1 is ReadonlyRegister<UCH>;
 
     /** d.69 ignition attempts 2: unsuccessfull ignitions in the second attempt */
     @ext(0x6f, 0)
-    model CounterStartattempts2 is ReadonlyRegister<temp0>;
+    model CounterStartattempts2 is ReadonlyRegister<UCH>;
 
     /** d.70 diverter valve position: Set diverter valve position 0=normal mode, 1=middle position (GB), 2=permanent CH position */
     @ext(0x2a, 0x4)
@@ -479,15 +479,15 @@ namespace Bai._0010024646_inc {
 
     /** TempGradientFailure_DK: Number of cut offs of the boilers cause of to high gradient (S.54) */
     @ext(0x11, 0)
-    model TempGradientFailure is ReadonlyRegister<temp0>;
+    model TempGradientFailure is ReadonlyRegister<UCH>;
 
     /** TempDiffBlock_DK: Number of modulationblocking of the boilers cause of to high/incorrect difference of flow/return temperatures */
     @ext(0x12, 0)
-    model TempDiffBlock is ReadonlyRegister<temp0>;
+    model TempDiffBlock is ReadonlyRegister<UCH>;
 
     /** TempDiffFailure_DK: Number of cut offs of the boilers cause of to high/incorrect differences of flow/return temperatures */
     @ext(0x13, 0)
-    model TempDiffFailure is ReadonlyRegister<temp0>;
+    model TempDiffFailure is ReadonlyRegister<UCH>;
 
     /** Pump operation hours */
     @ext(0x14, 0)
@@ -549,11 +549,11 @@ namespace Bai._0010024646_inc {
 
     /** CounterStartAttempts3_DK: unsuccessfull ignitions in the third attempt */
     @ext(0x81, 0)
-    model CounterStartAttempts3 is ReadonlyRegister<temp0>;
+    model CounterStartAttempts3 is ReadonlyRegister<UCH>;
 
     /** CounterStartAttempts4_DK: unsuccessfull ignitions in the fourth attempt */
     @ext(0x82, 0)
-    model CounterStartAttempts4 is ReadonlyRegister<temp0>;
+    model CounterStartAttempts4 is ReadonlyRegister<UCH>;
 
     /** TRT_max_DK: max. return temperature */
     @ext(0xbe, 0)
